@@ -26,6 +26,7 @@ A web app menu that includes pictures of menu items as well as details of the me
   - Individual Details View
     - Includes Gallery
     - Information on Ingredients
+    - Fat, Protein, Calories etc
     - Average wait times
     - Diet, Allergy, Religious restrictions compliance
 - Administrator View
