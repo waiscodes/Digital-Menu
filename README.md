@@ -14,5 +14,5 @@ A web app menu that includes pictures of menu items as well as details of the me
 
 ### Users
 
-    * Customer (Guest)
-    * Administrator (Account)
+⋅⋅* Customer (Guest)
+⋅⋅* Administrator (Account)
