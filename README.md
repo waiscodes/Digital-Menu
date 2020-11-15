@@ -1,4 +1,4 @@
-# Capstone Project
+# Capstone Project: The Restaurant at the End of the Universe
 
 by Birm Wais - Don't Panic
 
