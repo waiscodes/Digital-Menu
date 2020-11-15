@@ -18,7 +18,7 @@ A web app menu that includes pictures of menu items as well as details of the me
 - Administrator (Account)
   - Sign In
 
-### Core Features
+#### Core Features (In Scope)
 
 - Browse List of Menu Items (Customer)
   - Ability to filter by Diet, Allergy, Religious restrictions
@@ -28,3 +28,16 @@ A web app menu that includes pictures of menu items as well as details of the me
     - Information on Ingredients
     - Average wait times
     - Diet, Allergy, Religious restrictions compliance
+- Administrator View
+  - Create Menu Item
+    - Input fields for text and to upload images
+    - Update Menu Items
+    - Delete Existing Menu Items
+
+#### Out of Scope (for the current timeline)
+
+- Comment on individual menu items
+- Star Ratings on menu items
+  - Ability to sort by rating
+- Scheduled specials from the restaurant depending on the day
+- Profile of the Restaurant
