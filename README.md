@@ -16,3 +16,15 @@ A web app menu that includes pictures of menu items as well as details of the me
 
 - Customer (Guest)
 - Administrator (Account)
+  - Sign In
+
+### Core Features
+
+- Browse List of Menu Items (Customer)
+  - Ability to filter by Diet, Allergy, Religious restrictions
+  - Broken up into categories (Starter, Main Course, and Dessert)
+  - Individual Details View
+    - Includes Gallery
+    - Information on Ingredients
+    - Average wait times
+    - Diet, Allergy, Religious restrictions compliance
