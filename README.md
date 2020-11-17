@@ -35,7 +35,7 @@ A web app menu that includes pictures of menu items as well as details of the me
     - Update Menu Items
     - Delete Existing Menu Items
 
-#### Out of Scope (for the current timeline)
+#### Out of Scope (for the current project timeline)
 
 - Comment on individual menu items
 - Star Ratings on menu items
