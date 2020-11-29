@@ -40,6 +40,9 @@ namespace Capstone.Models
         [Column(TypeName = "int(10)")]
         public int Calories { get; set; }
 
+        [Column(TypeName = "boolean")]
+        public bool Halal { get; set; }
+
         [Column(TypeName = "varchar(110)")]
         public string ImageName { get; set; }
 
