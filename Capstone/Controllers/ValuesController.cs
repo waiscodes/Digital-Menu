@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Capstone.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Capstone.Controllers
@@ -31,7 +32,7 @@ namespace Capstone.Controllers
             return new RestaurantController().Login(email, password);
         }
 
-        // // // // // // // //  USERS // // // // // // // // 
+        // // // // // // // //  CATEGORIES // // // // // // // // 
 
         [HttpPost("CreateCat")]
         public ActionResult<string> CreateCat_POST(string catName, string username)
@@ -39,5 +40,12 @@ namespace Capstone.Controllers
             new CategoryController().CreateCategory(catName, username);
             return "Successfully created new category";
         }
+
+        [HttpGet("ListCat")]
+        public ActionResult<List<Category>> ListCat_GET(string username)
+        {
+            return new CategoryController().ListCategories(username);
+        }
+
     }
 }
