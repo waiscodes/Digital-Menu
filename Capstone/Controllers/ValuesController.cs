@@ -25,5 +25,10 @@ namespace Capstone.Controllers
             }
         }
 
+        [HttpGet("Login")]
+        public ActionResult<string> Login_GET(string email, string password)
+        {
+            return new RestaurantController().Login(email, password);
+        }
     }
 }

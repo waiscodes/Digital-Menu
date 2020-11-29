@@ -34,5 +34,31 @@ namespace Capstone.Controllers
 
             return "Successfully added restaurant";
         }
+
+        // READ
+        public string Login(string email, string password)
+        {
+            string message;
+            using (RestaurantContext context = new RestaurantContext())
+            {
+                if (!context.Restaurants.Any(x => x.Email == email))
+                {
+                    throw new Exception("There is no account under this email");
+                }
+                else 
+                {
+                    Restaurant account = context.Restaurants.Where(r => r.Email == email).SingleOrDefault();
+                    if (account.Password == password)
+                    {
+                        message = "Success";
+                    }
+                    else
+                    {
+                        throw new Exception("Password is incorrect");
+                    }
+                }
+            }
+            return message;
+        }
     }
 }
