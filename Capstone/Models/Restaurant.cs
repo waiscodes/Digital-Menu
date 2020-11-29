@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,6 +10,7 @@ namespace Capstone.Models
     {
         public Restaurant()
         {
+            Categories = new HashSet<Category>();
         }
 
         [Key]
@@ -27,5 +29,8 @@ namespace Capstone.Models
 
         [Column(TypeName = "varchar(75)")]
         public string ResLocation { get; set; }
+
+        [InverseProperty(nameof(Category.RestaurantID))]
+        public virtual ICollection<Category> Categories { get; set; }
     }
 }
