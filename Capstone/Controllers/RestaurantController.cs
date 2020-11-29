@@ -2,18 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Capstone.Models;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Capstone.Controllers
 {
     public class RestaurantController : Controller
     {
-        // GET: /<controller>/
-        public IActionResult Index()
+
+        // CREATE
+        public string Register(string resName, string resUsername, string email, string password, string resLocation)
         {
-            return View();
+            using (RestaurantContext context = new RestaurantContext())
+            {
+                if (context.Restaurants.Any(x => x.ResUsername == resUsername))
+                {
+                    throw new Exception("Restaurant username is taken");
+                }
+
+                Restaurant newRestaurant = new Restaurant()
+                {
+                    ResName = resName,
+                    ResUsername = resUsername,
+                    Email = email,
+                    Password = password,
+                    ResLocation = resLocation
+                };
+                context.Restaurants.Add(newRestaurant);
+                context.SaveChanges();
+            }
+
+            return "Successfully added restaurant";
         }
     }
 }
