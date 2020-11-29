@@ -31,7 +31,7 @@ namespace Capstone.Models
         [Column(TypeName = "varchar(75)")]
         public string ResLocation { get; set; }
 
-        [InverseProperty(nameof(Category.RestaurantID))]
+        [InverseProperty(nameof(Category.Restaurant))]
         public virtual ICollection<Category> Categories { get; set; }
 
         [InverseProperty(nameof(Category.Restaurant))]
