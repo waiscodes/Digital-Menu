@@ -16,6 +16,9 @@ namespace Capstone.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
+        [Column(TypeName = "int(10)")]
+        public int CategoryID { get; set; }
+
         [Column(TypeName = "varchar(100)")]
         public string Name { get; set; }
 
@@ -36,5 +39,9 @@ namespace Capstone.Models
 
         [Column(TypeName = "varchar(110)")]
         public string ImageName { get; set; }
+
+        [ForeignKey(nameof(CategoryID))]
+        [InverseProperty(nameof(Models.Category.MenuItems))]
+        public virtual Category Category { get; set; }
     }
 }
