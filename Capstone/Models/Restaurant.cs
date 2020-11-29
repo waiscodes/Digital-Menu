@@ -25,6 +25,9 @@ namespace Capstone.Models
         [Column(TypeName = "varchar(30)")]
         public string ResUsername { get; set; }
 
+        [Column(TypeName = "varchar(64)")]
+        public string Email { get; set; }
+
         [Column(TypeName = "varchar(50)")]
         public string Password { get; set; }
 

@@ -38,6 +38,10 @@ namespace Capstone.Models
                       .HasCharSet("utf8mb4")
                       .HasCollation("utf8mb4_general_ci");
 
+                entity.Property(e => e.Email)
+                      .HasCharSet("utf8mb4")
+                      .HasCollation("utf8mb4_general_ci");
+
                 entity.Property(e => e.Password)
                       .HasCharSet("utf8mb4")
                       .HasCollation("utf8mb4_general_ci");
