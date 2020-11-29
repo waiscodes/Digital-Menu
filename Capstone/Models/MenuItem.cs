@@ -17,6 +17,9 @@ namespace Capstone.Models
         public int ID { get; set; }
 
         [Column(TypeName = "int(10)")]
+        public int RestaurantID { get; set; }
+
+        [Column(TypeName = "int(10)")]
         public int CategoryID { get; set; }
 
         [Column(TypeName = "varchar(100)")]
@@ -43,5 +46,9 @@ namespace Capstone.Models
         [ForeignKey(nameof(CategoryID))]
         [InverseProperty(nameof(Models.Category.MenuItems))]
         public virtual Category Category { get; set; }
+
+        [ForeignKey(nameof(RestaurantID))]
+        [InverseProperty(nameof(Models.Restaurant.MenuItems))]
+        public virtual Restaurant Restaurant { get; set; }
     }
 }

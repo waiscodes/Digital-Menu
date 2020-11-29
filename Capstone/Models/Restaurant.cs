@@ -11,6 +11,7 @@ namespace Capstone.Models
         public Restaurant()
         {
             Categories = new HashSet<Category>();
+            MenuItems = new HashSet<MenuItem>();
         }
 
         [Key]
@@ -32,5 +33,8 @@ namespace Capstone.Models
 
         [InverseProperty(nameof(Category.RestaurantID))]
         public virtual ICollection<Category> Categories { get; set; }
+
+        [InverseProperty(nameof(Category.Restaurant))]
+        public virtual ICollection<MenuItem> MenuItems { get; set; }
     }
 }
