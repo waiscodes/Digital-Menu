@@ -2,18 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Capstone.Models;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Capstone.Controllers
 {
     public class CategoryController : Controller
     {
-        // GET: /<controller>/
-        public IActionResult Index()
+        // CREATE
+        public void CreateCategory(string catName, string username)
         {
-            return View();
+            Restaurant theUser = RestaurantController.GetResByUsername(username);
+            using (RestaurantContext context = new RestaurantContext())
+            {
+                Category newCategory = new Category()
+                {
+                    Name = catName,
+                    RestaurantID = theUser.ID
+                };
+                context.Add(newCategory);
+                context.SaveChanges();
+            }
         }
     }
 }

@@ -60,5 +60,15 @@ namespace Capstone.Controllers
             }
             return message;
         }
+
+        public static Restaurant GetResByUsername(string username)
+        {
+            Restaurant restaurant;
+            using (RestaurantContext context = new RestaurantContext())
+            {
+                restaurant = context.Restaurants.Where(r => r.ResUsername == username).SingleOrDefault();
+            }
+            return restaurant;
+        }
     }
 }

@@ -30,5 +30,14 @@ namespace Capstone.Controllers
         {
             return new RestaurantController().Login(email, password);
         }
+
+        // // // // // // // //  USERS // // // // // // // // 
+
+        [HttpPost("CreateCat")]
+        public ActionResult<string> CreateCat_POST(string catName, string username)
+        {
+            new CategoryController().CreateCategory(catName, username);
+            return "Successfully created new category";
+        }
     }
 }
