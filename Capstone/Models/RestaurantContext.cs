@@ -49,6 +49,18 @@ namespace Capstone.Models
                 entity.Property(e => e.ResLocation)
                       .HasCharSet("utf8mb4")
                       .HasCollation("utf8mb4_general_ci");
+
+                entity.HasData(
+                    new Restaurant()
+                    {
+                        ID = -1,
+                        ResName = "Milliways",
+                        ResUsername = "Milliways",
+                        Email = "MostlyHarmless@gmail.com",
+                        Password = "TrilogyOf5",
+                        ResLocation = "At the End of the Universe"
+                    }
+                );
             });
 
 
@@ -65,6 +77,33 @@ namespace Capstone.Models
                       .HasForeignKey(thisEntity => thisEntity.RestaurantID)
                       .OnDelete(DeleteBehavior.Cascade)
                       .HasConstraintName(CatResFK);
+
+                entity.HasData(
+                    new Category()
+                    {
+                        ID = -1,
+                        RestaurantID = -1,
+                        Name = "Starters"
+                    }
+                );
+
+                entity.HasData(
+                    new Category()
+                    {
+                        ID = -2,
+                        RestaurantID = -1,
+                        Name = "Main Course"
+                    }
+                );
+
+                entity.HasData(
+                    new Category()
+                    {
+                        ID = -3,
+                        RestaurantID = -1,
+                        Name = "Dessert"
+                    }
+                );
             });
 
             string MenuCatFK = "FK_" + nameof(MenuItem) +
@@ -101,6 +140,108 @@ namespace Capstone.Models
                       .HasForeignKey(thisEntity => thisEntity.RestaurantID)
                       .OnDelete(DeleteBehavior.Cascade)
                       .HasConstraintName(MenuResFK);
+
+                entity.HasData(
+                    new MenuItem()
+                    {
+                        ID = -1,
+                        RestaurantID = -1,
+                        CategoryID = -1,
+                        Name = "Moon Cheese Dip",
+                        Description = "You don't have to go all the way to the moon for good cheese. Check out our out of this world dip.",
+                        Price = 7.87,
+                        WaitTimeMins = 4,
+                        Ingredients = "Cheese from out of this world",
+                        Calories = 450,
+                        Halal = true,
+                        ImageName = "Moon-Cheese-Dip.png"
+                    }
+                );
+
+                entity.HasData(
+                    new MenuItem()
+                    {
+                        ID = -2,
+                        RestaurantID = -1,
+                        CategoryID = -1,
+                        Name = "Popplers",
+                        Description = "Fresh from Fighy Joe's... Well, as fresh as Fishy Joe's gets. Cajuan Popcorn Shrimp",
+                        Price = 10.99,
+                        WaitTimeMins = 8,
+                        Ingredients = "Cajuan Popcorn Shrimp",
+                        Calories = 600,
+                        Halal = true,
+                        ImageName = "Popplers.png"
+                    }
+                );
+
+                entity.HasData(
+                    new MenuItem()
+                    {
+                        ID = -3,
+                        RestaurantID = -1,
+                        CategoryID = -2,
+                        Name = "Bantha Burgers",
+                        Description = "Favoured finger food of Tatooine. Beef Sliders with Caramalized Onions",
+                        Price = 13.85,
+                        WaitTimeMins = 15,
+                        Ingredients = "Beef Sliders with Caramalized Onions",
+                        Calories = 1200,
+                        Halal = true,
+                        ImageName = "Bantha-Burgers.png"
+                    }
+                );
+
+                entity.HasData(
+                    new MenuItem()
+                    {
+                        ID = -4,
+                        RestaurantID = -1,
+                        CategoryID = -2,
+                        Name = "Pizza the Hutt",
+                        Description = "Mini pizzas as cheese covered as its Spaceballs namesake",
+                        Price = 9.85,
+                        WaitTimeMins = 15,
+                        Ingredients = "Cheese Pizza",
+                        Calories = 450,
+                        Halal = true,
+                        ImageName = "Pizza-the-Hutt.png"
+                    }
+                );
+
+                entity.HasData(
+                    new MenuItem()
+                    {
+                        ID = -5,
+                        RestaurantID = -1,
+                        CategoryID = -2,
+                        Name = "Ameglian Steak",
+                        Description = "Steak from an Ameglian Major Cow, a cow that wants to be eaten",
+                        Price = 55.88,
+                        WaitTimeMins = 30,
+                        Ingredients = "Ameglian Major Cow Shoulder",
+                        Calories = 1200,
+                        Halal = false,
+                        ImageName = "Ameglian-Steak.png"
+                    }
+                );
+
+                entity.HasData(
+                    new MenuItem()
+                    {
+                        ID = -6,
+                        RestaurantID = -1,
+                        CategoryID = -3,
+                        Name = "Klingon Blood Pies",
+                        Description = "Cherry Filled homemade pop tart warm as an enemy's blood.",
+                        Price = 15.88,
+                        WaitTimeMins = 10,
+                        Ingredients = "Kingon Cherries",
+                        Calories = 1200,
+                        Halal = false,
+                        ImageName = "Klingon-Blood-Pies.png"
+                    }
+                );
             });
         }
     }
