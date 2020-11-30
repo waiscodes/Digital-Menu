@@ -11,6 +11,12 @@ namespace Capstone.Controllers
 {
     public class ImageController : Controller
     {
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public ImageController(IWebHostEnvironment hostEnvironment)
+        {
+            _webHostEnvironment = hostEnvironment;
+        }
 
         // CREATE
         public static async Task<string> UploadImage(string name, IFormFile file)
@@ -28,16 +34,6 @@ namespace Capstone.Controllers
             return newFileName;
         }
 
-        private readonly IWebHostEnvironment _webHostEnvironment;
-
-        public ImageController()
-        {
-        }
-
-        public ImageController(IWebHostEnvironment hostEnvironment)
-        {
-            _webHostEnvironment = hostEnvironment;
-        }
         // DELETE
         public void DeleteImageByName(string fileName)
         {

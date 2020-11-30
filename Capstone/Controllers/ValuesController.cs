@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Capstone.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +13,13 @@ namespace Capstone.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public ValuesController(IWebHostEnvironment hostEnvironment)
+        {
+            _webHostEnvironment = hostEnvironment;
+        }
+
         // // // // // // // //  USERS // // // // // // // // 
 
         [HttpPost("Register")]
@@ -84,7 +92,8 @@ namespace Capstone.Controllers
         [HttpDelete("DeleteImage")]
         public ActionResult<string> DeleteImage_DELETE(string fileName)
         {
-            new ImageController().DeleteImageByName(fileName);
+            new ImageController(_webHostEnvironment)
+                .DeleteImageByName(fileName);
             return "image deleted";
         }
     }
