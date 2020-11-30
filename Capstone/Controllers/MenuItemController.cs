@@ -49,15 +49,16 @@ namespace Capstone.Controllers
             return menuList;
         }
 
-        public MenuItem GetMenuItemByID(string username, string id)
+        public MenuItem GetMenuItemByID(string id)
         {
-            Restaurant restaurant = RestaurantController.GetResByUsername(username);
             using (RestaurantContext context = new RestaurantContext())
             {
                 return context.MenuItems
-                    .Where(m => m.RestaurantID == restaurant.ID && m.ID == int.Parse(id))
+                    .Where(m => m.ID == int.Parse(id))
                     .SingleOrDefault();
             }
         }
+
+        // UPDATE
     }
 }
