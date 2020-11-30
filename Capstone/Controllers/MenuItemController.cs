@@ -60,5 +60,44 @@ namespace Capstone.Controllers
         }
 
         // UPDATE
+        public MenuItem UpdateMenuItem(string id, string property, string newValue)
+        {
+            using (RestaurantContext context = new RestaurantContext())
+            {
+                MenuItem menuItem = context.MenuItems
+                    .Where(m => m.ID == int.Parse(id))
+                    .SingleOrDefault();
+
+                switch (property)
+                {
+                    case "name":
+                        menuItem.Name = newValue;
+                        break;
+                    case "description":
+                        menuItem.Description = newValue;
+                        break;
+                    case "price":
+                        menuItem.Price = double.Parse(newValue);
+                        break;
+                    case "waitTimeMins":
+                        menuItem.WaitTimeMins = int.Parse(newValue);
+                        break;
+                    case "ingredients":
+                        menuItem.Ingredients = newValue;
+                        break;
+                    case "calories":
+                        menuItem.Calories = int.Parse(newValue);
+                        break;
+                    case "halal":
+                        menuItem.Halal = bool.Parse(newValue);
+                        break;
+                    case "category":
+                        menuItem.CategoryID = int.Parse(newValue);
+                        break;
+                }
+                context.SaveChanges();
+                return menuItem;
+            }
+        }
     }
 }

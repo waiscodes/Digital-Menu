@@ -67,5 +67,11 @@ namespace Capstone.Controllers
         {
             return new MenuItemController().GetMenuItemByID(id);
         }
+
+        [HttpPatch("UpdateMenu")]
+        public ActionResult<MenuItem> UpdateMenu_PATCH(string id, string property, string newValue)
+        {
+            return new MenuItemController().UpdateMenuItem(id, property, newValue);
+        }
     }
 }
