@@ -61,5 +61,11 @@ namespace Capstone.Controllers
         {
             return new MenuItemController().ListMenuItems(username);
         }
+
+        [HttpGet("GetMenuItem")]
+        public ActionResult<MenuItem> GetMenuItem_GET(string username, string id)
+        {
+            return new MenuItemController().GetMenuItemByID(username, id);
+        }
     }
 }
