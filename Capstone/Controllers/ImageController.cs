@@ -11,7 +11,7 @@ namespace Capstone.Controllers
     public class ImageController : Controller
     {
         // CREATE
-        public async Task<string> UploadImage(string name, IFormFile file)
+        public static async Task<string> UploadImage(string name, IFormFile file)
         {
             var fileExtension = Path.GetExtension(file.FileName);
             var newFileName = string.Concat(name, fileExtension);

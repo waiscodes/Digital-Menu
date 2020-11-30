@@ -50,10 +50,10 @@ namespace Capstone.Controllers
 
         // // // // // // // //  MENU ITEMS // // // // // // // //
 
-        [HttpPost("UploadImage")]
-        public ActionResult<Task<string>> UploadImage_POST(string name, IFormFile file)
+        [HttpPost("CreateMenu")]
+        public ActionResult<Task<string>> CreateMenu_POST(string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resID, IFormFile file)
         {
-            return new ImageController().UploadImage(name, file);
+            return new MenuItemController().CreateMenuItem(name, description, price, waitTimeMins, ingredients, calories, halal, catID, resID, file);
         }
     }
 }
