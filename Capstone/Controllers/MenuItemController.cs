@@ -36,5 +36,17 @@ namespace Capstone.Controllers
                 return "Sucess";
             }
         }
+
+        // READ
+        public List<MenuItem> ListMenuItems(string username)
+        {
+            List<MenuItem> menuList;
+            Restaurant restaurant = RestaurantController.GetResByUsername(username);
+            using (RestaurantContext context = new RestaurantContext())
+            {
+                menuList = context.MenuItems.Where(m => m.RestaurantID == restaurant.ID).ToList();
+            }
+            return menuList;
+        }
     }
 }
