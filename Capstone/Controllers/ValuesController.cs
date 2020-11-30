@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Capstone.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Capstone.Controllers
@@ -47,5 +48,12 @@ namespace Capstone.Controllers
             return new CategoryController().ListCategories(username);
         }
 
+        // // // // // // // //  MENU ITEMS // // // // // // // //
+
+        [HttpPost("UploadImage")]
+        public ActionResult<Task<string>> UploadImage_POST(string name, IFormFile file)
+        {
+            return new ImageController().UploadImage(name, file);
+        }
     }
 }

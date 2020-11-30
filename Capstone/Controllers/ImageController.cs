@@ -1,19 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Capstone.Controllers
 {
     public class ImageController : Controller
     {
-        // GET: /<controller>/
-        public IActionResult Index()
+        // CREATE
+        public async Task<string> UploadImage(string name, IFormFile file)
         {
-            return View();
+            var fileExtension = Path.GetExtension(file.FileName);
+            var newFileName = string.Concat(name, fileExtension);
+
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Images", newFileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            return newFileName;
         }
     }
 }
