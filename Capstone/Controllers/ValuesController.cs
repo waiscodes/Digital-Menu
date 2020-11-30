@@ -73,5 +73,12 @@ namespace Capstone.Controllers
         {
             return new MenuItemController().UpdateMenuItem(id, property, newValue);
         }
+
+        [HttpDelete("DeleteMenu")]
+        public ActionResult<string> DeleteMenu_DELETE(string id)
+        {
+            new MenuItemController().DeleteMenuItem(id);
+            return "successfully deleted";
+        }
     }
 }

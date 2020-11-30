@@ -99,5 +99,16 @@ namespace Capstone.Controllers
                 return menuItem;
             }
         }
+
+        // DELETE
+        public void DeleteMenuItem(string id)
+        {
+
+            using (RestaurantContext context = new RestaurantContext())
+            {
+                context.MenuItems.Remove(GetMenuItemByID(id));
+                context.SaveChanges();
+            }
+        }
     }
 }
