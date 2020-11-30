@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,7 @@ namespace Capstone.Controllers
 {
     public class ImageController : Controller
     {
+
         // CREATE
         public static async Task<string> UploadImage(string name, IFormFile file)
         {
@@ -24,6 +26,26 @@ namespace Capstone.Controllers
             }
 
             return newFileName;
+        }
+
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public ImageController()
+        {
+        }
+
+        public ImageController(IWebHostEnvironment hostEnvironment)
+        {
+            _webHostEnvironment = hostEnvironment;
+        }
+        // DELETE
+        public void DeleteImageByName(string fileName)
+        {
+            string path = Path.Combine(_webHostEnvironment.ContentRootPath, "Images", fileName);
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
         }
     }
 }

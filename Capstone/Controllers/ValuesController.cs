@@ -80,5 +80,12 @@ namespace Capstone.Controllers
             new MenuItemController().DeleteMenuItem(id);
             return "successfully deleted";
         }
+
+        [HttpDelete("DeleteImage")]
+        public ActionResult<string> DeleteImage_DELETE(string fileName)
+        {
+            new ImageController().DeleteImageByName(fileName);
+            return "image deleted";
+        }
     }
 }
