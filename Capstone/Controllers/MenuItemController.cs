@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Capstone.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -101,12 +102,15 @@ namespace Capstone.Controllers
         }
 
         // DELETE
-        public void DeleteMenuItem(string id)
+        public void DeleteMenuItem(string id, IWebHostEnvironment hostEnvironment)
         {
+            MenuItem menuItem = GetMenuItemByID(id);
+            new ImageController(hostEnvironment)
+                .DeleteImageByName(menuItem.ImageName);
 
             using (RestaurantContext context = new RestaurantContext())
             {
-                context.MenuItems.Remove(GetMenuItemByID(id));
+                context.MenuItems.Remove(menuItem);
                 context.SaveChanges();
             }
         }
