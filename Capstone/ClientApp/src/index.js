@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import {BrowserRouter as Router} from 'react-router-dom';
 import Details from './Components/Details';
-import MenuCard from './Components/MenuCard';
+import Register from './Components/Register';
 
 ReactDOM.render(
   <React.StrictMode>
     <>
-    <MenuCard />
+    <Register />
     </>
   </React.StrictMode>,
   document.getElementById('root')
