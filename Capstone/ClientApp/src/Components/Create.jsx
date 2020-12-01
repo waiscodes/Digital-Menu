@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const Create = () => {
   const [response, setResponse] = useState([]);
@@ -12,11 +13,75 @@ const Create = () => {
   const [calories, setCalories] = useState("");
   const [halal, setHalal] = useState("");
   const [img, setImg] = useState();
+  const [waiting, setWaiting] = useState("");
 
-  const handleFieldChange = (e) => {};
+  const handleFieldChange = (e) => {
+    switch (e.target.id) {
+      case "category":
+        setCategory(e.target.value);
+        break;
+      case "user":
+        setUser(e.target.value);
+        break;
+      case "name":
+        setName(e.target.value);
+        break;
+      case "price":
+        setPrice(e.target.value);
+        break;
+      case "description":
+        setDescription(e.target.value);
+        break;
+      case "wait-time":
+        setWaitTime(e.target.value);
+        break;
+      case "ingredients":
+        setIngredients(e.target.value);
+        break;
+      case "calories":
+        setCalories(e.target.value);
+        break;
+      case "halal":
+        setHalal(true);
+        break;
+      case "img":
+        setImg(e.target.files[0]);
+        break;
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setWaiting(true);
+
+    const formData = new FormData();
+    formData.append("file", img);
+
+    axios({
+      method: "post",
+      url: "Values/CreateMenu",
+      headers: { "Content-Type": "multipart/form-data" },
+      data: formData,
+      params: {
+        name: name,
+        description: description,
+        price: price,
+        waitTimeMins: waitTime,
+        ingredients: ingredients,
+        calories: calories,
+        halal: halal,
+        catID: category,
+        resID: user,
+      },
+    })
+      .then((res) => {
+        setWaiting(false);
+        setResponse(res.data);
+      })
+      .catch((err) => {
+        setWaiting(false);
+        setResponse(err.response.data);
+      });
   };
 
   return (
@@ -53,21 +118,21 @@ const Create = () => {
           />
         </div>
         <div className='form-group'>
-          <label htmlFor='description'>Description</label>
-          <input
-            type='text'
-            name='description'
-            id='description'
-            onChange={handleFieldChange}
-            required
-          />
-        </div>
-        <div className='form-group'>
           <label htmlFor='price'>Price</label>
           <input
             type='number'
             name='price'
             id='price'
+            onChange={handleFieldChange}
+            required
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor='description'>Description</label>
+          <input
+            type='text'
+            name='description'
+            id='description'
             onChange={handleFieldChange}
             required
           />
