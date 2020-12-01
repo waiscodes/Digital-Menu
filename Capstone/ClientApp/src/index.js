@@ -2,12 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import Details from "./Components/Details";
-import Login from "./Components/Login";
+import Create from "./Components/Create";
 
 ReactDOM.render(
   <React.StrictMode>
     <>
-      <Login />
+      <Create />
     </>
   </React.StrictMode>,
   document.getElementById("root")
