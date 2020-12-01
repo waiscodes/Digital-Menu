@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const Details = () => {
-  // const { ID } = useParams();
+const Details = (props) => {
   const [menuItem, setMenuItem] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -22,7 +20,7 @@ const Details = () => {
       method: 'get',
       url: 'Values/GetMenuItem',
       params: {
-        id : -1
+        id : props.id
       }
     });
     setMenuItem(response.data);
