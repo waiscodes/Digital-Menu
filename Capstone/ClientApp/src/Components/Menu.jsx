@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const MenuCard = () => {
+const Menu = () => {
   // const {username} => useParams();
   const [menuItems, setMenuItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,4 +38,4 @@ const MenuCard = () => {
   return <>{content}</>;
 };
 
-export default MenuCard;
+export default Menu;

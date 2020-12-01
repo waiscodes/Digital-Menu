@@ -8,19 +8,13 @@ const Header = () => {
         <nav>
           <ul>
             <li>
-              <Link>Home</Link>
+              <Link to='/'>Home</Link>
             </li>
             <li>
-              <Link>Create</Link>
+              <Link to='/Create'>Create</Link>
             </li>
             <li>
-              <Link>Logout</Link>
-            </li>
-            <li>
-              <Link>Home</Link>
-            </li>
-            <li>
-              <Link>Home</Link>
+              <Link to='/Login'>Logout</Link>
             </li>
           </ul>
         </nav>
@@ -28,3 +22,4 @@ const Header = () => {
     </>
   );
 };
+export default Header;
