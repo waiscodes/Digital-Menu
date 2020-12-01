@@ -18,7 +18,7 @@ ReactDOM.render(
         <Header />
         <Route path='/Register' component={Register} />
         <Route path='/Login' component={Login} />
-        <Route path='/' component={Menu} />
+        <Route path='/' component={Menu} exact />
         <Route path='/Details' component={Details} />
         <Route path='/Create' component={Create} />
         <Footer />
