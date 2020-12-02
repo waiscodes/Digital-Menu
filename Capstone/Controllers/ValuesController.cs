@@ -79,7 +79,7 @@ namespace Capstone.Controllers
         [HttpGet("ImagePath")]
         public ActionResult<string> GetImagePath_GET()
         {
-            return string.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, "/birm.png");
+            return string.Format("{0}://{1}{2}/Images/", Request.Scheme, Request.Host, Request.PathBase);
         }
 
         [HttpPatch("UpdateMenu")]

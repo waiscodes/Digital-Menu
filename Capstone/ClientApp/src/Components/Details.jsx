@@ -3,6 +3,7 @@ import axios from "axios";
 
 const Details = (props) => {
   const [menuItem, setMenuItem] = useState();
+  const [path, setPath] = useState();
   const [loading, setLoading] = useState(true);
 
   const renderDetails = (menuItem) => {
@@ -13,23 +14,42 @@ const Details = (props) => {
     );
   };
 
+  const renderPath = (path) => {
+    return (
+      <>
+        <pre>{<img src={path} alt='' />}</pre>
+      </>
+    );
+  };
+
   const populateDetails = async () => {
-    const response = await axios({
+    await axios({
+      method: "get",
+      url: "Values/ImagePath",
+      params: {
+        id: -1,
+      },
+    }).then((response) => {
+      setPath(response.data);
+    });
+
+    await axios({
       method: "get",
       url: "Values/GetMenuItem",
       params: {
-        id: props.id,
+        id: -1,
       },
+    }).then((response) => {
+      setMenuItem(response.data);
+      setLoading(false);
     });
-    setMenuItem(response.data);
-    setLoading(false);
   };
 
   useEffect(() => {
     populateDetails();
   }, [loading]);
 
-  let content = loading ? <p>Loading...</p> : renderDetails(menuItem);
+  let content = loading ? <p>Loading...</p> : renderPath(path + "birm.png");
 
   return <>{content}</>;
 };
