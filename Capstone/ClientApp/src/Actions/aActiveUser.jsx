@@ -1,8 +1,8 @@
-const activeUser = (username) => {
+const aActiveUser = (username) => {
   return {
     type: "ACTIVE_USER",
-    payload: username,
+    username,
   };
 };
 
-export default activeUser;
+export default aActiveUser;
