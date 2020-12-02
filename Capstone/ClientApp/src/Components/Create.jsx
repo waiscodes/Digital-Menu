@@ -3,6 +3,7 @@ import axios from "axios";
 
 const Create = () => {
   const [response, setResponse] = useState([]);
+  const [catResponse, setCatResponse] = useState([]);
   const [category, setCategory] = useState("");
   const [user, setUser] = useState("");
   const [name, setName] = useState("");
@@ -48,6 +49,18 @@ const Create = () => {
         setImg(e.target.files[0]);
         break;
     }
+  };
+
+  const populateCatDropdown = async (category) => {
+    await axios({
+      method: "get",
+      url: "Values/ListCat",
+      params: {
+        username: "Milliways",
+      },
+    }).then((response) => {
+      setCatResponse(response.data);
+    });
   };
 
   const handleSubmit = (e) => {
