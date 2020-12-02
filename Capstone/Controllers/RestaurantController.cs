@@ -36,7 +36,7 @@ namespace Capstone.Controllers
             new CategoryController().CreateCategory("Dessert", resUsername);
             new CategoryController().CreateCategory("Drinks", resUsername);
 
-            return "Successfully added restaurant";
+            return resUsername;
         }
 
         // READ
