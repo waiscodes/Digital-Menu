@@ -25,15 +25,17 @@ const myStore = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <>
-      <Router>
-        <Header />
-        <Route path='/Register' component={Register} />
-        <Route path='/' component={Login} exact />
-        <Route path='/m/:username' component={Menu} exact />
-        <Route path='/Details/:id' component={Details} />
-        <Route path='/Create' component={Create} />
-        <Footer />
-      </Router>
+      <Provider store={myStore}>
+        <Router>
+          <Header />
+          <Route path='/Register' component={Register} />
+          <Route path='/' component={Login} exact />
+          <Route path='/m/:username' component={Menu} exact />
+          <Route path='/Details/:id' component={Details} />
+          <Route path='/Create' component={Create} />
+          <Footer />
+        </Router>
+      </Provider>
     </>
   </React.StrictMode>,
   document.getElementById("root")
