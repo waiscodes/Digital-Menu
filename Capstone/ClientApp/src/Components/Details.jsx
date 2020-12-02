@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { connect } from "react-redux";
 import axios from "axios";
 
 const Details = (props) => {
@@ -49,8 +50,27 @@ const Details = (props) => {
   }, [loading]);
 
   let content = loading ? <p>Loading...</p> : renderDetails(path, menuItem);
+  let message;
+  if (props.activeUser !== undefined) {
+    message = (
+      <>
+        <button>Delete</button>
+        <button>Edit</button>
+      </>
+    );
+  }
 
-  return <>{content}</>;
+  return (
+    <>
+      {content}
+      <br />
+      {message}
+    </>
+  );
 };
 
-export default Details;
+export default connect((state) => {
+  return {
+    activeUser: state,
+  };
+})(Details);
