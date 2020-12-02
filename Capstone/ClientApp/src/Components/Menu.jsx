@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 
 const Menu = () => {
@@ -13,13 +13,14 @@ const Menu = () => {
         {menuItems.map((item) => {
           return (
             <>
-              <div className='menu-card' id={item.id}>
-                {item.imageName}
-                {item.name}
-                {item.price}
-                {item.ingredients}
-              </div>
-              <br />
+              <Link to={"/Details/" + item.id}>
+                <div className='menu-card' id={item.id}>
+                  {item.imageName}
+                  {item.name}
+                  {item.price}
+                  {item.ingredients}
+                </div>
+              </Link>
             </>
           );
         })}
