@@ -11,7 +11,17 @@ const Menu = () => {
     return (
       <>
         {menuItems.map((item) => {
-          return <pre>{JSON.stringify(item, null, 2)}</pre>;
+          return (
+            <>
+              <div className='menu-card' id={item.id}>
+                {item.imageName}
+                {item.name}
+                {item.price}
+                {item.ingredients}
+              </div>
+              <br />
+            </>
+          );
         })}
       </>
     );
