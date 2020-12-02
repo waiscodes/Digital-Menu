@@ -55,7 +55,11 @@ const Create = () => {
     return (
       <>
         {catResponse.map((cat) => {
-          return cat.name;
+          return (
+            <>
+              <option value={cat.id}>{cat.name}</option>
+            </>
+          );
         })}
       </>
     );
@@ -117,17 +121,17 @@ const Create = () => {
 
   return (
     <>
-      {content}
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
           <label htmlFor='category'>Category</label>
-          <input
-            type='text'
+          <select
             name='category'
             id='category'
             onChange={handleFieldChange}
             required
-          />
+          >
+            {content}
+          </select>
         </div>
         <div className='form-group'>
           <label htmlFor='user'>User</label>
