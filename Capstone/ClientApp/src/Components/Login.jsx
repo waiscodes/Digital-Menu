@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import aActiveUser from "../Actions/aActiveUser";
 import axios from "axios";
 
 const Login = () => {
@@ -41,6 +43,8 @@ const Login = () => {
       });
   };
 
+  // props.dispatch(aActiveUser());
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -71,4 +75,8 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default connect((state) => {
+  return {
+    state: state,
+  };
+})(Login);
