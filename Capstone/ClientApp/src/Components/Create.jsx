@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Create = () => {
@@ -14,7 +14,7 @@ const Create = () => {
   const [calories, setCalories] = useState("");
   const [halal, setHalal] = useState("");
   const [img, setImg] = useState();
-  const [waiting, setWaiting] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const handleFieldChange = (e) => {
     switch (e.target.id) {
@@ -51,7 +51,11 @@ const Create = () => {
     }
   };
 
-  const populateCatDropdown = async (category) => {
+  const renderDropdown = (catResponse) => {
+    return JSON.stringify(catResponse);
+  };
+
+  const populateCatDropdown = async () => {
     await axios({
       method: "get",
       url: "Values/ListCat",
@@ -59,13 +63,21 @@ const Create = () => {
         username: "Milliways",
       },
     }).then((response) => {
+      console.log(response.data);
       setCatResponse(response.data);
+      setLoading(false);
     });
   };
 
+  useEffect(() => {
+    populateCatDropdown();
+  }, [loading]);
+
+  let content = loading ? <p>Loading...</p> : renderDropdown(catResponse);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setWaiting(true);
+    setLoading(true);
 
     const formData = new FormData();
     formData.append("file", img);
@@ -88,17 +100,18 @@ const Create = () => {
       },
     })
       .then((res) => {
-        setWaiting(false);
+        setLoading(false);
         setResponse(res.data);
       })
       .catch((err) => {
-        setWaiting(false);
+        setLoading(false);
         setResponse(err.response.data);
       });
   };
 
   return (
     <>
+      {content}
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
           <label htmlFor='category'>Category</label>
