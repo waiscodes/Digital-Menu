@@ -16,6 +16,9 @@ const Header = () => {
             <li>
               <Link to='/Login'>Logout</Link>
             </li>
+            <li>
+              <Link to='/Register'>Register</Link>
+            </li>
           </ul>
         </nav>
       </header>
