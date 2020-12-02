@@ -42,7 +42,7 @@ namespace Capstone.Controllers
         // READ
         public string Login(string email, string password)
         {
-            string message;
+            string username;
             using (RestaurantContext context = new RestaurantContext())
             {
                 if (!context.Restaurants.Any(x => x.Email == email))
@@ -54,7 +54,7 @@ namespace Capstone.Controllers
                     Restaurant account = context.Restaurants.Where(r => r.Email == email).SingleOrDefault();
                     if (account.Password == password)
                     {
-                        message = "Success";
+                        username = account.ResUsername;
                     }
                     else
                     {
@@ -62,7 +62,7 @@ namespace Capstone.Controllers
                     }
                 }
             }
-            return message;
+            return username;
         }
 
         public static Restaurant GetResByUsername(string username)
