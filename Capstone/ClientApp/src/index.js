@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Components
@@ -10,6 +12,15 @@ import Details from "./Components/Details";
 import Menu from "./Components/Menu";
 import Register from "./Components/Register";
 import Login from "./Components/Login";
+
+//Redux Actions & Reducers
+import aActiveUser from "./Actions/aActiveUser";
+import rActiveUser from "./Reducers/rActiveUser";
+
+const myStore = createStore(
+  rActiveUser,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <React.StrictMode>
