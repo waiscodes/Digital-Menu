@@ -8,17 +8,20 @@ const Details = (props) => {
   const [path, setPath] = useState();
   const [loading, setLoading] = useState(true);
 
-  const renderDetails = (menuItem) => {
+  const renderDetails = (path, menuItem) => {
     return (
       <>
-        {/* <pre>{JSON.stringify(menuItem, null, 2)}</pre> */}
-        {id}
+        <img src={path + menuItem.imageName} alt='' />
+
+        {menuItem.name}
+        {menuItem.description}
+        {menuItem.price}
+        {menuItem.waitTimeMins}
+        {menuItem.ingredients}
+        {menuItem.calories}
+        {menuItem.halal}
       </>
     );
-  };
-
-  const renderPath = (path, imageName) => {
-    return <>{path + imageName}</>;
   };
 
   const populateDetails = async () => {
@@ -45,11 +48,7 @@ const Details = (props) => {
     populateDetails();
   }, [loading]);
 
-  let content = loading ? (
-    <p>Loading...</p>
-  ) : (
-    renderPath(path, menuItem.imageName)
-  );
+  let content = loading ? <p>Loading...</p> : renderDetails(path, menuItem);
 
   return <>{content}</>;
 };
