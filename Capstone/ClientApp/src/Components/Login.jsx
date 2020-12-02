@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import aActiveUser from "../Actions/aActiveUser";
 import axios from "axios";
 
-const Login = () => {
+const Login = (props) => {
   const [response, setResponse] = useState([]);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -36,14 +36,14 @@ const Login = () => {
       .then((res) => {
         setWaiting(false);
         setResponse(res.data);
+        console.log(res.data);
+        props.dispatch(aActiveUser(res.data));
       })
       .catch((err) => {
         setWaiting(false);
         setResponse(err.response.data);
       });
   };
-
-  // props.dispatch(aActiveUser());
 
   return (
     <>
