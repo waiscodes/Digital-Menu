@@ -14,10 +14,10 @@ const Details = (props) => {
     );
   };
 
-  const renderPath = (path) => {
+  const renderPath = (path, imageName) => {
     return (
       <>
-        <pre>{<img src={path} alt='' />}</pre>
+        <img src={path + imageName} alt='' />
       </>
     );
   };
@@ -49,7 +49,11 @@ const Details = (props) => {
     populateDetails();
   }, [loading]);
 
-  let content = loading ? <p>Loading...</p> : renderPath(path + "birm.png");
+  let content = loading ? (
+    <p>Loading...</p>
+  ) : (
+    renderPath(path, menuItem.imageName)
+  );
 
   return <>{content}</>;
 };
