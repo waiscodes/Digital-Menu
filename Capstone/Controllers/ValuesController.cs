@@ -35,7 +35,7 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpGet("Login")]
+        [HttpPost("Login")]
         public ActionResult<string> Login_GET(string email, string password)
         {
             return new RestaurantController().Login(email, password);
@@ -74,6 +74,12 @@ namespace Capstone.Controllers
         public ActionResult<MenuItem> GetMenuItem_GET(string id)
         {
             return new MenuItemController().GetMenuItemByID(id);
+        }
+
+        [HttpGet("ImagePath")]
+        public ActionResult<string> GetImagePath_GET()
+        {
+            return string.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, "/birm.png");
         }
 
         [HttpPatch("UpdateMenu")]
