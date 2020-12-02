@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const Details = (props) => {
+  const { id } = useParams();
   const [menuItem, setMenuItem] = useState();
   const [path, setPath] = useState();
   const [loading, setLoading] = useState(true);
@@ -9,26 +11,20 @@ const Details = (props) => {
   const renderDetails = (menuItem) => {
     return (
       <>
-        <pre>{JSON.stringify(menuItem, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(menuItem, null, 2)}</pre> */}
+        {id}
       </>
     );
   };
 
   const renderPath = (path, imageName) => {
-    return (
-      <>
-        <img src={path + imageName} alt='' />
-      </>
-    );
+    return <>{path + imageName}</>;
   };
 
   const populateDetails = async () => {
     await axios({
       method: "get",
       url: "Values/ImagePath",
-      params: {
-        id: -1,
-      },
     }).then((response) => {
       setPath(response.data);
     });
@@ -37,7 +33,7 @@ const Details = (props) => {
       method: "get",
       url: "Values/GetMenuItem",
       params: {
-        id: -1,
+        id: id,
       },
     }).then((response) => {
       setMenuItem(response.data);
