@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const Menu = () => {
-  // const {username} => useParams();
+  const { username } = useParams();
   const [menuItems, setMenuItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -22,7 +22,7 @@ const Menu = () => {
       method: "get",
       url: "Values/ListMenu",
       params: {
-        username: "Milliways",
+        username: username,
       },
     });
     setMenuItems(response.data);

@@ -17,8 +17,8 @@ ReactDOM.render(
       <Router>
         <Header />
         <Route path='/Register' component={Register} />
-        <Route path='/Login' component={Login} />
-        <Route path='/' component={Menu} exact />
+        <Route path='/' component={Login} />
+        <Route path='/m/:username' component={Menu} exact />
         <Route path='/Details/:id' component={Details} />
         <Route path='/Create' component={Create} />
         <Footer />
