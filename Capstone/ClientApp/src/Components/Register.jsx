@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import aActiveUser from "../Actions/aActiveUser";
 import axios from "axios";
 
-const Register = () => {
+const Register = (props) => {
   const [response, setResponse] = useState([]);
   const [resName, setResName] = useState();
   const [resUsername, setResUsername] = useState();
@@ -49,6 +51,7 @@ const Register = () => {
       .then((res) => {
         setWaiting(false);
         setResponse(res.data);
+        props.dispatch(aActiveUser(res.data));
       })
       .catch((err) => {
         setWaiting(false);
@@ -113,4 +116,8 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default connect((state) => {
+  return {
+    state: state,
+  };
+})(Register);
