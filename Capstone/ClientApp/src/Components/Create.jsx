@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Create = () => {
   const [response, setResponse] = useState([]);
-  const [catResponse, setCatResponse] = useState([]);
+  const [catResponse, setCatResponse] = useState();
   const [category, setCategory] = useState("");
   const [user, setUser] = useState("");
   const [name, setName] = useState("");
@@ -52,7 +52,13 @@ const Create = () => {
   };
 
   const renderDropdown = (catResponse) => {
-    return JSON.stringify(catResponse);
+    return (
+      <>
+        {catResponse.map((cat) => {
+          return cat.name;
+        })}
+      </>
+    );
   };
 
   const populateCatDropdown = async () => {
