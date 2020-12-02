@@ -31,6 +31,10 @@ namespace Capstone.Controllers
                 context.Restaurants.Add(newRestaurant);
                 context.SaveChanges();
             }
+            new CategoryController().CreateCategory("Starters", resUsername);
+            new CategoryController().CreateCategory("Main Course", resUsername);
+            new CategoryController().CreateCategory("Dessert", resUsername);
+            new CategoryController().CreateCategory("Drinks", resUsername);
 
             return "Successfully added restaurant";
         }
