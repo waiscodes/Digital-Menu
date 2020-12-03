@@ -50,9 +50,9 @@ const Details = (props) => {
   }, [loading]);
 
   let content = loading ? <p>Loading...</p> : renderDetails(path, menuItem);
-  let message;
+  let buttons;
   if (props.activeUser !== undefined) {
-    message = (
+    buttons = (
       <>
         <button>Delete</button>
         <button>Edit</button>
@@ -64,7 +64,7 @@ const Details = (props) => {
     <>
       {content}
       <br />
-      {message}
+      {buttons}
     </>
   );
 };
