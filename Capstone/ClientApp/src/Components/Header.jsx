@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import aActiveUser from "../Actions/aActiveUser";
 
 const Header = (props) => {
+  const [activeUser, setActiveUser] = useState("");
+
   const logoutHandler = () => {
     props.dispatch(aActiveUser(undefined));
-    renderCustomerHeader();
+    setActiveUser("hello world");
+    renderCustomerNav();
+    console.log(activeUser);
   };
 
-  const renderAdminHeader = (username) => {
+  const renderAdminNav = (username) => {
     return (
       <>
         <li>
@@ -29,7 +33,7 @@ const Header = (props) => {
       </>
     );
   };
-  const renderCustomerHeader = () => {
+  const renderCustomerNav = () => {
     return (
       <>
         <li>
@@ -45,9 +49,9 @@ const Header = (props) => {
   let content = "";
   if (props.activeUser !== undefined) {
     let username = props.activeUser.username;
-    content = renderAdminHeader(username);
+    content = renderAdminNav(username);
   } else {
-    content = renderCustomerHeader();
+    content = renderCustomerNav();
   }
   return (
     <>

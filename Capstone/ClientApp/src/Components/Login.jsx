@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import aActiveUser from "../Actions/aActiveUser";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 const Login = (props) => {
   const [response, setResponse] = useState([]);
@@ -77,6 +78,6 @@ const Login = (props) => {
 
 export default connect((state) => {
   return {
-    state: state,
+    activeUser: state,
   };
 })(Login);
