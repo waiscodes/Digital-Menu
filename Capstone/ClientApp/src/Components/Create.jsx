@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import axios from "axios";
 
-const Create = () => {
+const Create = (props) => {
   const [response, setResponse] = useState([]);
   const [catResponse, setCatResponse] = useState();
   const [category, setCategory] = useState("");
@@ -70,7 +71,7 @@ const Create = () => {
       method: "get",
       url: "Values/ListCat",
       params: {
-        username: "Milliways",
+        username: props.activeUser.username,
       },
     }).then((response) => {
       console.log(response.data);
@@ -230,4 +231,8 @@ const Create = () => {
   );
 };
 
-export default Create;
+export default connect((state) => {
+  return {
+    activeUser: state,
+  };
+})(Create);
