@@ -6,7 +6,6 @@ const Create = (props) => {
   const [response, setResponse] = useState([]);
   const [catResponse, setCatResponse] = useState();
   const [category, setCategory] = useState("");
-  const [user, setUser] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -21,9 +20,6 @@ const Create = (props) => {
     switch (e.target.id) {
       case "category":
         setCategory(e.target.value);
-        break;
-      case "user":
-        setUser(e.target.value);
         break;
       case "name":
         setName(e.target.value);
@@ -107,7 +103,7 @@ const Create = (props) => {
         calories: calories,
         halal: halal,
         catID: category,
-        resID: user,
+        resID: props.activeUser.username,
       },
     })
       .then((res) => {
@@ -133,16 +129,6 @@ const Create = (props) => {
           >
             {content}
           </select>
-        </div>
-        <div className='form-group'>
-          <label htmlFor='user'>User</label>
-          <input
-            type='text'
-            name='user'
-            id='user'
-            onChange={handleFieldChange}
-            required
-          />
         </div>
         <div className='form-group'>
           <label htmlFor='name'>Name</label>
