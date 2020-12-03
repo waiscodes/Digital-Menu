@@ -12,8 +12,9 @@ namespace Capstone.Controllers
     public class MenuItemController : Controller
     {
         // CREATE
-        public async Task<string> CreateMenuItem(string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resID, IFormFile file)
+        public async Task<string> CreateMenuItem(string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resUsername, IFormFile file)
         {
+            int redID = RestaurantController.GetResByUsername(resUsername).ID;
             string fileName = await ImageController.UploadImage(name, file);
 
             using (RestaurantContext context = new RestaurantContext())
@@ -28,7 +29,7 @@ namespace Capstone.Controllers
                     Calories = int.Parse(calories),
                     Halal = bool.Parse(halal),
                     CategoryID = int.Parse(catID),
-                    RestaurantID = int.Parse(resID),
+                    RestaurantID = redID,
                     ImageName = fileName
                 };
                 context.MenuItems.Add(newMenuItem);

@@ -59,9 +59,9 @@ namespace Capstone.Controllers
         // // // // // // // //  MENU ITEMS // // // // // // // //
 
         [HttpPost("CreateMenu")]
-        public ActionResult<Task<string>> CreateMenu_POST(string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resID, IFormFile file)
+        public ActionResult<Task<string>> CreateMenu_POST(string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resUsername, IFormFile file)
         {
-            return new MenuItemController().CreateMenuItem(name, description, price, waitTimeMins, ingredients, calories, halal, catID, resID, file);
+            return new MenuItemController().CreateMenuItem(name, description, price, waitTimeMins, ingredients, calories, halal, catID, resUsername, file);
         }
 
         [HttpGet("ListMenu")]
