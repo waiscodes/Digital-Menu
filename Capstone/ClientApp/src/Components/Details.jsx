@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Details = (props) => {
@@ -45,6 +46,16 @@ const Details = (props) => {
     });
   };
 
+  const deleteHandler = async () => {
+    await axios({
+      method: "delete",
+      url: "Values/DeleteMenu",
+      params: {
+        id: id,
+      },
+    });
+  };
+
   useEffect(() => {
     populateDetails();
   }, [loading]);
@@ -54,7 +65,10 @@ const Details = (props) => {
   if (props.activeUser !== undefined) {
     buttons = (
       <>
-        <button>Delete</button>
+        <Link to={"/m/" + props.activeUser.username}>
+          <button onClick={deleteHandler}>Delete</button>
+        </Link>
+
         <button>Edit</button>
       </>
     );
