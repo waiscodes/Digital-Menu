@@ -18,7 +18,7 @@ const Header = (props) => {
                 <Link to='/Create'>Create</Link>
               </li>
               <li>
-                <Link to='/Login'>Logout</Link>
+                <Link to='/'>Logout</Link>
               </li>
               <li>
                 <Link to='/Register'>Register</Link>
