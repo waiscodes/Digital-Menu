@@ -6,6 +6,7 @@ const Create = (props) => {
   const [response, setResponse] = useState([]);
   const [catResponse, setCatResponse] = useState();
   const [category, setCategory] = useState("");
+  const [user, setUser] = useState(props.activeUser.username);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -67,7 +68,7 @@ const Create = (props) => {
       method: "get",
       url: "Values/ListCat",
       params: {
-        username: props.activeUser.username,
+        username: user,
       },
     }).then((response) => {
       console.log(response.data);
@@ -103,7 +104,7 @@ const Create = (props) => {
         calories: calories,
         halal: halal,
         catID: category,
-        resID: props.activeUser.username,
+        resUsername: user,
       },
     })
       .then((res) => {
