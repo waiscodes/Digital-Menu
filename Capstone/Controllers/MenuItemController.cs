@@ -66,10 +66,11 @@ namespace Capstone.Controllers
         {
             using (RestaurantContext context = new RestaurantContext())
             {
-                MenuItem menuItem = GetMenuItemByID(menuID);
+                MenuItem menuItem = context.MenuItems.Where(m => m.ID == int.Parse(menuID)).SingleOrDefault();
                 if (!string.IsNullOrWhiteSpace(name))
                 {
                     menuItem.Name = name;
+                    context.SaveChanges();
                 }
                 if (file != null)
                 {
@@ -104,6 +105,7 @@ namespace Capstone.Controllers
                 {
                     menuItem.CategoryID = int.Parse(catID);
                 }
+                context.SaveChanges();
             }
             return new MenuItem();
         }
