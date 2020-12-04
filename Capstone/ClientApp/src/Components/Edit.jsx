@@ -203,7 +203,7 @@ const Edit = (props) => {
           {content}
           <input type='submit' value='Submit' />
         </div>
-        <h1>{id}</h1>
+        <pre>{JSON.stringify(menuItem, null, 2)}</pre>
       </form>
     </>
   );
