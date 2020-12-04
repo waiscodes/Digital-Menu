@@ -129,6 +129,9 @@ const Create = (props) => {
             onChange={handleFieldChange}
             required
           >
+            <option value='none' selected disabled hidden>
+              Select an Option
+            </option>
             {content}
           </select>
         </div>
@@ -195,6 +198,9 @@ const Create = (props) => {
         <div className='form-group'>
           <label htmlFor='halal'>Halal</label>
           <select name='halal' id='halal' onChange={handleFieldChange} required>
+            <option value='none' selected disabled hidden>
+              Select an Option
+            </option>
             <option value='true'>Halal</option>
             <option value='false'>Non-Halal</option>
           </select>
