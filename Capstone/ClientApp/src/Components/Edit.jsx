@@ -55,40 +55,9 @@ const Edit = (props) => {
     e.preventDefault();
   };
 
-  const renderEdit = () => {};
-  const populateEdit = async () => {
-    await axios({
-      method: "get",
-      url: "Values/ListCat",
-      params: {
-        username: user,
-      },
-    }).then((catList) => {
-      console.log(catList.data);
-      setCatResponse(catList.data);
-    });
-
-    await axios({
-      method: "get",
-      url: "Values/GetMenuItem",
-      params: {
-        id: id,
-      },
-    }).then((menuItem) => {
-      setMenuItem(menuItem.data);
-      setLoading(false);
-    });
-  };
-
-  useEffect(() => {
-    populateEdit();
-  }, [loading]);
-  let content = loading ? <p>Loading...</p> : renderEdit(catResponse);
-
-  return (
-    <>
-      {content}
-      <form onSubmit={handleSubmit}>
+  const renderEdit = () => {
+    return (
+      <>
         <div className='form-group'>
           <label htmlFor='category'>Category</label>
           <select
@@ -188,6 +157,42 @@ const Edit = (props) => {
             value={""}
           />
         </div>
+      </>
+    );
+  };
+  const populateEdit = async () => {
+    await axios({
+      method: "get",
+      url: "Values/ListCat",
+      params: {
+        username: user,
+      },
+    }).then((catList) => {
+      console.log(catList.data);
+      setCatResponse(catList.data);
+    });
+
+    await axios({
+      method: "get",
+      url: "Values/GetMenuItem",
+      params: {
+        id: id,
+      },
+    }).then((menuItem) => {
+      setMenuItem(menuItem.data);
+      setLoading(false);
+    });
+  };
+
+  useEffect(() => {
+    populateEdit();
+  }, [loading]);
+  let content = loading ? <p>Loading...</p> : renderEdit(catResponse);
+
+  return (
+    <>
+      {content}
+      <form onSubmit={handleSubmit}>
         <div>
           <input type='submit' value='Submit' />
         </div>
