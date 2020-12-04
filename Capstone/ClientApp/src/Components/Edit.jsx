@@ -1,7 +1,37 @@
 import React from "react";
 
 const Edit = () => {
-  const handleFieldChange = (e) => {};
+  const handleFieldChange = (e) => {
+    switch (e.target.id) {
+      case "category":
+        // setCategory(e.target.value);
+        break;
+      case "name":
+        // setName(e.target.value);
+        break;
+      case "price":
+        // setPrice(e.target.value);
+        break;
+      case "description":
+        // setDescription(e.target.value);
+        break;
+      case "wait-time":
+        // setWaitTime(e.target.value);
+        break;
+      case "ingredients":
+        // setIngredients(e.target.value);
+        break;
+      case "calories":
+        // setCalories(e.target.value);
+        break;
+      case "halal":
+        // setHalal(true);
+        break;
+      case "img":
+        // setImg(e.target.files[0]);
+        break;
+    }
+  };
   const handleSubmit = (e) => {};
 
   return (
@@ -13,9 +43,10 @@ const Edit = () => {
             name='category'
             id='category'
             onChange={handleFieldChange}
+            value={""}
             required
           >
-            {content}
+            {/* {content} */}
           </select>
         </div>
         <div className='form-group'>
@@ -25,6 +56,7 @@ const Edit = () => {
             name='name'
             id='name'
             onChange={handleFieldChange}
+            value={""}
             required
           />
         </div>
@@ -35,6 +67,7 @@ const Edit = () => {
             name='price'
             id='price'
             onChange={handleFieldChange}
+            value={""}
             required
           />
         </div>
@@ -45,6 +78,7 @@ const Edit = () => {
             name='description'
             id='description'
             onChange={handleFieldChange}
+            value={""}
             required
           />
         </div>
@@ -55,6 +89,7 @@ const Edit = () => {
             name='wait-time'
             id='wait-time'
             onChange={handleFieldChange}
+            value={""}
             required
           />
         </div>
@@ -65,6 +100,7 @@ const Edit = () => {
             name='ingredients'
             id='ingredients'
             onChange={handleFieldChange}
+            value={""}
             required
           />
         </div>
@@ -75,6 +111,7 @@ const Edit = () => {
             name='calories'
             id='calories'
             onChange={handleFieldChange}
+            value={""}
             required
           />
         </div>
@@ -85,6 +122,7 @@ const Edit = () => {
             name='halal'
             id='halal'
             onChange={handleFieldChange}
+            value={""}
           />
         </div>
         <div className='form-group'>
@@ -95,6 +133,7 @@ const Edit = () => {
             name='img'
             accept='image/*'
             onChange={handleFieldChange}
+            value={""}
           />
         </div>
         <div>
@@ -105,4 +144,4 @@ const Edit = () => {
   );
 };
 
-export default edit;
+export default Edit;

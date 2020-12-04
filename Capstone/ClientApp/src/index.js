@@ -12,6 +12,7 @@ import Details from "./Components/Details";
 import Menu from "./Components/Menu";
 import Register from "./Components/Register";
 import Login from "./Components/Login";
+import Edit from "./Components/Edit";
 
 //Redux Actions & Reducers
 import aActiveUser from "./Actions/aActiveUser";
@@ -33,6 +34,7 @@ ReactDOM.render(
           <Route path='/m/:username' component={Menu} exact />
           <Route path='/Details/:id' component={Details} />
           <Route path='/Create' component={Create} />
+          <Route path='/Edit' component={Edit} />
           <Footer />
         </Router>
       </Provider>
