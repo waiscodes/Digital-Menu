@@ -169,6 +169,7 @@ const Edit = (props) => {
       headers: { "Content-Type": "multipart/form-data" },
       data: formData,
       params: {
+        menuID: id,
         name: name,
         description: description,
         price: price,
@@ -177,7 +178,6 @@ const Edit = (props) => {
         calories: calories,
         halal: halal,
         catID: category,
-        resUsername: user,
       },
     })
       .then((res) => {
