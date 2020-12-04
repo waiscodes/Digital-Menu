@@ -88,15 +88,6 @@ namespace Capstone.Controllers
             return new MenuItemController().UpdateMenuItem(menuID, name, description, price, waitTimeMins, ingredients, calories, halal, catID, file, _webHostEnvironment);
         }
 
-        [HttpPatch("UpdateMenuImage")]
-        public async void UpdateMenuImage_PATCH(string id, IFormFile file)
-        {
-            MenuItem menuItem = new MenuItemController().GetMenuItemByID(id);
-
-            new ImageController(_webHostEnvironment).DeleteImageByName(menuItem.ImageName);
-            await ImageController.UploadImage(menuItem.Name, file);
-        }
-
         [HttpDelete("DeleteMenu")]
         public ActionResult<string> DeleteMenu_DELETE(string id)
         {

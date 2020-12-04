@@ -68,8 +68,9 @@ const Details = (props) => {
         <Link to={"/m/" + props.activeUser.username}>
           <button onClick={deleteHandler}>Delete</button>
         </Link>
-
-        <button>Edit</button>
+        <Link to={"/edit/" + id}>
+          <button>Edit</button>
+        </Link>
       </>
     );
   }
