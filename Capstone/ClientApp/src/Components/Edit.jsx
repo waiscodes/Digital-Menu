@@ -55,6 +55,8 @@ const Edit = (props) => {
   const renderEdit = (catResponse, menuItem) => {
     return (
       <>
+        <pre>{JSON.stringify(menuItem, null, 2)}</pre>
+
         <div className='form-group'>
           <label htmlFor='category'>Category</label>
           <select
@@ -81,7 +83,7 @@ const Edit = (props) => {
             name='name'
             id='name'
             onChange={handleFieldChange}
-            value={""}
+            placeholder={menuItem.name}
             required
           />
         </div>
@@ -92,7 +94,7 @@ const Edit = (props) => {
             name='price'
             id='price'
             onChange={handleFieldChange}
-            value={""}
+            placeholder={menuItem.price}
             required
           />
         </div>
@@ -103,7 +105,7 @@ const Edit = (props) => {
             name='description'
             id='description'
             onChange={handleFieldChange}
-            value={""}
+            placeholder={menuItem.description}
             required
           />
         </div>
@@ -114,7 +116,7 @@ const Edit = (props) => {
             name='wait-time'
             id='wait-time'
             onChange={handleFieldChange}
-            value={""}
+            placeholder={menuItem.waitTimeMins}
             required
           />
         </div>
@@ -125,7 +127,7 @@ const Edit = (props) => {
             name='ingredients'
             id='ingredients'
             onChange={handleFieldChange}
-            value={""}
+            placeholder={menuItem.ingredients}
             required
           />
         </div>
@@ -136,7 +138,7 @@ const Edit = (props) => {
             name='calories'
             id='calories'
             onChange={handleFieldChange}
-            value={""}
+            placeholder={menuItem.calories}
             required
           />
         </div>
@@ -147,7 +149,7 @@ const Edit = (props) => {
             name='halal'
             id='halal'
             onChange={handleFieldChange}
-            value={""}
+            placeholder={menuItem.halal}
           />
         </div>
         <div className='form-group'>
@@ -203,7 +205,6 @@ const Edit = (props) => {
           {content}
           <input type='submit' value='Submit' />
         </div>
-        <pre>{JSON.stringify(menuItem, null, 2)}</pre>
       </form>
     </>
   );
