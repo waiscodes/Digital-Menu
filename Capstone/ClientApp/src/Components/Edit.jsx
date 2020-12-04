@@ -1,34 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 
 const Edit = () => {
+  const { id } = useParams();
+  const [response, setResponse] = useState([]);
+  const [catResponse, setCatResponse] = useState();
+  const [category, setCategory] = useState("");
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [waitTime, setWaitTime] = useState("");
+  const [ingredients, setIngredients] = useState("");
+  const [calories, setCalories] = useState("");
+  const [halal, setHalal] = useState("");
+  const [img, setImg] = useState();
+  const [loading, setLoading] = useState(true);
+
   const handleFieldChange = (e) => {
     switch (e.target.id) {
       case "category":
-        // setCategory(e.target.value);
+        setCategory(e.target.value);
         break;
       case "name":
-        // setName(e.target.value);
+        setName(e.target.value);
         break;
       case "price":
-        // setPrice(e.target.value);
+        setPrice(e.target.value);
         break;
       case "description":
-        // setDescription(e.target.value);
+        setDescription(e.target.value);
         break;
       case "wait-time":
-        // setWaitTime(e.target.value);
+        setWaitTime(e.target.value);
         break;
       case "ingredients":
-        // setIngredients(e.target.value);
+        setIngredients(e.target.value);
         break;
       case "calories":
-        // setCalories(e.target.value);
+        setCalories(e.target.value);
         break;
       case "halal":
-        // setHalal(true);
+        setHalal(true);
         break;
       case "img":
-        // setImg(e.target.files[0]);
+        setImg(e.target.files[0]);
         break;
     }
   };
