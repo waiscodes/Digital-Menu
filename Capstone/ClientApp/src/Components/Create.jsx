@@ -194,12 +194,10 @@ const Create = (props) => {
         </div>
         <div className='form-group'>
           <label htmlFor='halal'>Halal</label>
-          <input
-            type='checkbox'
-            name='halal'
-            id='halal'
-            onChange={handleFieldChange}
-          />
+          <select name='halal' id='halal' onChange={handleFieldChange} required>
+            <option value='true'>Halal</option>
+            <option value='false'>Non-Halal</option>
+          </select>
         </div>
         <div className='form-group'>
           <label htmlFor='img'>Image</label>
