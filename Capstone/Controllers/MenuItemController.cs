@@ -67,14 +67,14 @@ namespace Capstone.Controllers
             using (RestaurantContext context = new RestaurantContext())
             {
                 MenuItem menuItem = GetMenuItemByID(menuID);
+                if (!string.IsNullOrWhiteSpace(name))
+                {
+                    menuItem.Name = name;
+                }
                 if (file != null)
                 {
                     new ImageController(hostEnvironment).DeleteImageByName(menuItem.ImageName);
                     await ImageController.UploadImage(menuItem.Name, file);
-                }
-                if (!string.IsNullOrWhiteSpace(name))
-                {
-                    menuItem.Name = name;
                 }
                 if (!string.IsNullOrWhiteSpace(description))
                 {

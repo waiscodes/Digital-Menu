@@ -83,9 +83,9 @@ namespace Capstone.Controllers
         }
 
         [HttpPut("UpdateMenu")]
-        public ActionResult<MenuItem> UpdateMenu_PATCH(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resUsername, IFormFile file)
+        public ActionResult<Task<MenuItem>> UpdateMenu_PUT(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resUsername, IFormFile file)
         {
-            return new MenuItem();
+            return new MenuItemController().UpdateMenuItem(menuID, name, description, price, waitTimeMins, ingredients, calories, halal, catID, file, _webHostEnvironment);
         }
 
         [HttpPatch("UpdateMenuImage")]
