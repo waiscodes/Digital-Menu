@@ -62,7 +62,7 @@ namespace Capstone.Controllers
         }
 
         // UPDATE
-        public async Task<MenuItem> UpdateMenuItem(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resUsername, IFormFile file, IWebHostEnvironment hostEnvironment)
+        public async Task<MenuItem> UpdateMenuItem(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, IFormFile file, IWebHostEnvironment hostEnvironment)
         {
             using (RestaurantContext context = new RestaurantContext())
             {
@@ -71,6 +71,38 @@ namespace Capstone.Controllers
                 {
                     new ImageController(hostEnvironment).DeleteImageByName(menuItem.ImageName);
                     await ImageController.UploadImage(menuItem.Name, file);
+                }
+                if (!string.IsNullOrWhiteSpace(name))
+                {
+                    menuItem.Name = name;
+                }
+                if (!string.IsNullOrWhiteSpace(description))
+                {
+                    menuItem.Description = description;
+                }
+                if (!string.IsNullOrWhiteSpace(price))
+                {
+                    menuItem.Price = double.Parse(price);
+                }
+                if (!string.IsNullOrWhiteSpace(waitTimeMins))
+                {
+                    menuItem.WaitTimeMins = int.Parse(waitTimeMins);
+                }
+                if (!string.IsNullOrWhiteSpace(ingredients))
+                {
+                    menuItem.Ingredients = ingredients;
+                }
+                if (!string.IsNullOrWhiteSpace(calories))
+                {
+                    menuItem.Calories = int.Parse(calories);
+                }
+                if (!string.IsNullOrWhiteSpace(halal))
+                {
+                    menuItem.Halal = bool.Parse(halal);
+                }
+                if (!string.IsNullOrWhiteSpace(catID))
+                {
+                    menuItem.CategoryID = int.Parse(catID);
                 }
             }
             return new MenuItem();
