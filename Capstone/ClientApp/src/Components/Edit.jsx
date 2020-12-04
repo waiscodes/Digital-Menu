@@ -66,7 +66,9 @@ const Edit = (props) => {
             {catResponse.map((cat) => {
               return (
                 <>
-                  <option value={cat.id}>{cat.name}</option>
+                  <option key={cat.id} value={cat.id}>
+                    {cat.name}
+                  </option>
                 </>
               );
             })}
@@ -175,7 +177,6 @@ const Edit = (props) => {
         username: user,
       },
     }).then((catList) => {
-      console.log(catList.data);
       setCatResponse(catList.data);
       setLoading(false);
     });
