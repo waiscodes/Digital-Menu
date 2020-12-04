@@ -44,7 +44,7 @@ const Edit = (props) => {
         setCalories(e.target.value);
         break;
       case "halal":
-        setHalal(true);
+        setHalal(e.target.value);
         break;
       case "img":
         setImg(e.target.files[0]);
