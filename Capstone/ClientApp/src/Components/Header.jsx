@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import aActiveUser from "../Actions/aActiveUser";
 
 const Header = (props) => {
-  const [activeUser, setActiveUser] = useState("");
-
   let content = "";
   const logoutHandler = () => {
     props.dispatch(aActiveUser(undefined));
