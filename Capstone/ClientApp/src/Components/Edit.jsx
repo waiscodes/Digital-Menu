@@ -51,11 +51,8 @@ const Edit = (props) => {
         break;
     }
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
 
-  const renderEdit = () => {
+  const renderEdit = (catList, menuItem) => {
     return (
       <>
         <div className='form-group'>
@@ -64,11 +61,19 @@ const Edit = (props) => {
             name='category'
             id='category'
             onChange={handleFieldChange}
-            value={""}
             required
-          >
-            {/* {content} */}
-          </select>
+          ></select>
+          {
+            /* {catList.map((cat) => {
+              return (
+                <>
+                  <option value={cat.id}>{cat.name}</option>
+                </>
+              );
+            })} */
+
+            JSON.stringify(catList)
+          }
         </div>
         <div className='form-group'>
           <label htmlFor='name'>Name</label>
@@ -160,6 +165,11 @@ const Edit = (props) => {
       </>
     );
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   const populateEdit = async () => {
     await axios({
       method: "get",
@@ -176,7 +186,7 @@ const Edit = (props) => {
       method: "get",
       url: "Values/GetMenuItem",
       params: {
-        id: id,
+        id: 16,
       },
     }).then((menuItem) => {
       setMenuItem(menuItem.data);
@@ -187,12 +197,13 @@ const Edit = (props) => {
   useEffect(() => {
     populateEdit();
   }, [loading]);
-  let content = loading ? <p>Loading...</p> : renderEdit(catResponse);
+  let content = loading ? <p>Loading...</p> : renderEdit(catResponse.menuItem);
 
   return (
     <>
       {content}
       <form onSubmit={handleSubmit}>
+        {content}
         <div>
           <input type='submit' value='Submit' />
         </div>

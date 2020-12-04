@@ -71,7 +71,6 @@ const Create = (props) => {
         username: user,
       },
     }).then((response) => {
-      console.log(response.data);
       setCatResponse(response.data);
       setLoading(false);
     });
