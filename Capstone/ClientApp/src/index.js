@@ -34,7 +34,7 @@ ReactDOM.render(
           <Route path='/m/:username' component={Menu} exact />
           <Route path='/Details/:id' component={Details} />
           <Route path='/Create' component={Create} />
-          <Route path='/Edit' component={Edit} />
+          <Route path='/Edit/:id' component={Edit} />
           <Footer />
         </Router>
       </Provider>
