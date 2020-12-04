@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 const Edit = () => {
@@ -47,10 +47,21 @@ const Edit = () => {
         break;
     }
   };
-  const handleSubmit = (e) => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const renderEdit = () => {};
+  const populateEdit = () => {};
+
+  useEffect(() => {
+    populateEdit();
+  }, [loading]);
+  let content = loading ? <p>Loading...</p> : renderEdit(catResponse);
 
   return (
     <>
+      {content}
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
           <label htmlFor='category'>Category</label>
