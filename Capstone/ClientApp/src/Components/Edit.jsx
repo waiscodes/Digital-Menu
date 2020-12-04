@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
+import axios from "axios";
 
 const Edit = (props) => {
   const { id } = useParams();
@@ -16,6 +17,7 @@ const Edit = (props) => {
   const [calories, setCalories] = useState("");
   const [halal, setHalal] = useState("");
   const [img, setImg] = useState();
+  const [menuItem, setMenuItem] = useState();
   const [loading, setLoading] = useState(true);
 
   const handleFieldChange = (e) => {
@@ -54,7 +56,29 @@ const Edit = (props) => {
   };
 
   const renderEdit = () => {};
-  const populateEdit = () => {};
+  const populateEdit = async () => {
+    await axios({
+      method: "get",
+      url: "Values/ListCat",
+      params: {
+        username: user,
+      },
+    }).then((catList) => {
+      console.log(catList.data);
+      setCatResponse(catList.data);
+    });
+
+    await axios({
+      method: "get",
+      url: "Values/GetMenuItem",
+      params: {
+        id: id,
+      },
+    }).then((menuItem) => {
+      setMenuItem(menuItem.data);
+      setLoading(false);
+    });
+  };
 
   useEffect(() => {
     populateEdit();
