@@ -55,11 +55,12 @@ const Edit = (props) => {
   const renderEdit = (catResponse, menuItem) => {
     return (
       <>
-        <pre>{JSON.stringify(menuItem, null, 2)}</pre>
-
         <div className='form-group'>
           <label htmlFor='category'>Category</label>
           <select name='category' id='category' onChange={handleFieldChange}>
+            <option value='none' selected disabled hidden>
+              Select an Option
+            </option>
             {catResponse.map((cat) => {
               return (
                 <>
@@ -134,6 +135,9 @@ const Edit = (props) => {
         <div className='form-group'>
           <label htmlFor='halal'>Halal</label>
           <select name='halal' id='halal' onChange={handleFieldChange}>
+            <option value='none' selected disabled hidden>
+              Select an Option
+            </option>
             <option value='true'>Halal</option>
             <option value='false'>Non-Halal</option>
           </select>
