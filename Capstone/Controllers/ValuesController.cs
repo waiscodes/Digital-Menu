@@ -82,10 +82,10 @@ namespace Capstone.Controllers
             return string.Format("{0}://{1}{2}/Images/", Request.Scheme, Request.Host, Request.PathBase);
         }
 
-        [HttpPatch("UpdateMenu")]
-        public ActionResult<MenuItem> UpdateMenu_PATCH(string id, string property, string newValue)
+        [HttpPut("UpdateMenu")]
+        public ActionResult<MenuItem> UpdateMenu_PATCH(string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resUsername, IFormFile file)
         {
-            return new MenuItemController().UpdateMenuItem(id, property, newValue);
+            return new MenuItem();
         }
 
         [HttpPatch("UpdateMenuImage")]

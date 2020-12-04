@@ -59,12 +59,7 @@ const Edit = (props) => {
 
         <div className='form-group'>
           <label htmlFor='category'>Category</label>
-          <select
-            name='category'
-            id='category'
-            onChange={handleFieldChange}
-            required
-          >
+          <select name='category' id='category' onChange={handleFieldChange}>
             {catResponse.map((cat) => {
               return (
                 <>
@@ -84,7 +79,6 @@ const Edit = (props) => {
             id='name'
             onChange={handleFieldChange}
             placeholder={menuItem.name}
-            required
           />
         </div>
         <div className='form-group'>
@@ -95,7 +89,6 @@ const Edit = (props) => {
             id='price'
             onChange={handleFieldChange}
             placeholder={menuItem.price}
-            required
           />
         </div>
         <div className='form-group'>
@@ -106,7 +99,6 @@ const Edit = (props) => {
             id='description'
             onChange={handleFieldChange}
             placeholder={menuItem.description}
-            required
           />
         </div>
         <div className='form-group'>
@@ -117,7 +109,6 @@ const Edit = (props) => {
             id='wait-time'
             onChange={handleFieldChange}
             placeholder={menuItem.waitTimeMins}
-            required
           />
         </div>
         <div className='form-group'>
@@ -128,7 +119,6 @@ const Edit = (props) => {
             id='ingredients'
             onChange={handleFieldChange}
             placeholder={menuItem.ingredients}
-            required
           />
         </div>
         <div className='form-group'>
@@ -139,12 +129,11 @@ const Edit = (props) => {
             id='calories'
             onChange={handleFieldChange}
             placeholder={menuItem.calories}
-            required
           />
         </div>
         <div className='form-group'>
           <label htmlFor='halal'>Halal</label>
-          <select name='halal' id='halal' onChange={handleFieldChange} required>
+          <select name='halal' id='halal' onChange={handleFieldChange}>
             <option value='true'>Halal</option>
             <option value='false'>Non-Halal</option>
           </select>
@@ -165,6 +154,36 @@ const Edit = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
+
+    const formData = new FormData();
+    formData.append("file", img);
+
+    axios({
+      method: "put",
+      url: "Values/UpdateMenu",
+      headers: { "Content-Type": "multipart/form-data" },
+      data: formData,
+      params: {
+        name: name,
+        description: description,
+        price: price,
+        waitTimeMins: waitTime,
+        ingredients: ingredients,
+        calories: calories,
+        halal: halal,
+        catID: category,
+        resUsername: user,
+      },
+    })
+      .then((res) => {
+        setLoading(false);
+        setResponse(res.data);
+      })
+      .catch((err) => {
+        setLoading(false);
+        setResponse(err.response.data);
+      });
   };
 
   const populateEdit = async () => {
