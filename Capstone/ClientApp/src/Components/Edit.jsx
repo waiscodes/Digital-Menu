@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Edit = () => {
+const Edit = (props) => {
   const { id } = useParams();
   const [response, setResponse] = useState([]);
   const [catResponse, setCatResponse] = useState();
+  const [user, setUser] = useState("test" /*props.activeUser.username*/);
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -170,4 +172,8 @@ const Edit = () => {
   );
 };
 
-export default Edit;
+export default connect((state) => {
+  return {
+    activeUser: state,
+  };
+})(Edit);
