@@ -62,16 +62,18 @@ namespace Capstone.Controllers
         }
 
         // UPDATE
-        public MenuItem UpdateMenuItem(string id, string property, string newValue)
+        public async Task<MenuItem> UpdateMenuItem(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resUsername, IFormFile file, IWebHostEnvironment hostEnvironment)
         {
             using (RestaurantContext context = new RestaurantContext())
             {
-                MenuItem menuItem = context.MenuItems
-                    .Where(m => m.ID == int.Parse(id))
-                    .SingleOrDefault();
-             
-                return menuItem;
+                MenuItem menuItem = GetMenuItemByID(menuID);
+                if (file != null)
+                {
+                    new ImageController(hostEnvironment).DeleteImageByName(menuItem.ImageName);
+                    await ImageController.UploadImage(menuItem.Name, file);
+                }
             }
+            return new MenuItem();
         }
 
         // DELETE
