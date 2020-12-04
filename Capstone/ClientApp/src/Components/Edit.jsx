@@ -158,7 +158,6 @@ const Edit = (props) => {
             name='img'
             accept='image/*'
             onChange={handleFieldChange}
-            value={""}
           />
         </div>
       </>
@@ -178,6 +177,16 @@ const Edit = (props) => {
       },
     }).then((catList) => {
       setCatResponse(catList.data);
+    });
+
+    await axios({
+      method: "get",
+      url: "Values/GetMenuItem",
+      params: {
+        id: id,
+      },
+    }).then((response) => {
+      setMenuItem(response.data);
       setLoading(false);
     });
   };
@@ -194,6 +203,7 @@ const Edit = (props) => {
           {content}
           <input type='submit' value='Submit' />
         </div>
+        <h1>{id}</h1>
       </form>
     </>
   );
