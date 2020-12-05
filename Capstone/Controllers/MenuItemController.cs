@@ -16,6 +16,28 @@ namespace Capstone.Controllers
         // CREATE
         public async Task<string> CreateMenuItem(string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resUsername, IFormFile file)
         {
+            // INT VALIDATION
+            double parsedPrice;
+            if (!double.TryParse(price, out parsedPrice)) throw new Exception("Price must be a number");
+            if (!UserInt.IsPositiveNumber(parsedPrice)) throw new Exception("Price can't be under $0");
+
+            int parsedWaitTime;
+            if (!int.TryParse(waitTimeMins, out parsedWaitTime)) throw new Exception("Price must be a number");
+            if (!UserInt.IsPositiveNumber(parsedWaitTime)) throw new Exception("Wait time can't be under 0 minutes");
+
+            int parsedCalories;
+            if (!int.TryParse(calories, out parsedCalories)) throw new Exception("Calories must be a number");
+            if (!UserInt.IsPositiveNumber(parsedCalories)) throw new Exception("Calories can't be under 0 Calories. You wish");
+
+            int parsedCatID;
+            if (!int.TryParse(catID, out parsedCatID)) throw new Exception("Category ID must be a Number");
+
+            //BOOL VALIDATION
+            bool parsedHalal;
+            halal = halal.ToLower().Trim();
+            if (!bool.TryParse(halal, out parsedHalal)) throw new Exception("Halal must be either true or false");
+
+            // STRING VALIDATION
             name = name.Trim();
             if (UserStr.IsLengthOverLimit(100, name)) throw new Exception("Name cannot exceed 100 characters");
 
