@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Capstone.Utilities;
+using System.Text.RegularExpressions;
 
 namespace Capstone.Controllers
 {
@@ -32,11 +33,11 @@ namespace Capstone.Controllers
             {
                 MenuItem newMenuItem = new MenuItem()
                 {
-                    Name = name,
-                    Description = description,
+                    Name = Regex.Escape(name),
+                    Description = Regex.Escape(description),
                     Price = double.Parse(price),
                     WaitTimeMins = int.Parse(waitTimeMins),
-                    Ingredients = ingredients,
+                    Ingredients = Regex.Escape(ingredients),
                     Calories = int.Parse(calories),
                     Halal = bool.Parse(halal),
                     CategoryID = int.Parse(catID),
