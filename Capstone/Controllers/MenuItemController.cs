@@ -6,6 +6,7 @@ using Capstone.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Capstone.Utilities;
 
 namespace Capstone.Controllers
 {
@@ -14,6 +15,16 @@ namespace Capstone.Controllers
         // CREATE
         public async Task<string> CreateMenuItem(string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resUsername, IFormFile file)
         {
+            name = name.Trim();
+            if (UserStr.IsLengthOverLimit(100, name)) throw new Exception("Name cannot exceed 100 characters");
+
+            description = description.Trim();
+            if (UserStr.IsLengthOverLimit(1000, description)) throw new Exception("Description cannot exceed 100 characters");
+
+            ingredients = ingredients.Trim();
+            if (UserStr.IsLengthOverLimit(1000, ingredients)) throw new Exception("Ingredients cannot exceed 100 characters");
+
+
             int redID = RestaurantController.GetResByUsername(resUsername).ID;
             string fileName = await ImageController.UploadImage(name, file);
 
