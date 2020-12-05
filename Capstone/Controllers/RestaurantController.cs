@@ -61,6 +61,11 @@ namespace Capstone.Controllers
             /* Email: Validate, trim, to lower
              * Password: Escape
              */
+
+            email = email.Trim().ToLower();
+            if (!UserStr.IsValidEmail(email)) throw new Exception("Please enter a valid Email address");
+            password = Regex.Escape(password);
+
             string username;
             using (RestaurantContext context = new RestaurantContext())
             {

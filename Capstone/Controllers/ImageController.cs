@@ -21,6 +21,9 @@ namespace Capstone.Controllers
         // CREATE
         public static async Task<string> UploadImage(string name, IFormFile file)
         {
+            /* TODO: take in ID as well add ID to name after putting dashes in spaces for name. 
+             */
+
             var fileExtension = Path.GetExtension(file.FileName);
             var newFileName = string.Concat(name, fileExtension);
 
