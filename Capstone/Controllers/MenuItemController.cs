@@ -77,6 +77,25 @@ namespace Capstone.Controllers
         // UPDATE
         public async Task<MenuItem> UpdateMenuItem(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, IFormFile file, IWebHostEnvironment hostEnvironment)
         {
+
+            // INT VALIDATION
+            int parsedMenuID;
+            if (!int.TryParse(menuID, out parsedMenuID)) throw new Exception("Menu ID must be a number");
+
+            int parsedPrice;
+            if (!int.TryParse(price, out parsedPrice)) throw new Exception("Price must be a number");
+            if (!UserInt.IsPositiveNumber(parsedPrice)) throw new Exception("Price can't be under $0");
+
+            int parsedWaitTime;
+            if (!int.TryParse(waitTimeMins, out parsedWaitTime)) throw new Exception("Price must be a number");
+            if (!UserInt.IsPositiveNumber(parsedWaitTime)) throw new Exception("Wait time can't be under 0 minutes");
+
+            int parsedCalories;
+            if (!int.TryParse(calories, out parsedCalories)) throw new Exception("Calories must be a number");
+            if (!UserInt.IsPositiveNumber(parsedCalories)) throw new Exception("Calories can't be under 0 Calories. You wish");
+
+
+            // STRING VALIDATION AND SANITIZATION
             name = name.Trim();
             if (UserStr.IsLengthOverLimit(100, name)) throw new Exception("Name cannot exceed 100 characters");
 
@@ -118,6 +137,9 @@ namespace Capstone.Controllers
         // DELETE
         public void DeleteMenuItem(string id, IWebHostEnvironment hostEnvironment)
         {
+            int parsedID;
+            if (!int.TryParse(id, out parsedID)) throw new Exception("ID must be a number");
+
             MenuItem menuItem = GetMenuItemByID(id);
             new ImageController(hostEnvironment)
                 .DeleteImageByName(menuItem.ImageName);
