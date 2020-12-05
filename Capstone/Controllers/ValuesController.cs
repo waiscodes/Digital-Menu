@@ -67,19 +67,40 @@ namespace Capstone.Controllers
         [HttpPost("CreateMenu")]
         public ActionResult<Task<string>> CreateMenu_POST(string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resUsername, IFormFile file)
         {
-            return new MenuItemController().CreateMenuItem(name, description, price, waitTimeMins, ingredients, calories, halal, catID, resUsername, file);
+            try
+            {
+                return new MenuItemController().CreateMenuItem(name, description, price, waitTimeMins, ingredients, calories, halal, catID, resUsername, file);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpGet("ListMenu")]
         public ActionResult<IEnumerable<MenuItem>> ListMenu_GET(string username)
         {
-            return new MenuItemController().ListMenuItems(username);
+            try
+            {
+                return new MenuItemController().ListMenuItems(username);
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
         }
 
         [HttpGet("GetMenuItem")]
         public ActionResult<MenuItem> GetMenuItem_GET(string id)
         {
-            return new MenuItemController().GetMenuItemByID(id);
+            try
+            {
+                return new MenuItemController().GetMenuItemByID(id);
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
         }
 
         [HttpGet("ImagePath")]
@@ -91,14 +112,28 @@ namespace Capstone.Controllers
         [HttpPut("UpdateMenu")]
         public ActionResult<Task<MenuItem>> UpdateMenu_PUT(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, IFormFile file)
         {
-            return new MenuItemController().UpdateMenuItem(menuID, name, description, price, waitTimeMins, ingredients, calories, halal, catID, file, _webHostEnvironment);
+            try
+            {
+                return new MenuItemController().UpdateMenuItem(menuID, name, description, price, waitTimeMins, ingredients, calories, halal, catID, file, _webHostEnvironment);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpDelete("DeleteMenu")]
         public ActionResult<string> DeleteMenu_DELETE(string id)
         {
-            new MenuItemController().DeleteMenuItem(id, _webHostEnvironment);
-            return "successfully deleted";
+            try
+            {
+                new MenuItemController().DeleteMenuItem(id, _webHostEnvironment);
+                return "successfully deleted";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
         }
     }
 }
