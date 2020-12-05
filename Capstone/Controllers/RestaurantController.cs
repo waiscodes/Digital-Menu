@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Capstone.Models;
 using Microsoft.AspNetCore.Mvc;
+using Capstone.Utilities;
 
 namespace Capstone.Controllers
 {
@@ -13,6 +14,10 @@ namespace Capstone.Controllers
         // CREATE
         public string Register(string resName, string resUsername, string email, string password, string resLocation)
         {
+            if (UserStr.IsLessThanOrEqualTo(75, resName))
+            {
+                throw new Exception("Restaurant Username cannot be over 75 Characters");
+            }
             using (RestaurantContext context = new RestaurantContext())
             {
                 if (context.Restaurants.Any(x => x.ResUsername == resUsername))
