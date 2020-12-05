@@ -37,8 +37,8 @@ namespace Capstone.Controllers
                     ResName = Regex.Escape(resName),
                     ResUsername = resUsername,
                     Email = email,
-                    Password = password,
-                    ResLocation = resLocation
+                    Password = Regex.Escape(password),
+                    ResLocation = Regex.Escape(resLocation)
                 };
                 context.Restaurants.Add(newRestaurant);
                 context.SaveChanges();
