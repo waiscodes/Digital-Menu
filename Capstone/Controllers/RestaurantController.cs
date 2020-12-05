@@ -16,8 +16,8 @@ namespace Capstone.Controllers
         {
             if (UserStr.IsLengthOverLimit(75, resName)) throw new Exception("Restaurant Name cannot exceed excede 75 Characters");
        
-            if (UserStr.IsLengthOverLimit(75, resName)) throw new Exception("Restaurant Username cannot exceed 75 Characters");
-            if (resName.Contains(" ")) throw new Exception("Username cannot contain a space");
+            if (UserStr.IsLengthOverLimit(75, resUsername)) throw new Exception("Restaurant Username cannot exceed 75 Characters");
+            if (resUsername.Contains(" ")) throw new Exception("Username cannot contain a space");
 
             if (UserStr.IsLengthOverLimit(64, email)) throw new Exception("Email cannot exceed 64 Characters");
             if (!UserStr.IsValidEmail(email)) throw new Exception("Please enter a valid email address");
