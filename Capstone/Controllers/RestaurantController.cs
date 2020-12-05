@@ -14,9 +14,15 @@ namespace Capstone.Controllers
         // CREATE
         public string Register(string resName, string resUsername, string email, string password, string resLocation)
         {
-            if (UserStr.IsLengthOverLimit(75, resName)) throw new Exception("Restaurant Username cannot be over 75 Characters");
+            if (UserStr.IsLengthOverLimit(75, resName)) throw new Exception("Restaurant Name cannot exceed excede 75 Characters");
        
-            if (UserStr.IsLengthOverLimit(75, resName)) throw new Exception("Restaurant Username cannot be over 75 Characters");
+            if (UserStr.IsLengthOverLimit(75, resName)) throw new Exception("Restaurant Username cannot exceed 75 Characters");
+
+            if (UserStr.IsLengthOverLimit(64, email)) throw new Exception("Email cannot exceed 64 Characters");
+
+            if (UserStr.IsLengthOverLimit(50, password)) throw new Exception("Password cannot exceed 50 Characters");
+
+            if (UserStr.IsLengthOverLimit(75, resLocation)) throw new Exception("Address cannot exceed 75 Characters");
 
             using (RestaurantContext context = new RestaurantContext())
             {
