@@ -1,17 +1,17 @@
 ﻿using System;
 namespace Capstone.Utilities
 {
-    public static class UserString
+    public static class UserStr
     {
         public static bool IsLessThanOrEqualTo(int length, string str)
         {
             if (str.Length <= length)
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
     }
