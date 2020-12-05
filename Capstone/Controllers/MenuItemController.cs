@@ -66,10 +66,13 @@ namespace Capstone.Controllers
 
         public MenuItem GetMenuItemByID(string id)
         {
+            int parsedID;
+            if (!int.TryParse(id, out parsedID)) throw new Exception("ID must be a number");
+
             using (RestaurantContext context = new RestaurantContext())
             {
                return context.MenuItems
-                    .Where(m => m.ID == int.Parse(id))
+                    .Where(m => m.ID == parsedID)
                     .SingleOrDefault();
             }
         }
@@ -141,8 +144,6 @@ namespace Capstone.Controllers
         // DELETE
         public void DeleteMenuItem(string id, IWebHostEnvironment hostEnvironment)
         {
-            int parsedID;
-            if (!int.TryParse(id, out parsedID)) throw new Exception("ID must be a number");
 
             MenuItem menuItem = GetMenuItemByID(id);
             new ImageController(hostEnvironment)
