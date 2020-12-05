@@ -85,8 +85,8 @@ namespace Capstone.Controllers
             int parsedMenuID;
             if (!int.TryParse(menuID, out parsedMenuID)) throw new Exception("Menu ID must be a number");
 
-            int parsedPrice;
-            if (!int.TryParse(price, out parsedPrice)) throw new Exception("Price must be a number");
+            double parsedPrice;
+            if (!double.TryParse(price, out parsedPrice)) throw new Exception("Price must be a number");
             if (!UserInt.IsPositiveNumber(parsedPrice)) throw new Exception("Price can't be under $0");
 
             int parsedWaitTime;
@@ -96,6 +96,9 @@ namespace Capstone.Controllers
             int parsedCalories;
             if (!int.TryParse(calories, out parsedCalories)) throw new Exception("Calories must be a number");
             if (!UserInt.IsPositiveNumber(parsedCalories)) throw new Exception("Calories can't be under 0 Calories. You wish");
+
+            int parsedCatID;
+            if (!int.TryParse(catID, out parsedCatID)) throw new Exception("Category ID must be a Number");
 
             //BOOL VALIDATION
             bool parsedHalal;
@@ -114,7 +117,7 @@ namespace Capstone.Controllers
 
             using (RestaurantContext context = new RestaurantContext())
             {
-                MenuItem menuItem = context.MenuItems.Where(m => m.ID == int.Parse(menuID)).SingleOrDefault();
+                MenuItem menuItem = context.MenuItems.Where(m => m.ID == parsedMenuID).SingleOrDefault();
                 if (!string.IsNullOrWhiteSpace(name)) menuItem.Name = Regex.Escape(name);
                 
                 if (file != null)
@@ -124,17 +127,17 @@ namespace Capstone.Controllers
                 }
                 if (!string.IsNullOrWhiteSpace(description)) menuItem.Description = Regex.Escape(description);
                 
-                if (!string.IsNullOrWhiteSpace(price)) menuItem.Price = double.Parse(price);
+                if (!string.IsNullOrWhiteSpace(price)) menuItem.Price = parsedPrice;
                 
-                if (!string.IsNullOrWhiteSpace(waitTimeMins)) menuItem.WaitTimeMins = int.Parse(waitTimeMins);
+                if (!string.IsNullOrWhiteSpace(waitTimeMins)) menuItem.WaitTimeMins = parsedWaitTime;
                 
                 if (!string.IsNullOrWhiteSpace(ingredients)) menuItem.Ingredients = Regex.Escape(ingredients);
                 
-                if (!string.IsNullOrWhiteSpace(calories)) menuItem.Calories = int.Parse(calories);
+                if (!string.IsNullOrWhiteSpace(calories)) menuItem.Calories = parsedCalories;
                 
-                if (!string.IsNullOrWhiteSpace(halal)) menuItem.Halal = bool.Parse(halal);
+                if (!string.IsNullOrWhiteSpace(halal)) menuItem.Halal = parsedHalal;
                 
-                if (!string.IsNullOrWhiteSpace(catID)) menuItem.CategoryID = int.Parse(catID);
+                if (!string.IsNullOrWhiteSpace(catID)) menuItem.CategoryID = parsedCatID;
                 
                 context.SaveChanges();
             }
