@@ -94,6 +94,10 @@ namespace Capstone.Controllers
             if (!int.TryParse(calories, out parsedCalories)) throw new Exception("Calories must be a number");
             if (!UserInt.IsPositiveNumber(parsedCalories)) throw new Exception("Calories can't be under 0 Calories. You wish");
 
+            //BOOL VALIDATION
+            bool parsedHalal;
+            halal = halal.ToLower().Trim();
+            if (!bool.TryParse(halal, out parsedHalal)) throw new Exception("Halal must be either true or false");
 
             // STRING VALIDATION AND SANITIZATION
             name = name.Trim();
