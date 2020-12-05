@@ -17,8 +17,10 @@ namespace Capstone.Controllers
             if (UserStr.IsLengthOverLimit(75, resName)) throw new Exception("Restaurant Name cannot exceed excede 75 Characters");
        
             if (UserStr.IsLengthOverLimit(75, resName)) throw new Exception("Restaurant Username cannot exceed 75 Characters");
+            if (resName.Contains(" ")) throw new Exception("Username cannot contain a space");
 
             if (UserStr.IsLengthOverLimit(64, email)) throw new Exception("Email cannot exceed 64 Characters");
+            if (!UserStr.IsValidEmail(email)) throw new Exception("Please enter a valid email address");
 
             if (UserStr.IsLengthOverLimit(50, password)) throw new Exception("Password cannot exceed 50 Characters");
 
@@ -26,10 +28,7 @@ namespace Capstone.Controllers
 
             using (RestaurantContext context = new RestaurantContext())
             {
-                if (context.Restaurants.Any(x => x.ResUsername == resUsername))
-                {
-                    throw new Exception("Restaurant username is taken");
-                }
+                if (context.Restaurants.Any(x => x.ResUsername == resUsername)) throw new Exception("Restaurant username is taken");
 
                 Restaurant newRestaurant = new Restaurant()
                 {
