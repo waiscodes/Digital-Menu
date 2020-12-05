@@ -54,6 +54,7 @@ namespace Capstone.Controllers
         // READ
         public List<MenuItem> ListMenuItems(string username)
         {
+            username = username.Trim().ToLower();
             List<MenuItem> menuList;
             Restaurant restaurant = RestaurantController.GetResByUsername(username);
             using (RestaurantContext context = new RestaurantContext())
@@ -76,23 +77,32 @@ namespace Capstone.Controllers
         // UPDATE
         public async Task<MenuItem> UpdateMenuItem(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, IFormFile file, IWebHostEnvironment hostEnvironment)
         {
+            name = name.Trim();
+            if (UserStr.IsLengthOverLimit(100, name)) throw new Exception("Name cannot exceed 100 characters");
+
+            description = description.Trim();
+            if (UserStr.IsLengthOverLimit(1000, description)) throw new Exception("Description cannot exceed 100 characters");
+
+            ingredients = ingredients.Trim();
+            if (UserStr.IsLengthOverLimit(1000, ingredients)) throw new Exception("Ingredients cannot exceed 100 characters");
+
             using (RestaurantContext context = new RestaurantContext())
             {
                 MenuItem menuItem = context.MenuItems.Where(m => m.ID == int.Parse(menuID)).SingleOrDefault();
-                if (!string.IsNullOrWhiteSpace(name)) menuItem.Name = name;
+                if (!string.IsNullOrWhiteSpace(name)) menuItem.Name = Regex.Escape(name);
                 
                 if (file != null)
                 {
                     new ImageController(hostEnvironment).DeleteImageByName(menuItem.ImageName);
                     await ImageController.UploadImage(menuItem.Name, file);
                 }
-                if (!string.IsNullOrWhiteSpace(description)) menuItem.Description = description;
+                if (!string.IsNullOrWhiteSpace(description)) menuItem.Description = Regex.Escape(description);
                 
                 if (!string.IsNullOrWhiteSpace(price)) menuItem.Price = double.Parse(price);
                 
                 if (!string.IsNullOrWhiteSpace(waitTimeMins)) menuItem.WaitTimeMins = int.Parse(waitTimeMins);
                 
-                if (!string.IsNullOrWhiteSpace(ingredients)) menuItem.Ingredients = ingredients;
+                if (!string.IsNullOrWhiteSpace(ingredients)) menuItem.Ingredients = Regex.Escape(ingredients);
                 
                 if (!string.IsNullOrWhiteSpace(calories)) menuItem.Calories = int.Parse(calories);
                 
