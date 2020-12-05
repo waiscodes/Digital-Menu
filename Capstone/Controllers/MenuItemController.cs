@@ -67,44 +67,27 @@ namespace Capstone.Controllers
             using (RestaurantContext context = new RestaurantContext())
             {
                 MenuItem menuItem = context.MenuItems.Where(m => m.ID == int.Parse(menuID)).SingleOrDefault();
-                if (!string.IsNullOrWhiteSpace(name))
-                {
-                    menuItem.Name = name;
-                    context.SaveChanges();
-                }
+                if (!string.IsNullOrWhiteSpace(name)) menuItem.Name = name;
+                
                 if (file != null)
                 {
                     new ImageController(hostEnvironment).DeleteImageByName(menuItem.ImageName);
                     await ImageController.UploadImage(menuItem.Name, file);
                 }
-                if (!string.IsNullOrWhiteSpace(description))
-                {
-                    menuItem.Description = description;
-                }
-                if (!string.IsNullOrWhiteSpace(price))
-                {
-                    menuItem.Price = double.Parse(price);
-                }
-                if (!string.IsNullOrWhiteSpace(waitTimeMins))
-                {
-                    menuItem.WaitTimeMins = int.Parse(waitTimeMins);
-                }
-                if (!string.IsNullOrWhiteSpace(ingredients))
-                {
-                    menuItem.Ingredients = ingredients;
-                }
-                if (!string.IsNullOrWhiteSpace(calories))
-                {
-                    menuItem.Calories = int.Parse(calories);
-                }
-                if (!string.IsNullOrWhiteSpace(halal))
-                {
-                    menuItem.Halal = bool.Parse(halal);
-                }
-                if (!string.IsNullOrWhiteSpace(catID))
-                {
-                    menuItem.CategoryID = int.Parse(catID);
-                }
+                if (!string.IsNullOrWhiteSpace(description)) menuItem.Description = description;
+                
+                if (!string.IsNullOrWhiteSpace(price)) menuItem.Price = double.Parse(price);
+                
+                if (!string.IsNullOrWhiteSpace(waitTimeMins)) menuItem.WaitTimeMins = int.Parse(waitTimeMins);
+                
+                if (!string.IsNullOrWhiteSpace(ingredients)) menuItem.Ingredients = ingredients;
+                
+                if (!string.IsNullOrWhiteSpace(calories)) menuItem.Calories = int.Parse(calories);
+                
+                if (!string.IsNullOrWhiteSpace(halal)) menuItem.Halal = bool.Parse(halal);
+                
+                if (!string.IsNullOrWhiteSpace(catID)) menuItem.CategoryID = int.Parse(catID);
+                
                 context.SaveChanges();
             }
             return new MenuItem();
