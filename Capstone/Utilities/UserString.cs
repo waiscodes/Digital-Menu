@@ -22,5 +22,11 @@ namespace Capstone.Utilities
             Regex regex = new Regex(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
             return regex.IsMatch(email);
         }
+
+        public static bool ContainsSpecialChar(string str)
+        {
+            Regex regex = new Regex(@"\|!#$%&/()=?»«@£§€{}.-;'<>_,");
+            return regex.IsMatch(str);
+        }
     }
 }
