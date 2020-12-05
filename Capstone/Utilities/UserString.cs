@@ -7,14 +7,8 @@ namespace Capstone.Utilities
     {
         public static bool IsLengthOverLimit(int length, string str)
         {
-            if (str.Length <= length)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            if (str.Length <= length) return false;
+            else return true;
         }
 
         public static bool IsValidEmail(string email)
