@@ -57,12 +57,12 @@ namespace Capstone.Controllers
                 {
                     Name = Regex.Escape(name),
                     Description = Regex.Escape(description),
-                    Price = double.Parse(price),
+                    Price = parsedPrice,
                     WaitTimeMins = int.Parse(waitTimeMins),
                     Ingredients = Regex.Escape(ingredients),
-                    Calories = int.Parse(calories),
-                    Halal = bool.Parse(halal),
-                    CategoryID = int.Parse(catID),
+                    Calories = parsedCalories,
+                    Halal = parsedHalal,
+                    CategoryID = parsedCatID,
                     RestaurantID = redID,
                     ImageName = fileName
                 };
