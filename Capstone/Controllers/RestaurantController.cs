@@ -18,7 +18,7 @@ namespace Capstone.Controllers
             resName = resName.Trim();
             if (UserStr.IsLengthOverLimit(75, resName)) throw new Exception("Restaurant Name cannot exceed excede 75 Characters");
 
-            resUsername = resUsername.Trim();
+            resUsername = resUsername.Trim().ToLower();
             if (UserStr.IsLengthOverLimit(75, resUsername)) throw new Exception("Restaurant Username cannot exceed 75 Characters");
             if (resUsername.Contains(" ")) throw new Exception("Username cannot contain a space");
             if (UserStr.ContainsSpecialChar(resUsername)) throw new Exception("Username cannot contain special characters");
@@ -58,6 +58,9 @@ namespace Capstone.Controllers
         // READ
         public string Login(string email, string password)
         {
+            /* Email: Validate, trim, to lower
+             * Password: Escape
+             */
             string username;
             using (RestaurantContext context = new RestaurantContext())
             {
@@ -83,6 +86,8 @@ namespace Capstone.Controllers
 
         public static Restaurant GetResByUsername(string username)
         {
+            /* Username: ToLower
+             */
             Restaurant restaurant;
             using (RestaurantContext context = new RestaurantContext())
             {
