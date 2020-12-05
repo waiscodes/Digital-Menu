@@ -58,10 +58,6 @@ namespace Capstone.Controllers
         // READ
         public string Login(string email, string password)
         {
-            /* Email: Validate, trim, to lower
-             * Password: Escape
-             */
-
             email = email.Trim().ToLower();
             if (!UserStr.IsValidEmail(email)) throw new Exception("Please enter a valid Email address");
             password = Regex.Escape(password);
@@ -91,8 +87,7 @@ namespace Capstone.Controllers
 
         public static Restaurant GetResByUsername(string username)
         {
-            /* Username: ToLower
-             */
+            username = username.Trim().ToLower();
             Restaurant restaurant;
             using (RestaurantContext context = new RestaurantContext())
             {
