@@ -38,22 +38,28 @@ namespace Capstone.Controllers
         [HttpPost("Login")]
         public ActionResult<string> Login_GET(string email, string password)
         {
-            return new RestaurantController().Login(email, password);
+            try
+            {
+                return new RestaurantController().Login(email, password);
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
         }
 
         // // // // // // // //  CATEGORIES // // // // // // // // 
-
-        [HttpPost("CreateCat")]
-        public ActionResult<string> CreateCat_POST(string catName, string username)
-        {
-            new CategoryController().CreateCategory(catName, username);
-            return "Successfully created new category";
-        }
-
         [HttpGet("ListCat")]
         public ActionResult<List<Category>> ListCat_GET(string username)
         {
-            return new CategoryController().ListCategories(username);
+            try
+            {
+                return new CategoryController().ListCategories(username);
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
         }
 
         // // // // // // // //  MENU ITEMS // // // // // // // //
