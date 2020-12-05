@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Capstone.Models;
 using Microsoft.AspNetCore.Mvc;
 using Capstone.Utilities;
+using System.Text.RegularExpressions;
 
 namespace Capstone.Controllers
 {
@@ -33,7 +34,7 @@ namespace Capstone.Controllers
 
                 Restaurant newRestaurant = new Restaurant()
                 {
-                    ResName = resName,
+                    ResName = Regex.Escape(resName),
                     ResUsername = resUsername,
                     Email = email,
                     Password = password,
