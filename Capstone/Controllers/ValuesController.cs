@@ -111,11 +111,12 @@ namespace Capstone.Controllers
         }
 
         [HttpPut("UpdateMenu")]
-        public ActionResult<Task<MenuItem>> UpdateMenu_PUT(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, IFormFile file)
+        public ActionResult<string> UpdateMenu_PUT(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, IFormFile file)
         {
             try
             {
-                return new MenuItemController().UpdateMenuItem(menuID, name, description, price, waitTimeMins, ingredients, calories, halal, catID, file, _webHostEnvironment);
+                new MenuItemController().UpdateMenuValidator(menuID, name, description, price, waitTimeMins, ingredients, calories, halal, catID, file, _webHostEnvironment);
+                return "Gottem";
             }
             catch (Exception e)
             {

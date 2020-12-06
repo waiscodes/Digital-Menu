@@ -145,14 +145,12 @@ namespace Capstone.Controllers
             ingredients = ingredients.Trim();
             if (UserStr.IsLengthOverLimit(1000, ingredients)) throw new Exception("Ingredients cannot exceed 100 characters");
 
-            UpdateMenuItem(menuID, name, description, price, waitTimeMins, ingredients, calories, halal, catID, file, hostEnvironment);
+            UpdateMenuItem(parsedMenuID, name, description, parsedPrice, parsedWaitTime, ingredients, parsedCalories, parsedHalal, parsedCatID, file, hostEnvironment);
         }
 
         // UPDATE
-        public async void UpdateMenuItem(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, IFormFile file, IWebHostEnvironment hostEnvironment)
+        public async void UpdateMenuItem(int parsedMenuID, string name, string description, double parsedPrice, int parsedWaitTime, string ingredients, int parsedCalories, bool parsedHalal, int parsedCatID, IFormFile file, IWebHostEnvironment hostEnvironment)
         {
-
-
             using (RestaurantContext context = new RestaurantContext())
             {
                 if (!context.MenuItems.Any(m => m.ID == parsedMenuID)) throw new Exception("NOT FOUND: Menu item does not exist");
@@ -167,21 +165,20 @@ namespace Capstone.Controllers
                 }
                 if (!string.IsNullOrWhiteSpace(description)) menuItem.Description = Regex.Escape(description);
                 
-                if (!string.IsNullOrWhiteSpace(price)) menuItem.Price = parsedPrice;
+                if (!string.IsNullOrWhiteSpace(parsedPrice.ToString())) menuItem.Price = parsedPrice;
                 
-                if (!string.IsNullOrWhiteSpace(waitTimeMins)) menuItem.WaitTimeMins = parsedWaitTime;
+                if (!string.IsNullOrWhiteSpace(parsedWaitTime.ToString())) menuItem.WaitTimeMins = parsedWaitTime;
                 
                 if (!string.IsNullOrWhiteSpace(ingredients)) menuItem.Ingredients = Regex.Escape(ingredients);
                 
-                if (!string.IsNullOrWhiteSpace(calories)) menuItem.Calories = parsedCalories;
+                if (!string.IsNullOrWhiteSpace(parsedCalories.ToString())) menuItem.Calories = parsedCalories;
                 
-                if (!string.IsNullOrWhiteSpace(halal)) menuItem.Halal = parsedHalal;
+                if (!string.IsNullOrWhiteSpace(parsedHalal.ToString())) menuItem.Halal = parsedHalal;
                 
-                if (!string.IsNullOrWhiteSpace(catID)) menuItem.CategoryID = parsedCatID;
+                if (!string.IsNullOrWhiteSpace(parsedCatID.ToString())) menuItem.CategoryID = parsedCatID;
                 
                 context.SaveChanges();
             }
-            return new MenuItem();
         }
 
         // DELETE
