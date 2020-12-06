@@ -19,8 +19,8 @@ namespace Capstone.Utilities
 
         public static bool ContainsSpecialChar(string str)
         {
-            Regex regex = new Regex(@"\|!#$%&/()=?»«@£§€{}.-;'<>_,");
-            return regex.IsMatch(str);
+            if (str.Contains("!") || str.Contains("@") || str.Contains("#") || str.Contains("$") || str.Contains("%") || str.Contains("^") || str.Contains("&") || str.Contains("*") || str.Contains("(") || str.Contains(")") || str.Contains(".") || str.Contains(",") || str.Contains(">") || str.Contains("<") || str.Contains("{") || str.Contains("}") || str.Contains("[") || str.Contains("]") || str.Contains("?") || str.Contains("~") || str.Contains("`") || str.Contains(";")) return true;
+            else return false; 
         }
     }
 }
