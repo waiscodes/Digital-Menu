@@ -92,7 +92,14 @@ namespace Capstone.Controllers
             Restaurant restaurant;
             using (RestaurantContext context = new RestaurantContext())
             {
-                restaurant = context.Restaurants.Where(r => r.ResUsername == username).SingleOrDefault();
+                if (context.Restaurants.Any(r => r.ResUsername == username))
+                {
+                    restaurant = context.Restaurants.Where(r => r.ResUsername == username).SingleOrDefault();
+                }
+                else
+                {
+                    throw new Exception("NOT FOUND: No restaurant by that name");
+                }
             }
             return restaurant;
         }
