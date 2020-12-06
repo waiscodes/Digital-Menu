@@ -14,7 +14,7 @@ namespace Capstone.Controllers
     public class MenuItemController : Controller
     {
         // CREATE
-        public async void CreateMenuItem(string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resUsername, IFormFile file)
+        public async Task<string> CreateMenuItem(string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resUsername, IFormFile file)
         {
             // INT VALIDATION
             double parsedPrice;
@@ -69,7 +69,7 @@ namespace Capstone.Controllers
                 context.MenuItems.Add(newMenuItem);
                 context.SaveChanges();
 
-                return "Sucess";
+                return "success";
             }
         }
 
