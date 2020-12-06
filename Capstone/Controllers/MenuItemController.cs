@@ -171,31 +171,24 @@ namespace Capstone.Controllers
         // UPDATE
         public async void UpdateMenuItem(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, IFormFile file, IWebHostEnvironment hostEnvironment)
         {
-
-
-            halal = halal.ToLower().Trim();
-            name = name.Trim();
-            description = description.Trim();
-            ingredients = ingredients.Trim();
-
             using (RestaurantContext context = new RestaurantContext())
             {
                 MenuItem menuItem = context.MenuItems.Where(m => m.ID == int.Parse(menuID)).SingleOrDefault();
-                if (!string.IsNullOrWhiteSpace(name)) menuItem.Name = Regex.Escape(name);
+                if (!string.IsNullOrWhiteSpace(name)) menuItem.Name = Regex.Escape(name).Trim();
                 
                 if (file != null)
                 {
                     new ImageController(hostEnvironment).DeleteImageByName(menuItem.ImageName);
                     await ImageController.UploadImage(menuItem.Name, file);
                 }
-                if (!string.IsNullOrWhiteSpace(description)) menuItem.Description = Regex.Escape(description);
-                
+                if (!string.IsNullOrWhiteSpace(description)) menuItem.Description = Regex.Escape(description).Trim();
+
                 if (!string.IsNullOrWhiteSpace(price)) menuItem.Price = double.Parse(price);
                 
                 if (!string.IsNullOrWhiteSpace(waitTimeMins)) menuItem.WaitTimeMins = int.Parse(waitTimeMins);
                 
-                if (!string.IsNullOrWhiteSpace(ingredients)) menuItem.Ingredients = Regex.Escape(ingredients);
-                
+                if (!string.IsNullOrWhiteSpace(ingredients)) menuItem.Ingredients = Regex.Escape(ingredients).Trim();
+
                 if (!string.IsNullOrWhiteSpace(calories)) menuItem.Calories = int.Parse(calories);
                 
                 if (!string.IsNullOrWhiteSpace(halal)) menuItem.Halal = bool.Parse(halal);
