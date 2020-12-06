@@ -56,7 +56,7 @@ namespace Capstone.Controllers
             CreateMenuItem(name, description, parsedPrice, parsedWaitTime, ingredients, parsedCalories, parsedHalal, parsedCatID, resUsername, file);
         }
 
-        public async Task<string> CreateMenuItem(string name, string description, double parsedPrice, int parsedWaitTime, string ingredients, int parsedCalories, bool parsedHalal, int parsedCatID, string resUsername, IFormFile file)
+        public async void CreateMenuItem(string name, string description, double parsedPrice, int parsedWaitTime, string ingredients, int parsedCalories, bool parsedHalal, int parsedCatID, string resUsername, IFormFile file)
         {
 
             int redID = RestaurantController.GetResByUsername(resUsername).ID;
@@ -80,8 +80,6 @@ namespace Capstone.Controllers
                 };
                 context.MenuItems.Add(newMenuItem);
                 context.SaveChanges();
-
-                return "success";
             }
         }
 
