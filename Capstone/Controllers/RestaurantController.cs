@@ -35,6 +35,7 @@ namespace Capstone.Controllers
             using (RestaurantContext context = new RestaurantContext())
             {
                 if (context.Restaurants.Any(x => x.ResUsername == resUsername)) throw new Exception("Restaurant username is taken");
+                if (context.Restaurants.Any(x => x.Email == email)) throw new Exception("An account by that email already exists");
 
                 Restaurant newRestaurant = new Restaurant()
                 {
