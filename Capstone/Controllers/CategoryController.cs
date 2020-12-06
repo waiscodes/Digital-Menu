@@ -9,6 +9,22 @@ namespace Capstone.Controllers
 {
     public class CategoryController : Controller
     {
+        // CREATE
+        public void CreateCategory(string catName, string username)
+        {
+            Restaurant theUser = RestaurantController.GetResByUsername(username);
+            using (RestaurantContext context = new RestaurantContext())
+            {
+                Category newCategory = new Category()
+                {
+                    Name = catName,
+                    RestaurantID = theUser.ID
+                };
+                context.Add(newCategory);
+                context.SaveChanges();
+            }
+        }
+
         // READ
         public List<Category> ListCategories(string username)
         {
