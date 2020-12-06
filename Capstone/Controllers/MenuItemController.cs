@@ -116,45 +116,67 @@ namespace Capstone.Controllers
             GetMenuItemByID(menuID);
 
             double parsedPrice;
-            if (!double.TryParse(price, out parsedPrice)) throw new Exception("Price must be a number");
-            if (!UserInt.IsPositiveNumber(parsedPrice)) throw new Exception("Price can't be under $0");
+            if (!string.IsNullOrWhiteSpace(price))
+            {
+                if (!double.TryParse(price, out parsedPrice)) throw new Exception("Price must be a number");
+                if (!UserInt.IsPositiveNumber(parsedPrice)) throw new Exception("Price can't be under $0");
+            }
 
             int parsedWaitTime;
-            if (!int.TryParse(waitTimeMins, out parsedWaitTime)) throw new Exception("Price must be a number");
-            if (!UserInt.IsPositiveNumber(parsedWaitTime)) throw new Exception("Wait time can't be under 0 minutes");
+            if (!string.IsNullOrWhiteSpace(waitTimeMins))
+            {
+                if (!int.TryParse(waitTimeMins, out parsedWaitTime)) throw new Exception("Price must be a number");
+                if (!UserInt.IsPositiveNumber(parsedWaitTime)) throw new Exception("Wait time can't be under 0 minutes");
+            }
 
             int parsedCalories;
-            if (!int.TryParse(calories, out parsedCalories)) throw new Exception("Calories must be a number");
-            if (!UserInt.IsPositiveNumber(parsedCalories)) throw new Exception("Calories can't be under 0 Calories. You wish");
+            if (!string.IsNullOrWhiteSpace(calories))
+            {
+                if (!int.TryParse(calories, out parsedCalories)) throw new Exception("Calories must be a number");
+                if (!UserInt.IsPositiveNumber(parsedCalories)) throw new Exception("Calories can't be under 0 Calories. You wish");
+            }
 
             int parsedCatID;
-            if (!int.TryParse(catID, out parsedCatID)) throw new Exception("Category ID must be a Number");
+            if (!string.IsNullOrWhiteSpace(catID))
+            {
+                if (!int.TryParse(catID, out parsedCatID)) throw new Exception("Category ID must be a Number");
+            }
 
             //BOOL VALIDATION
             bool parsedHalal;
-            halal = halal.ToLower().Trim();
-            if (!bool.TryParse(halal, out parsedHalal)) throw new Exception("Halal must be either true or false");
+            if (!string.IsNullOrWhiteSpace(halal))
+            {
+                halal = halal.ToLower().Trim();
+                if (!bool.TryParse(halal, out parsedHalal)) throw new Exception("Halal must be either true or false");
+            }
 
             // STRING VALIDATION AND SANITIZATION
-            name = name.Trim();
-            if (UserStr.IsLengthOverLimit(100, name)) throw new Exception("Name cannot exceed 100 characters");
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                name = name.Trim();
+                if (UserStr.IsLengthOverLimit(100, name)) throw new Exception("Name cannot exceed 100 characters");
+            }
 
-            description = description.Trim();
-            if (UserStr.IsLengthOverLimit(1000, description)) throw new Exception("Description cannot exceed 100 characters");
+            if (!string.IsNullOrWhiteSpace(description))
+            {
+                description = description.Trim();
+                if (UserStr.IsLengthOverLimit(1000, description)) throw new Exception("Description cannot exceed 100 characters");
+            }
 
-            ingredients = ingredients.Trim();
-            if (UserStr.IsLengthOverLimit(1000, ingredients)) throw new Exception("Ingredients cannot exceed 100 characters");
+            if (!string.IsNullOrWhiteSpace(ingredients))
+            {
+                ingredients = ingredients.Trim();
+                if (UserStr.IsLengthOverLimit(1000, ingredients)) throw new Exception("Ingredients cannot exceed 100 characters");
+            }
 
-            UpdateMenuItem(parsedMenuID, name, description, parsedPrice, parsedWaitTime, ingredients, parsedCalories, parsedHalal, parsedCatID, file, hostEnvironment);
+            UpdateMenuItem(menuID, name, description, price, waitTimeMins, ingredients, calories, halal, catID, file, hostEnvironment);
         }
 
         // UPDATE
-        public async void UpdateMenuItem(int parsedMenuID, string name, string description, double parsedPrice, int parsedWaitTime, string ingredients, int parsedCalories, bool parsedHalal, int parsedCatID, IFormFile file, IWebHostEnvironment hostEnvironment)
+        public async void UpdateMenuItem(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, IFormFile file, IWebHostEnvironment hostEnvironment)
         {
             using (RestaurantContext context = new RestaurantContext())
             {
-                if (!context.MenuItems.Any(m => m.ID == parsedMenuID)) throw new Exception("NOT FOUND: Menu item does not exist");
-
                 MenuItem menuItem = context.MenuItems.Where(m => m.ID == parsedMenuID).SingleOrDefault();
                 if (!string.IsNullOrWhiteSpace(name)) menuItem.Name = Regex.Escape(name);
                 
