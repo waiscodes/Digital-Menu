@@ -148,6 +148,8 @@ namespace Capstone.Controllers
 
             using (RestaurantContext context = new RestaurantContext())
             {
+                if (!context.MenuItems.Any(m => m.ID == parsedMenuID)) throw new Exception("NOT FOUND: Menu item does not exist");
+
                 MenuItem menuItem = context.MenuItems.Where(m => m.ID == parsedMenuID).SingleOrDefault();
                 if (!string.IsNullOrWhiteSpace(name)) menuItem.Name = Regex.Escape(name);
                 
