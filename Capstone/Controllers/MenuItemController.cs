@@ -108,13 +108,12 @@ namespace Capstone.Controllers
             }
         }
 
-        // UPDATE
-        public async Task<MenuItem> UpdateMenuItem(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, IFormFile file, IWebHostEnvironment hostEnvironment)
+        public void UpdateMenuValidator(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, IFormFile file, IWebHostEnvironment hostEnvironment)
         {
-
             // INT VALIDATION
             int parsedMenuID;
             if (!int.TryParse(menuID, out parsedMenuID)) throw new Exception("Menu ID must be a number");
+            GetMenuItemByID(menuID);
 
             double parsedPrice;
             if (!double.TryParse(price, out parsedPrice)) throw new Exception("Price must be a number");
@@ -145,6 +144,14 @@ namespace Capstone.Controllers
 
             ingredients = ingredients.Trim();
             if (UserStr.IsLengthOverLimit(1000, ingredients)) throw new Exception("Ingredients cannot exceed 100 characters");
+
+            UpdateMenuItem(menuID, name, description, price, waitTimeMins, ingredients, calories, halal, catID, file, hostEnvironment);
+        }
+
+        // UPDATE
+        public async void UpdateMenuItem(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, IFormFile file, IWebHostEnvironment hostEnvironment)
+        {
+
 
             using (RestaurantContext context = new RestaurantContext())
             {
