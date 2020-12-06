@@ -23,6 +23,8 @@ namespace Capstone.Controllers
         {
             if (name.Length > 10) name = name.Substring(0, 10);
 
+            name = name.Replace(" ", "-");
+
             var fileExtension = Path.GetExtension(file.FileName);
             var newFileName = string.Concat(name, fileExtension);
 
