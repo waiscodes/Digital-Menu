@@ -14,7 +14,8 @@ namespace Capstone.Controllers
     public class MenuItemController : Controller
     {
         // CREATE
-        public async Task<string> CreateMenuItem(string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resUsername, IFormFile file)
+
+        public void CreateMenuValidator(string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resUsername, IFormFile file)
         {
             // INT VALIDATION
             double parsedPrice;
@@ -47,8 +48,19 @@ namespace Capstone.Controllers
             ingredients = ingredients.Trim();
             if (UserStr.IsLengthOverLimit(1000, ingredients)) throw new Exception("Ingredients cannot exceed 100 characters");
 
+            using (RestaurantContext context = new RestaurantContext())
+            {
+                if (!context.Restaurants.Any(r => r.ResUsername == resUsername)) throw new Exception("Restaurant not found");
+            }
+
+            CreateMenuItem(name, description, parsedPrice, parsedWaitTime, ingredients, parsedCalories, parsedHalal, parsedCatID, resUsername, file);
+        }
+
+        public async Task<string> CreateMenuItem(string name, string description, double parsedPrice, int parsedWaitTime, string ingredients, int parsedCalories, bool parsedHalal, int parsedCatID, string resUsername, IFormFile file)
+        {
 
             int redID = RestaurantController.GetResByUsername(resUsername).ID;
+
             string fileName = await ImageController.UploadImage(name, file);
 
             using (RestaurantContext context = new RestaurantContext())
@@ -58,7 +70,7 @@ namespace Capstone.Controllers
                     Name = Regex.Escape(name),
                     Description = Regex.Escape(description),
                     Price = parsedPrice,
-                    WaitTimeMins = int.Parse(waitTimeMins),
+                    WaitTimeMins = parsedWaitTime,
                     Ingredients = Regex.Escape(ingredients),
                     Calories = parsedCalories,
                     Halal = parsedHalal,
