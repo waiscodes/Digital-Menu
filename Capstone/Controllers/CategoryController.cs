@@ -28,6 +28,8 @@ namespace Capstone.Controllers
         // READ
         public List<Category> ListCategories(string username)
         {
+            if (String.IsNullOrWhiteSpace(username)) throw new Exception("Username cannot be null");
+
             username = username.Trim().ToLower();
             List<Category> result;
             Restaurant restaurant = RestaurantController.GetResByUsername(username);
