@@ -12,4 +12,6 @@
 
 .menu-card .title-price {
   border: solid coral;
+  display: flex;
+  justify-content: space-between;
 }

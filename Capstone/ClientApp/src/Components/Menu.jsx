@@ -27,7 +27,7 @@ const Menu = () => {
                             <img src={path + item.imageName} />
                             <div className='title-price'>
                               <h3>{item.name}</h3>
-                              <h3>{item.price}</h3>
+                              <h3>${item.price}</h3>
                             </div>
                             <p>{item.ingredients}</p>
                           </div>
