@@ -53,7 +53,9 @@ const Login = (props) => {
           <h3>Login</h3>
           <form onSubmit={handleSubmit}>
             <div className='form-group'>
-              <label htmlFor='email'>Email</label>
+              <label htmlFor='email' className='.screen-reader-text'>
+                Email
+              </label>
               <input
                 type='email'
                 name='email'
@@ -63,7 +65,9 @@ const Login = (props) => {
               />
             </div>
             <div className='form-group'>
-              <label htmlFor='password'>password</label>
+              <label htmlFor='password' className='.screen-reader-text'>
+                password
+              </label>
               <input
                 type='password'
                 name='password'
@@ -91,7 +95,9 @@ const Login = (props) => {
           <h3>Login</h3>
           <form onSubmit={handleSubmit} class='login-form'>
             <div className='form-group'>
-              <label htmlFor='email'>Email</label>
+              <label htmlFor='email' className='.screen-reader-text'>
+                Email
+              </label>
               <input
                 type='email'
                 name='email'
