@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import aActiveUser from "../Actions/aActiveUser";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import "../css/Register.css";
 
 const Register = (props) => {
   const [response, setResponse] = useState([]);

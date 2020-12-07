@@ -1,0 +1,24 @@
+.register-section {
+  flex-grow: 1;
+  border: solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-section > h3,
+.register-section > form {
+  border: solid;
+  width: fit-content;
+}
+
+.register-section > form {
+  text-align: center;
+}
+
+.register-section > form > div {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
