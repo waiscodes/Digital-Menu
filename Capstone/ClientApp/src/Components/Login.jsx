@@ -74,7 +74,39 @@ const Login = (props) => {
         </form>
       </>
     );
-  } else return <Redirect to={"/m/" + props.activeUser.username} />;
+  } else if (
+    props.activeUser !== undefined &&
+    props.activeUser.username != undefined
+  ) {
+    return <Redirect to={"/m/" + props.activeUser.username} />;
+  } else {
+    return (
+      <form onSubmit={handleSubmit}>
+        <h3>Login</h3>
+        <div className='form-group'>
+          <label htmlFor='email'>Email</label>
+          <input
+            type='email'
+            name='email'
+            id='email'
+            onChange={handleFieldChange}
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor='password'>password</label>
+          <input
+            type='password'
+            name='password'
+            id='password'
+            onChange={handleFieldChange}
+          />
+        </div>
+        <div>
+          <input type='submit' value='Submit' />
+        </div>
+      </form>
+    );
+  }
 };
 
 export default connect((state) => {
