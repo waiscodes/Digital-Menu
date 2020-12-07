@@ -2,10 +2,14 @@
   border: solid blue;
 }
 
-.category .menu-card {
+.menu-card {
   border: red solid;
 }
 
-.category .menu-card .title-price {
+.menu-card img {
+  width: 100%;
+}
+
+.menu-card .title-price {
   border: solid coral;
 }
