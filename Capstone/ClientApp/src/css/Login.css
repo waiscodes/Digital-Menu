@@ -10,3 +10,7 @@ form {
   width: fit-content;
   margin: auto;
 }
+
+.login-section > form {
+  text-align: center;
+}

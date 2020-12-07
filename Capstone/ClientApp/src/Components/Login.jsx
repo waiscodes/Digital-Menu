@@ -58,6 +58,7 @@ const Login = (props) => {
                 type='email'
                 name='email'
                 id='email'
+                placeholder='Email'
                 onChange={handleFieldChange}
               />
             </div>
@@ -67,6 +68,7 @@ const Login = (props) => {
                 type='password'
                 name='password'
                 id='password'
+                placeholder='Password'
                 onChange={handleFieldChange}
               />
             </div>
@@ -94,6 +96,7 @@ const Login = (props) => {
                 type='email'
                 name='email'
                 id='email'
+                placeholder='Email'
                 onChange={handleFieldChange}
               />
             </div>
@@ -103,6 +106,7 @@ const Login = (props) => {
                 type='password'
                 name='password'
                 id='password'
+                placeholder='Password'
                 onChange={handleFieldChange}
               />
             </div>
