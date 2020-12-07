@@ -1,10 +1,19 @@
 Header {
   border: solid;
   display: flex;
-  flex-grow: inherit;
+  flex-direction: column;
 }
 
 Header > h1 {
   border: solid;
   text-align: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+nav ul li {
+  display: block;
 }
