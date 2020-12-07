@@ -218,8 +218,6 @@ const Edit = (props) => {
   }, [loading]);
   let content = loading ? <p>Loading...</p> : renderEdit(catResponse, menuItem);
 
-  if (props.activeUser == undefined) return <Redirect to='/' />;
-
   return (
     <>
       <form onSubmit={handleSubmit}>

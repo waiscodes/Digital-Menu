@@ -118,7 +118,6 @@ const Create = (props) => {
         setResponse(err.response.data);
       });
   };
-  if (props.activeUser == undefined) return <Redirect to='/' />;
 
   return (
     <>
