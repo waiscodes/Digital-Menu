@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import aActiveUser from "../Actions/aActiveUser";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import "../css/Register.css";
 
 const Register = (props) => {
@@ -114,6 +114,9 @@ const Register = (props) => {
             </div>
             <div>
               <input type='submit' value='Submit' />
+              <p>
+                Already have an account? <Link to='/'>Login</Link>
+              </p>
             </div>
           </form>
         </section>
@@ -177,6 +180,9 @@ const Register = (props) => {
             </div>
             <div>
               <input type='submit' value='Submit' />
+              <p>
+                Already have an account? <Link to='/'>Login</Link>
+              </p>
             </div>
           </form>
         </section>
