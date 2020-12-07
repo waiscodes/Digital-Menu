@@ -1,0 +1,10 @@
+Header {
+  border: solid;
+  display: flex;
+  flex-grow: inherit;
+}
+
+Header > h1 {
+  border: solid;
+  text-align: center;
+}

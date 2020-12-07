@@ -13,6 +13,7 @@ const Header = (props) => {
   const renderAdminNav = (username) => {
     return (
       <>
+        <h1>Digital Menu</h1>
         <nav>
           <ul>
             <li>
