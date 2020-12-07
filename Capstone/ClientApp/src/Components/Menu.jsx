@@ -15,23 +15,25 @@ const Menu = () => {
         {categories.map((cat) => {
           return (
             <>
-              {cat.name}
-              {menuItems.map((item) => {
-                if (item.categoryID == cat.id) {
-                  return (
-                    <>
-                      <Link to={"/Details/" + item.id}>
-                        <div className='menu-card' id={item.id}>
-                          <img src={path + item.imageName} />
-                          {item.name}
-                          {item.price}
-                          {item.ingredients}
-                        </div>
-                      </Link>
-                    </>
-                  );
-                }
-              })}
+              <section className='category'>
+                <h2>{cat.name}</h2>
+                {menuItems.map((item) => {
+                  if (item.categoryID == cat.id) {
+                    return (
+                      <>
+                        <Link to={"/Details/" + item.id}>
+                          <div className='menu-card' id={item.id}>
+                            <img src={path + item.imageName} />
+                            {item.name}
+                            {item.price}
+                            {item.ingredients}
+                          </div>
+                        </Link>
+                      </>
+                    );
+                  }
+                })}
+              </section>
             </>
           );
         })}
