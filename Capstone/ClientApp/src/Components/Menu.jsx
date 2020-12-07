@@ -5,23 +5,34 @@ import axios from "axios";
 const Menu = () => {
   const { username } = useParams();
   const [menuItems, setMenuItems] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [path, setPath] = useState();
 
-  const renderMenuItems = (path, menuItems) => {
+  const renderMenuItems = (path, categories, menuItems) => {
     return (
       <>
-        {menuItems.map((item) => {
+        {categories.map((cat) => {
           return (
             <>
-              <Link to={"/Details/" + item.id}>
-                <div className='menu-card' id={item.id}>
-                  <img src={path + item.imageName} />
-                  {item.name}
-                  {item.price}
-                  {item.ingredients}
-                </div>
-              </Link>
+              {cat.name}
+              {cat.id}
+              {menuItems.map((item) => {
+                if (item.categoryID == cat.id) {
+                  return (
+                    <>
+                      <Link to={"/Details/" + item.id}>
+                        <div className='menu-card' id={item.id}>
+                          <img src={item.imageName} />
+                          {item.name}
+                          {item.price}
+                          {item.ingredients}
+                        </div>
+                      </Link>
+                    </>
+                  );
+                }
+              })}
             </>
           );
         })}
@@ -35,6 +46,16 @@ const Menu = () => {
       url: "Values/ImagePath",
     }).then((response) => {
       setPath(response.data);
+    });
+
+    await axios({
+      method: "get",
+      url: "Values/ListCat",
+      params: {
+        username: username,
+      },
+    }).then((response) => {
+      setCategories(response.data);
     });
 
     await axios({
@@ -53,7 +74,11 @@ const Menu = () => {
     populateMenuItems();
   }, [loading]);
 
-  let content = loading ? <p>Loading...</p> : renderMenuItems(path, menuItems);
+  let content = loading ? (
+    <p>Loading...</p>
+  ) : (
+    renderMenuItems(path, categories, menuItems)
+  );
 
   return <>{content}</>;
 };
