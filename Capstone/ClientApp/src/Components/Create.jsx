@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 const Create = (props) => {
   const [response, setResponse] = useState([]);
   const [catResponse, setCatResponse] = useState();
   const [category, setCategory] = useState("");
-  const [user, setUser] = useState(props.activeUser.username);
+  const [user, setUser] = useState();
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -117,6 +118,7 @@ const Create = (props) => {
         setResponse(err.response.data);
       });
   };
+  if (props.activeUser == undefined) return <Redirect to='/' />;
 
   return (
     <>
