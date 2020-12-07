@@ -16,14 +16,13 @@ const Menu = () => {
           return (
             <>
               {cat.name}
-              {cat.id}
               {menuItems.map((item) => {
                 if (item.categoryID == cat.id) {
                   return (
                     <>
                       <Link to={"/Details/" + item.id}>
                         <div className='menu-card' id={item.id}>
-                          <img src={item.imageName} />
+                          <img src={path + item.imageName} />
                           {item.name}
                           {item.price}
                           {item.ingredients}
