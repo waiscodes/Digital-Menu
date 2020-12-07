@@ -12,32 +12,31 @@ const Header = (props) => {
   const renderAdminNav = (username) => {
     return (
       <>
-        <li>
-          <Link to={"/m/" + username}>Home</Link>
-        </li>
-        <li>
-          <Link to='/Create'>Create</Link>
-        </li>
-        <li>
-          <Link to='/' onClick={logoutHandler}>
-            Logout
-          </Link>
-        </li>
-        <li>
-          <Link to='/Register'>Register</Link>
-        </li>
+        <nav>
+          <ul>
+            <li>
+              <Link to={"/m/" + username}>Home</Link>
+            </li>
+            <li>
+              <Link to='/Create'>Create</Link>
+            </li>
+            <li>
+              <Link to='/' onClick={logoutHandler}>
+                Logout
+              </Link>
+            </li>
+            <li>
+              <Link to='/Register'>Register</Link>
+            </li>
+          </ul>
+        </nav>
       </>
     );
   };
   const renderCustomerNav = () => {
     return (
       <>
-        <li>
-          <Link to='/'>Login</Link>
-        </li>
-        <li>
-          <Link to='/Register'>Register</Link>
-        </li>
+        <h1>Our Menu</h1>
       </>
     );
   };
@@ -53,11 +52,7 @@ const Header = (props) => {
   }
   return (
     <>
-      <header>
-        <nav>
-          <ul>{content}</ul>
-        </nav>
-      </header>
+      <header>{content}</header>
     </>
   );
 };
