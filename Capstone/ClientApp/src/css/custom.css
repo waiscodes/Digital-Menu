@@ -1,4 +1,10 @@
 /* Provide sufficient contrast against white background */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
 a {
   color: #0366d6;
 }
@@ -11,4 +17,15 @@ code {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
 }

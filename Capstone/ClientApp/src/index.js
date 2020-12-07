@@ -4,6 +4,8 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+import "./css/custom.css";
+
 // Components
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -29,12 +31,14 @@ ReactDOM.render(
       <Provider store={myStore}>
         <Router>
           <Header />
-          <Route path='/Register' component={Register} />
-          <Route path='/' component={Login} exact />
-          <Route path='/m/:username' component={Menu} exact />
-          <Route path='/Details/:id' component={Details} />
-          <Route path='/Create' component={Create} />
-          <Route path='/Edit/:id' component={Edit} />
+          <main>
+            <Route path='/Register' component={Register} />
+            <Route path='/' component={Login} exact />
+            <Route path='/m/:username' component={Menu} exact />
+            <Route path='/Details/:id' component={Details} />
+            <Route path='/Create' component={Create} />
+            <Route path='/Edit/:id' component={Edit} />
+          </main>
           <Footer />
         </Router>
       </Provider>
