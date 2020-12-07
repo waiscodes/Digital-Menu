@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import aActiveUser from "../Actions/aActiveUser";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import "../css/Login.css";
 
 const Login = (props) => {
@@ -78,6 +78,9 @@ const Login = (props) => {
             </div>
             <div>
               <input type='submit' value='Submit' />
+              <p>
+                Don't have an account? <Link to='/register'>Register</Link>
+              </p>
             </div>
           </form>
         </section>
@@ -118,6 +121,9 @@ const Login = (props) => {
             </div>
             <div>
               <input type='submit' value='Submit' />
+              <p>
+                Don't have an account? <Link to='/register'>Register</Link>
+              </p>
             </div>
           </form>
         </section>
