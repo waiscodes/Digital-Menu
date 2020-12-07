@@ -22,4 +22,9 @@
   border: solid coral;
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
+}
+
+.menu-card .title-price > * {
+  border: solid;
 }
