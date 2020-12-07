@@ -24,9 +24,11 @@ const Menu = () => {
                         <Link to={"/Details/" + item.id}>
                           <div className='menu-card' id={item.id}>
                             <img src={path + item.imageName} />
-                            {item.name}
-                            {item.price}
-                            {item.ingredients}
+                            <div className='title-price'>
+                              <h3>{item.name}</h3>
+                              <h3>{item.price}</h3>
+                            </div>
+                            <p>{item.ingredients}</p>
                           </div>
                         </Link>
                       </>
