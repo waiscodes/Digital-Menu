@@ -37,7 +37,6 @@ const Login = (props) => {
       .then((res) => {
         setWaiting(false);
         setResponse(res.data);
-        console.log(res.data);
         props.dispatch(aActiveUser(res.data));
       })
       .catch((err) => {
@@ -46,34 +45,36 @@ const Login = (props) => {
       });
   };
 
-  return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <h3>Login</h3>
-        <div className='form-group'>
-          <label htmlFor='email'>Email</label>
-          <input
-            type='email'
-            name='email'
-            id='email'
-            onChange={handleFieldChange}
-          />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='password'>password</label>
-          <input
-            type='password'
-            name='password'
-            id='password'
-            onChange={handleFieldChange}
-          />
-        </div>
-        <div>
-          <input type='submit' value='Submit' />
-        </div>
-      </form>
-    </>
-  );
+  if (props.activeUser == undefined) {
+    return (
+      <>
+        <form onSubmit={handleSubmit}>
+          <h3>Login</h3>
+          <div className='form-group'>
+            <label htmlFor='email'>Email</label>
+            <input
+              type='email'
+              name='email'
+              id='email'
+              onChange={handleFieldChange}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='password'>password</label>
+            <input
+              type='password'
+              name='password'
+              id='password'
+              onChange={handleFieldChange}
+            />
+          </div>
+          <div>
+            <input type='submit' value='Submit' />
+          </div>
+        </form>
+      </>
+    );
+  } else return <Redirect to='/create' />;
 };
 
 export default connect((state) => {
