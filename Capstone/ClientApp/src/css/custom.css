@@ -28,6 +28,7 @@ code {
 
 main {
   flex-grow: 1;
+  border: solid greenyellow;
 }
 
 footer {

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import aActiveUser from "../Actions/aActiveUser";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import "../css/Login.css";
 
 const Login = (props) => {
   const [response, setResponse] = useState([]);
@@ -48,30 +49,32 @@ const Login = (props) => {
   if (props.activeUser == undefined) {
     return (
       <>
-        <form onSubmit={handleSubmit}>
+        <section class='login-section'>
           <h3>Login</h3>
-          <div className='form-group'>
-            <label htmlFor='email'>Email</label>
-            <input
-              type='email'
-              name='email'
-              id='email'
-              onChange={handleFieldChange}
-            />
-          </div>
-          <div className='form-group'>
-            <label htmlFor='password'>password</label>
-            <input
-              type='password'
-              name='password'
-              id='password'
-              onChange={handleFieldChange}
-            />
-          </div>
-          <div>
-            <input type='submit' value='Submit' />
-          </div>
-        </form>
+          <form onSubmit={handleSubmit}>
+            <div className='form-group'>
+              <label htmlFor='email'>Email</label>
+              <input
+                type='email'
+                name='email'
+                id='email'
+                onChange={handleFieldChange}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='password'>password</label>
+              <input
+                type='password'
+                name='password'
+                id='password'
+                onChange={handleFieldChange}
+              />
+            </div>
+            <div>
+              <input type='submit' value='Submit' />
+            </div>
+          </form>
+        </section>
       </>
     );
   } else if (
@@ -81,30 +84,34 @@ const Login = (props) => {
     return <Redirect to={"/m/" + props.activeUser.username} />;
   } else {
     return (
-      <form onSubmit={handleSubmit}>
-        <h3>Login</h3>
-        <div className='form-group'>
-          <label htmlFor='email'>Email</label>
-          <input
-            type='email'
-            name='email'
-            id='email'
-            onChange={handleFieldChange}
-          />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='password'>password</label>
-          <input
-            type='password'
-            name='password'
-            id='password'
-            onChange={handleFieldChange}
-          />
-        </div>
-        <div>
-          <input type='submit' value='Submit' />
-        </div>
-      </form>
+      <>
+        <section class='login-section'>
+          <h3>Login</h3>
+          <form onSubmit={handleSubmit} class='login-form'>
+            <div className='form-group'>
+              <label htmlFor='email'>Email</label>
+              <input
+                type='email'
+                name='email'
+                id='email'
+                onChange={handleFieldChange}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='password'>password</label>
+              <input
+                type='password'
+                name='password'
+                id='password'
+                onChange={handleFieldChange}
+              />
+            </div>
+            <div>
+              <input type='submit' value='Submit' />
+            </div>
+          </form>
+        </section>
+      </>
     );
   }
 };
