@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
 
@@ -7,7 +7,7 @@ const Edit = (props) => {
   const { id } = useParams();
   const [response, setResponse] = useState([]);
   const [catResponse, setCatResponse] = useState();
-  const [user, setUser] = useState("test" /*props.activeUser.username*/);
+  const [user, setUser] = useState();
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -217,6 +217,8 @@ const Edit = (props) => {
     populateEdit();
   }, [loading]);
   let content = loading ? <p>Loading...</p> : renderEdit(catResponse, menuItem);
+
+  if (props.activeUser == undefined) return <Redirect to='/' />;
 
   return (
     <>
