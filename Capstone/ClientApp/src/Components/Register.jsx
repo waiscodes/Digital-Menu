@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import aActiveUser from "../Actions/aActiveUser";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 const Register = (props) => {
   const [response, setResponse] = useState([]);
@@ -59,61 +60,124 @@ const Register = (props) => {
       });
   };
 
-  return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <h3>Register Restaurant</h3>
-        <div className='form-group'>
-          <label htmlFor='resName'>Restaurant Name</label>
-          <input
-            type='text'
-            name='resName'
-            id='resName'
-            onChange={handleFieldChange}
-          />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='resUsername'>Restaurant Username</label>
-          <input
-            type='text'
-            name='resUsername'
-            id='resUsername'
-            onChange={handleFieldChange}
-          />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='resLocation'>Restaurant Location</label>
-          <input
-            type='text'
-            name='resLocation'
-            id='resLocation'
-            onChange={handleFieldChange}
-          />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='email'>Email</label>
-          <input
-            type='email'
-            name='email'
-            id='email'
-            onChange={handleFieldChange}
-          />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='password'>password</label>
-          <input
-            type='password'
-            name='password'
-            id='password'
-            onChange={handleFieldChange}
-          />
-        </div>
-        <div>
-          <input type='submit' value='Submit' />
-        </div>
-      </form>
-    </>
-  );
+  if (props.aActiveUser == undefined) {
+    return (
+      <>
+        <form onSubmit={handleSubmit}>
+          <h3>Register Restaurant</h3>
+          <div className='form-group'>
+            <label htmlFor='resName'>Restaurant Name</label>
+            <input
+              type='text'
+              name='resName'
+              id='resName'
+              onChange={handleFieldChange}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='resUsername'>Restaurant Username</label>
+            <input
+              type='text'
+              name='resUsername'
+              id='resUsername'
+              onChange={handleFieldChange}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='resLocation'>Restaurant Location</label>
+            <input
+              type='text'
+              name='resLocation'
+              id='resLocation'
+              onChange={handleFieldChange}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='email'>Email</label>
+            <input
+              type='email'
+              name='email'
+              id='email'
+              onChange={handleFieldChange}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='password'>password</label>
+            <input
+              type='password'
+              name='password'
+              id='password'
+              onChange={handleFieldChange}
+            />
+          </div>
+          <div>
+            <input type='submit' value='Submit' />
+          </div>
+        </form>
+      </>
+    );
+  } else if (
+    props.aActiveUser !== undefined &&
+    props.aActiveUser.username != undefined
+  ) {
+    return <Redirect to='/create' />;
+  } else {
+    return (
+      <>
+        <form onSubmit={handleSubmit}>
+          <h3>Register Restaurant</h3>
+          <div className='form-group'>
+            <label htmlFor='resName'>Restaurant Name</label>
+            <input
+              type='text'
+              name='resName'
+              id='resName'
+              onChange={handleFieldChange}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='resUsername'>Restaurant Username</label>
+            <input
+              type='text'
+              name='resUsername'
+              id='resUsername'
+              onChange={handleFieldChange}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='resLocation'>Restaurant Location</label>
+            <input
+              type='text'
+              name='resLocation'
+              id='resLocation'
+              onChange={handleFieldChange}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='email'>Email</label>
+            <input
+              type='email'
+              name='email'
+              id='email'
+              onChange={handleFieldChange}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='password'>password</label>
+            <input
+              type='password'
+              name='password'
+              id='password'
+              onChange={handleFieldChange}
+            />
+          </div>
+          <div>
+            <input type='submit' value='Submit' />
+          </div>
+        </form>
+      </>
+    );
+  }
 };
 
 export default connect((state) => {
