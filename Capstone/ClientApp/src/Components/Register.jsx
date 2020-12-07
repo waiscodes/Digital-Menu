@@ -61,7 +61,7 @@ const Register = (props) => {
       });
   };
 
-  if (props.aActiveUser == undefined) {
+  if (props.activeUser == undefined) {
     return (
       <>
         <section className='register-section'>
@@ -123,10 +123,10 @@ const Register = (props) => {
       </>
     );
   } else if (
-    props.aActiveUser !== undefined &&
-    props.aActiveUser.username != undefined
+    props.activeUser !== undefined &&
+    props.activeUser.username != undefined
   ) {
-    return <Redirect to='/create' />;
+    return <Redirect to={"/m/" + props.activeUser.username} />;
   } else {
     return (
       <>
@@ -193,6 +193,6 @@ const Register = (props) => {
 
 export default connect((state) => {
   return {
-    state: state,
+    activeUser: state,
   };
 })(Register);
