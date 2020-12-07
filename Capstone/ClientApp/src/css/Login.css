@@ -8,7 +8,7 @@
 }
 
 .login-section > h3,
-form {
+.login-section > form {
   border: solid;
   width: fit-content;
 }
