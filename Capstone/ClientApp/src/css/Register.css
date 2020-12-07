@@ -1,6 +1,5 @@
 .register-section {
   flex-grow: 1;
-  border: solid;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +8,6 @@
 
 .register-section > h3,
 .register-section > form {
-  border: solid;
   width: fit-content;
 }
 

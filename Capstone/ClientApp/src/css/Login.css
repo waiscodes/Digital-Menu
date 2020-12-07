@@ -1,6 +1,5 @@
 .login-section {
   flex-grow: 1;
-  border: solid;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +8,6 @@
 
 .login-section > h3,
 .login-section > form {
-  border: solid;
   width: fit-content;
 }
 

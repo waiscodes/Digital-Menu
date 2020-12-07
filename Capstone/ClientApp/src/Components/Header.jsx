@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import aActiveUser from "../Actions/aActiveUser";
+import "../css/Header.css";
 
 const Header = (props) => {
   let content = "";
@@ -25,9 +26,6 @@ const Header = (props) => {
                 Logout
               </Link>
             </li>
-            <li>
-              <Link to='/Register'>Register</Link>
-            </li>
           </ul>
         </nav>
       </>
@@ -36,7 +34,7 @@ const Header = (props) => {
   const renderCustomerNav = () => {
     return (
       <>
-        <h1>Our Menu</h1>
+        <h1>Digital Menu</h1>
       </>
     );
   };
