@@ -74,7 +74,7 @@ const Login = (props) => {
         </form>
       </>
     );
-  } else return <Redirect to='/create' />;
+  } else return <Redirect to={"/m/" + props.activeUser.username} />;
 };
 
 export default connect((state) => {
