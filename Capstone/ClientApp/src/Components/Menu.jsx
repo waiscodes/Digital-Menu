@@ -6,8 +6,9 @@ const Menu = () => {
   const { username } = useParams();
   const [menuItems, setMenuItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [path, setPath] = useState();
 
-  const renderMenuItems = (menuItems) => {
+  const renderMenuItems = (path, menuItems) => {
     return (
       <>
         {menuItems.map((item) => {
@@ -15,7 +16,7 @@ const Menu = () => {
             <>
               <Link to={"/Details/" + item.id}>
                 <div className='menu-card' id={item.id}>
-                  {item.imageName}
+                  <img src={path + item.imageName} />
                   {item.name}
                   {item.price}
                   {item.ingredients}
@@ -29,22 +30,30 @@ const Menu = () => {
   };
 
   const populateMenuItems = async () => {
-    const response = await axios({
+    await axios({
+      method: "get",
+      url: "Values/ImagePath",
+    }).then((response) => {
+      setPath(response.data);
+    });
+
+    await axios({
       method: "get",
       url: "Values/ListMenu",
       params: {
         username: username,
       },
+    }).then((response) => {
+      setMenuItems(response.data);
+      setLoading(false);
     });
-    setMenuItems(response.data);
-    setLoading(false);
   };
 
   useEffect(() => {
     populateMenuItems();
   }, [loading]);
 
-  let content = loading ? <p>Loading...</p> : renderMenuItems(menuItems);
+  let content = loading ? <p>Loading...</p> : renderMenuItems(path, menuItems);
 
   return <>{content}</>;
 };
