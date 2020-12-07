@@ -21,7 +21,7 @@ namespace Capstone.Controllers
         // CREATE
         public static async Task<string> UploadImage(string name, IFormFile file)
         {
-            if (name.Length > 10) name = name.Substring(0, 10);
+            if (name.Length > 15) name = name.Substring(0, 15);
 
             name = name.Replace(" ", "-");
 
