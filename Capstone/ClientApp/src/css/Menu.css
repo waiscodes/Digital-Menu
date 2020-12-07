@@ -2,8 +2,16 @@
   border: solid blue;
 }
 
+.category h2 {
+  text-align: center;
+}
+
 .menu-card {
   border: red solid;
+}
+
+.category a {
+  text-decoration: none;
 }
 
 .menu-card img {
