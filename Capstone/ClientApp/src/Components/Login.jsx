@@ -49,7 +49,7 @@ const Login = (props) => {
   if (props.activeUser == undefined) {
     return (
       <>
-        <section class='login-section'>
+        <section className='login-section'>
           <h3>Login</h3>
           <form onSubmit={handleSubmit}>
             <div className='form-group'>
@@ -91,9 +91,9 @@ const Login = (props) => {
   } else {
     return (
       <>
-        <section class='login-section'>
+        <section className='login-section'>
           <h3>Login</h3>
-          <form onSubmit={handleSubmit} class='login-form'>
+          <form onSubmit={handleSubmit} className='login-form'>
             <div className='form-group'>
               <label htmlFor='email' className='.screen-reader-text'>
                 Email

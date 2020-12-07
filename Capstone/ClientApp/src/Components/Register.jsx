@@ -66,7 +66,6 @@ const Register = (props) => {
         <section className='register-section'>
           <h3>Register</h3>
           <form onSubmit={handleSubmit}>
-            <h3>Register Restaurant</h3>
             <div className='form-group'>
               <label htmlFor='resName'>Restaurant Name</label>
               <input
@@ -130,7 +129,6 @@ const Register = (props) => {
         <section className='register-section'>
           <h3>Register</h3>
           <form onSubmit={handleSubmit}>
-            <h3>Register Restaurant</h3>
             <div className='form-group'>
               <label htmlFor='resName'>Restaurant Name</label>
               <input
