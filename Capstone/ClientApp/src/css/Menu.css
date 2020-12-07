@@ -1,0 +1,11 @@
+.category {
+  border: solid blue;
+}
+
+.category .menu-card {
+  border: red solid;
+}
+
+.category .menu-card .title-price {
+  border: solid coral;
+}
