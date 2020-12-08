@@ -7,14 +7,14 @@ import "../css/Create.css";
 const Create = (props) => {
   const [response, setResponse] = useState([]);
   const [catResponse, setCatResponse] = useState();
-  const [category, setCategory] = useState("");
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [description, setDescription] = useState("");
-  const [waitTime, setWaitTime] = useState("");
-  const [ingredients, setIngredients] = useState("");
-  const [calories, setCalories] = useState("");
-  const [halal, setHalal] = useState("");
+  const [category, setCategory] = useState();
+  const [name, setName] = useState();
+  const [price, setPrice] = useState();
+  const [description, setDescription] = useState();
+  const [waitTime, setWaitTime] = useState();
+  const [ingredients, setIngredients] = useState();
+  const [calories, setCalories] = useState();
+  const [halal, setHalal] = useState();
   const [img, setImg] = useState();
   const [loading, setLoading] = useState(true);
 
