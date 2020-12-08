@@ -43,6 +43,7 @@ namespace Capstone.Models
         [Column(TypeName = "boolean")]
         public bool Halal { get; set; }
 
+        // Images are too large for the database. Image names are saved to be retireved in the front end and be desplayed by adding them to path. (Check CreateImage method in method controller for reference).
         [Column(TypeName = "varchar(110)")]
         public string ImageName { get; set; }
 
