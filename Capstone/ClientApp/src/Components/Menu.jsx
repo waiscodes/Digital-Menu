@@ -19,7 +19,7 @@ const Menu = () => {
               <section className='category'>
                 <h2>{cat.name}</h2>
                 {menuItems.map((item) => {
-                  if (item.categoryID == cat.id) {
+                  if (item.categoryID === cat.id) {
                     return (
                       <>
                         <Link to={"/Details/" + item.id}>
