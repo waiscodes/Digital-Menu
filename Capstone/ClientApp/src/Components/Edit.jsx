@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Redirect, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
-import "../css/Edit.css";
 
 const Edit = (props) => {
   const { id } = useParams();
   const [response, setResponse] = useState([]);
   const [catResponse, setCatResponse] = useState();
-  const [user, setUser] = useState();
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -20,6 +18,8 @@ const Edit = (props) => {
   const [img, setImg] = useState();
   const [menuItem, setMenuItem] = useState();
   const [loading, setLoading] = useState(true);
+
+  const user = props.activeUser ? props.activeUser.username : undefined;
 
   const handleFieldChange = (e) => {
     switch (e.target.id) {
@@ -45,7 +45,7 @@ const Edit = (props) => {
         setCalories(e.target.value);
         break;
       case "halal":
-        setHalal(e.target.value);
+        setHalal(true);
         break;
       case "img":
         setImg(e.target.files[0]);
@@ -170,7 +170,6 @@ const Edit = (props) => {
       headers: { "Content-Type": "multipart/form-data" },
       data: formData,
       params: {
-        menuID: id,
         name: name,
         description: description,
         price: price,
@@ -179,6 +178,7 @@ const Edit = (props) => {
         calories: calories,
         halal: halal,
         catID: category,
+        resUsername: user,
       },
     })
       .then((res) => {
@@ -222,11 +222,10 @@ const Edit = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <section className='edit-section'>
-          <h3>Edit</h3>
+        <div>
           {content}
           <input type='submit' value='Submit' />
-        </section>
+        </div>
       </form>
     </>
   );
