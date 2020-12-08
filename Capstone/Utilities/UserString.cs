@@ -5,6 +5,10 @@ namespace Capstone.Utilities
 {
     public static class UserStr
     {
+        /*
+        User input string validation utiltity.
+            Length, email, and special characters check
+         */
         public static bool IsLengthOverLimit(int length, string str)
         {
             if (str.Length <= length) return false;
