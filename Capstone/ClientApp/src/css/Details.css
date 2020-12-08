@@ -2,6 +2,10 @@
   border: solid;
 }
 
+.details img {
+  width: 100%;
+}
+
 .details .price-title {
   display: flex;
   justify-content: space-between;
