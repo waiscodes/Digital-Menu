@@ -8,7 +8,6 @@ const Create = (props) => {
   const [response, setResponse] = useState([]);
   const [catResponse, setCatResponse] = useState();
   const [category, setCategory] = useState("");
-  const [user, setUser] = useState();
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -18,6 +17,8 @@ const Create = (props) => {
   const [halal, setHalal] = useState("");
   const [img, setImg] = useState();
   const [loading, setLoading] = useState(true);
+
+  const user = props.activeUser ? props.activeUser.username : undefined;
 
   const handleFieldChange = (e) => {
     switch (e.target.id) {
