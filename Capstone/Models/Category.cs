@@ -12,6 +12,7 @@ namespace Capstone.Models
         {
             MenuItems = new HashSet<MenuItem>();
         }
+        // No functionality for it yet but this was created with the future in mind where users can create their own categories.
 
         [Key]
         [Column(TypeName = "int(10)")]
