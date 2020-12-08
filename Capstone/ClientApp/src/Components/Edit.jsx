@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
+import "../css/Edit.css";
 
 const Edit = (props) => {
   const { id } = useParams();
@@ -223,14 +224,14 @@ const Edit = (props) => {
   if (user !== undefined) {
     return (
       <>
-        <form onSubmit={handleSubmit}>
-          <h1>{id}</h1>
-          <div>
+        <section className='edit-section'>
+          <h1>Edit</h1>
+          <form onSubmit={handleSubmit}>
             {response}
             {content}
             <input type='submit' value='Submit' />
-          </div>
-        </form>
+          </form>
+        </section>
       </>
     );
   } else {
