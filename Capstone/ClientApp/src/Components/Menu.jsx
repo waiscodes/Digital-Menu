@@ -26,10 +26,10 @@ const Menu = () => {
                           <div className='menu-card' id={item.id}>
                             <img src={path + item.imageName} />
                             <div className='title-price'>
-                              <h3>{item.name}</h3>
+                              <h3>{item.name.replace(/\\/g, "")}</h3>
                               <h3>${item.price}</h3>
                             </div>
-                            <p>{item.ingredients}</p>
+                            <p>{item.ingredients.replace(/\\/g, "")}</p>
                           </div>
                         </Link>
                       </>
