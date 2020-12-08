@@ -126,6 +126,7 @@ const Create = (props) => {
       <>
         <section className='create-section'>
           <h3>Create</h3>
+          <p>{response}</p>
           <form onSubmit={handleSubmit}>
             <div className='form-group'>
               <label htmlFor='category'>Category</label>
