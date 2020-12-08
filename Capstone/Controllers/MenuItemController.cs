@@ -100,7 +100,7 @@ namespace Capstone.Controllers
 
             using (RestaurantContext context = new RestaurantContext())
             {
-                if (!context.MenuItems.Any(m => m.ID == parsedID)) throw new Exception("NOT FOUND: Menu item doesn not exist");
+                if (context.MenuItems.Any(m => m.ID == parsedID)) throw new Exception("NOT FOUND: Menu item doesn not exist");
 
                return context.MenuItems
                     .Where(m => m.ID == parsedID)
