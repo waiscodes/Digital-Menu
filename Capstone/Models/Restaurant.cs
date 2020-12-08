@@ -22,9 +22,11 @@ namespace Capstone.Models
         [Column(TypeName = "varchar(75)")]
         public string ResName { get; set; }
 
+        // Unique name used as handle to go check the menus. /m/{resUsername}
         [Column(TypeName = "varchar(30)")]
         public string ResUsername { get; set; }
 
+        // Unique email, one restaurant per email. No functionality for multiple stores for user yet so it's neccessary
         [Column(TypeName = "varchar(64)")]
         public string Email { get; set; }
 
