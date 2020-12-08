@@ -21,11 +21,11 @@ const Details = (props) => {
             <h2>{menuItem.name}</h2>
             <h2>${menuItem.price}</h2>
           </div>
-          <p>{menuItem.description}</p>
-          <p>{menuItem.waitTimeMins}</p>
-          <p>{menuItem.ingredients}</p>
-          <p>{menuItem.calories}</p>
-          <p>{menuItem.halal}</p>
+          <p>Description: {menuItem.description}</p>
+          <p>Wait Time: {menuItem.waitTimeMins} Minutes</p>
+          <p>Ingredients: {menuItem.ingredients}</p>
+          <p>Calories: {menuItem.calories}</p>
+          <p>Restrictions: {menuItem.halal ? "Halal" : "Haram"}</p>
         </section>
       </>
     );
