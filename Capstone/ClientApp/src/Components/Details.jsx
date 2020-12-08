@@ -14,16 +14,19 @@ const Details = (props) => {
   const renderDetails = (path, menuItem) => {
     return (
       <>
-        <img src={path + menuItem.imageName} alt='' />
-        <div className='price-title'>
-          <h2>{menuItem.name}</h2>
-          <h2>{menuItem.price}</h2>
-        </div>
-        <p>{menuItem.description}</p>
-        <p>{menuItem.waitTimeMins}</p>
-        <p>{menuItem.ingredients}</p>
-        <p>{menuItem.calories}</p>
-        <p>{menuItem.halal}</p>
+        <section className='details'>
+          <h2 className='screen-reader-text'>Details</h2>
+          <img src={path + menuItem.imageName} alt='' />
+          <div className='price-title'>
+            <h2>{menuItem.name}</h2>
+            <h2>{menuItem.price}</h2>
+          </div>
+          <p>{menuItem.description}</p>
+          <p>{menuItem.waitTimeMins}</p>
+          <p>{menuItem.ingredients}</p>
+          <p>{menuItem.calories}</p>
+          <p>{menuItem.halal}</p>
+        </section>
       </>
     );
   };
