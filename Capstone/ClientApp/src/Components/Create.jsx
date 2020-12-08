@@ -57,11 +57,11 @@ const Create = (props) => {
       <>
         {catResponse.map((cat) => {
           return (
-            <>
+            <div key={cat.id}>
               <option key={cat.id} value={cat.id}>
                 {cat.name}
               </option>
-            </>
+            </div>
           );
         })}
       </>
