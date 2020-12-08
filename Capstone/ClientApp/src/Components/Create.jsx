@@ -85,7 +85,7 @@ const Create = (props) => {
     populateCatDropdown();
   }, [loading]);
 
-  let content = loading ? <p>Loading...</p> : renderDropdown(catResponse);
+  let content = loading ? "Loading..." : renderDropdown(catResponse);
 
   const handleSubmit = (e) => {
     e.preventDefault();
