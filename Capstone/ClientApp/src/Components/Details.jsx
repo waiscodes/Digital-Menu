@@ -18,14 +18,14 @@ const Details = (props) => {
           <h2 className='screen-reader-text'>Details</h2>
           <img src={path + menuItem.imageName} alt='' />
           <div className='price-title'>
-            <h2>{menuItem.name}</h2>
+            <h2>{menuItem.name.replace(/\\/g, "")}</h2>
             <h2>${menuItem.price}</h2>
           </div>
           <p>Description</p>
-          <p>{menuItem.description}</p>
+          <p>{menuItem.description.replace(/\\/g, "")}</p>
           <p>Wait Time: {menuItem.waitTimeMins} Minutes</p>
           <p>Ingredients</p>
-          <p>{menuItem.ingredients}</p>
+          <p>{menuItem.ingredients.replace(/\\/g, "")}</p>
           <p>Calories: {menuItem.calories}</p>
           <p>Restrictions: {menuItem.halal ? "Halal" : "Haram"}</p>
         </section>
