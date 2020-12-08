@@ -170,6 +170,7 @@ const Edit = (props) => {
       headers: { "Content-Type": "multipart/form-data" },
       data: formData,
       params: {
+        menuID: id,
         name: name,
         description: description,
         price: price,
@@ -223,6 +224,7 @@ const Edit = (props) => {
     return (
       <>
         <form onSubmit={handleSubmit}>
+          <h1>{id}</h1>
           <div>
             {response}
             {content}
