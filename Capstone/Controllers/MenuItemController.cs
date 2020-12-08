@@ -13,8 +13,16 @@ namespace Capstone.Controllers
 {
     public class MenuItemController : Controller
     {
+        /*
+        Menu Item methods/methods that interract with the menuitems table.
+            Seperated and ordered by CRUD functionalities. (Create, read, update, delete)
+         */
         // CREATE
 
+        /*
+        Create Menu Validator validates all the data to make sure create menu item doesn't throw any exceptions.
+        This was necessary because Async methods return Task exceptions which not readable for humans. This method throws the exceptions before it gets to that. 
+         */
         public void CreateMenuValidator(string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, string resUsername, IFormFile file)
         {
             // INT VALIDATION
@@ -107,7 +115,9 @@ namespace Capstone.Controllers
                     .SingleOrDefault();
             }
         }
-
+        /*
+         Refer to explanation for CreateMenuItemValidator method for explanation. 
+         */
         public void UpdateMenuValidator(string menuID, string name, string description, string price, string waitTimeMins, string ingredients, string calories, string halal, string catID, IFormFile file, IWebHostEnvironment hostEnvironment)
         {
             // INT VALIDATION
@@ -202,7 +212,9 @@ namespace Capstone.Controllers
         // DELETE
         public void DeleteMenuItem(string id, IWebHostEnvironment hostEnvironment)
         {
-
+            /*
+             Menu image must also be deleted at the same time. This method achieves that by taking the image name.
+             */
             MenuItem menuItem = GetMenuItemByID(id);
             new ImageController(hostEnvironment)
                 .DeleteImageByName(menuItem.ImageName);
