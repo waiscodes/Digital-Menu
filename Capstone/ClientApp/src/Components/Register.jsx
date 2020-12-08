@@ -14,6 +14,12 @@ const Register = (props) => {
   const [password, setPassword] = useState();
   const [waiting, setWaiting] = useState("");
 
+  const user = props.activeUser
+    ? props.activeUser.username
+      ? props.activeUser.username
+      : undefined
+    : undefined;
+
   const handleFieldChange = (e) => {
     switch (e.target.id) {
       case "resName":
@@ -61,11 +67,12 @@ const Register = (props) => {
       });
   };
 
-  if (props.activeUser == undefined) {
+  if (user == undefined) {
     return (
       <>
         <section className='register-section'>
           <h3>Register</h3>
+          <p>{response}</p>
           <form onSubmit={handleSubmit}>
             <div className='form-group'>
               <label htmlFor='resName'>Restaurant Name</label>
@@ -122,72 +129,8 @@ const Register = (props) => {
         </section>
       </>
     );
-  } else if (
-    props.activeUser !== undefined &&
-    props.activeUser.username != undefined
-  ) {
-    return <Redirect to={"/m/" + props.activeUser.username} />;
   } else {
-    return (
-      <>
-        <section className='register-section'>
-          <h3>Register</h3>
-          <form onSubmit={handleSubmit}>
-            <div className='form-group'>
-              <label htmlFor='resName'>Restaurant Name</label>
-              <input
-                type='text'
-                name='resName'
-                id='resName'
-                onChange={handleFieldChange}
-              />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='resUsername'>Restaurant Username</label>
-              <input
-                type='text'
-                name='resUsername'
-                id='resUsername'
-                onChange={handleFieldChange}
-              />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='resLocation'>Restaurant Location</label>
-              <input
-                type='text'
-                name='resLocation'
-                id='resLocation'
-                onChange={handleFieldChange}
-              />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='email'>Email</label>
-              <input
-                type='email'
-                name='email'
-                id='email'
-                onChange={handleFieldChange}
-              />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='password'>password</label>
-              <input
-                type='password'
-                name='password'
-                id='password'
-                onChange={handleFieldChange}
-              />
-            </div>
-            <div>
-              <input type='submit' value='Submit' />
-              <p>
-                Already have an account? <Link to='/'>Login</Link>
-              </p>
-            </div>
-          </form>
-        </section>
-      </>
-    );
+    return <Redirect to={"/m/" + props.activeUser.username} />;
   }
 };
 
