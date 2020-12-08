@@ -9,6 +9,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Capstone.Controllers
 {
+    /*
+
+    API Controller with all the endpoints
+        Seperated into user, category, and menu item.
+        Ordered by CRUD functionalities (Create, read, edit, delete)
+
+    Instructions
+        To call: /Values/{ Endpoint request ID } eg. /Values/Register
+        Make sure parameter names on postman matchup with method parameter names.
+     */
     [Route("[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
