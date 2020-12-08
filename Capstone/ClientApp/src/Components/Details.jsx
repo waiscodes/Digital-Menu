@@ -15,14 +15,15 @@ const Details = (props) => {
     return (
       <>
         <img src={path + menuItem.imageName} alt='' />
-
-        {menuItem.name}
-        {menuItem.description}
-        {menuItem.price}
-        {menuItem.waitTimeMins}
-        {menuItem.ingredients}
-        {menuItem.calories}
-        {menuItem.halal}
+        <div className='price-title'>
+          <h2>{menuItem.name}</h2>
+          <h2>{menuItem.price}</h2>
+        </div>
+        <p>{menuItem.description}</p>
+        <p>{menuItem.waitTimeMins}</p>
+        <p>{menuItem.ingredients}</p>
+        <p>{menuItem.calories}</p>
+        <p>{menuItem.halal}</p>
       </>
     );
   };
