@@ -65,11 +65,9 @@ const Edit = (props) => {
             </option>
             {catResponse.map((cat) => {
               return (
-                <div to={cat.id}>
-                  <option key={cat.id} value={cat.id}>
-                    {cat.name}
-                  </option>
-                </div>
+                <option key={cat.id} value={cat.id}>
+                  {cat.name}
+                </option>
               );
             })}
           </select>
