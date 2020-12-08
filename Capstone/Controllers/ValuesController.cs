@@ -114,6 +114,10 @@ namespace Capstone.Controllers
             }
         }
 
+        /*
+         Path to images folder.
+            Image name added to this path renders onto the dom.
+         */
         [HttpGet("ImagePath")]
         public ActionResult<string> GetImagePath_GET()
         {
