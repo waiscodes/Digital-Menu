@@ -70,7 +70,7 @@ namespace Capstone.Controllers
             try
             {
                 new MenuItemController().CreateMenuValidator(name, description, price, waitTimeMins, ingredients, calories, halal, catID, resUsername, file);
-                return "nice";
+                return "Menu Item Created Successfully";
             }
             catch (Exception e)
             {
@@ -116,7 +116,7 @@ namespace Capstone.Controllers
             try
             {
                 new MenuItemController().UpdateMenuValidator(menuID, name, description, price, waitTimeMins, ingredients, calories, halal, catID, file, _webHostEnvironment);
-                return "Gottem";
+                return "Menu Item Updated Successfully";
             }
             catch (Exception e)
             {
@@ -130,7 +130,7 @@ namespace Capstone.Controllers
             try
             {
                 new MenuItemController().DeleteMenuItem(id, _webHostEnvironment);
-                return "successfully deleted";
+                return "Menu Item Deleted successfully deleted";
             }
             catch (Exception e)
             {
