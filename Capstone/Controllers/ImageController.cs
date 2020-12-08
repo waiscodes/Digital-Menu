@@ -11,6 +11,9 @@ namespace Capstone.Controllers
 {
     public class ImageController : Controller
     {
+        /*
+         Images controller with all the image methods. Just create and delete imagename is in the database and create/delete act as edit. 
+         */
         private readonly IWebHostEnvironment _webHostEnvironment;
 
         public ImageController(IWebHostEnvironment hostEnvironment)

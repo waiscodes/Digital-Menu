@@ -213,7 +213,7 @@ namespace Capstone.Controllers
         public void DeleteMenuItem(string id, IWebHostEnvironment hostEnvironment)
         {
             /*
-             Menu image must also be deleted at the same time. This method achieves that by taking the image name.
+             Menu image must also be deleted at the same time. This method achieves that by taking the image name. HostEnvironment is passed to the image controller contructor to initialize it. 
              */
             MenuItem menuItem = GetMenuItemByID(id);
             new ImageController(hostEnvironment)
