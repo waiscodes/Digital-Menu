@@ -21,9 +21,11 @@ const Details = (props) => {
             <h2>{menuItem.name}</h2>
             <h2>${menuItem.price}</h2>
           </div>
-          <p>Description: {menuItem.description}</p>
+          <p>Description</p>
+          <p>{menuItem.description}</p>
           <p>Wait Time: {menuItem.waitTimeMins} Minutes</p>
-          <p>Ingredients: {menuItem.ingredients}</p>
+          <p>Ingredients</p>
+          <p>{menuItem.ingredients}</p>
           <p>Calories: {menuItem.calories}</p>
           <p>Restrictions: {menuItem.halal ? "Halal" : "Haram"}</p>
         </section>
@@ -70,12 +72,14 @@ const Details = (props) => {
   if (props.activeUser !== undefined) {
     buttons = (
       <>
-        <Link to={"/m/" + props.activeUser.username}>
-          <button onClick={deleteHandler}>Delete</button>
-        </Link>
-        <Link to={"/edit/" + id}>
-          <button>Edit</button>
-        </Link>
+        <div className='buttons'>
+          <Link to={"/m/" + props.activeUser.username}>
+            <button onClick={deleteHandler}>Delete</button>
+          </Link>
+          <Link to={"/edit/" + id}>
+            <button>Edit</button>
+          </Link>
+        </div>
       </>
     );
   }

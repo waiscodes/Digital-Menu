@@ -10,3 +10,12 @@
   display: flex;
   justify-content: space-between;
 }
+
+.buttons > * {
+  border: solid;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
