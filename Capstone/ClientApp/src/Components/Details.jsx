@@ -19,7 +19,7 @@ const Details = (props) => {
           <img src={path + menuItem.imageName} alt='' />
           <div className='price-title'>
             <h2>{menuItem.name}</h2>
-            <h2>{menuItem.price}</h2>
+            <h2>${menuItem.price}</h2>
           </div>
           <p>{menuItem.description}</p>
           <p>{menuItem.waitTimeMins}</p>

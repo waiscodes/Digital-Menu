@@ -1,0 +1,8 @@
+.details {
+  border: solid;
+}
+
+.details .price-title {
+  display: flex;
+  justify-content: space-between;
+}
