@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import "../css/Create.css";
 
 const Create = (props) => {
   const [response, setResponse] = useState([]);
