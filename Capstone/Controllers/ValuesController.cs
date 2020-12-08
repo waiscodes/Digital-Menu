@@ -23,6 +23,9 @@ namespace Capstone.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        /*
+         IWebHostEnviroment gets the path from root to that current folder without having to hard code it in.
+         */
         private readonly IWebHostEnvironment _webHostEnvironment;
 
         public ValuesController(IWebHostEnvironment hostEnvironment)
@@ -129,6 +132,9 @@ namespace Capstone.Controllers
         {
             try
             {
+                /*
+                 WebHostEnvironment is being passed in because it doesn't work from any other file. 
+                 */
                 new MenuItemController().UpdateMenuValidator(menuID, name, description, price, waitTimeMins, ingredients, calories, halal, catID, file, _webHostEnvironment);
                 return "Menu Item Updated Successfully";
             }
