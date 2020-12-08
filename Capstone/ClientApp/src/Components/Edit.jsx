@@ -224,6 +224,7 @@ const Edit = (props) => {
       <>
         <form onSubmit={handleSubmit}>
           <div>
+            {response}
             {content}
             <input type='submit' value='Submit' />
           </div>
