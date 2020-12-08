@@ -121,117 +121,121 @@ const Create = (props) => {
       });
   };
 
-  return (
-    <>
-      <section className='create-section'>
-        <h3>Create</h3>
-        <form onSubmit={handleSubmit}>
-          <div className='form-group'>
-            <label htmlFor='category'>Category</label>
-            <select
-              name='category'
-              id='category'
-              onChange={handleFieldChange}
-              required
-            >
-              <option value='none' selected disabled hidden>
-                Select an Option
-              </option>
-              {content}
-            </select>
-          </div>
-          <div className='form-group'>
-            <label htmlFor='name'>Name</label>
-            <input
-              type='text'
-              name='name'
-              id='name'
-              onChange={handleFieldChange}
-              required
-            />
-          </div>
-          <div className='form-group'>
-            <label htmlFor='price'>Price</label>
-            <input
-              type='number'
-              name='price'
-              id='price'
-              onChange={handleFieldChange}
-              required
-            />
-          </div>
-          <div className='form-group'>
-            <label htmlFor='description'>Description</label>
-            <input
-              type='text'
-              name='description'
-              id='description'
-              onChange={handleFieldChange}
-              required
-            />
-          </div>
-          <div className='form-group'>
-            <label htmlFor='wait-time'>Wait Time (Minutes)</label>
-            <input
-              type='number'
-              name='wait-time'
-              id='wait-time'
-              onChange={handleFieldChange}
-              required
-            />
-          </div>
-          <div className='form-group'>
-            <label htmlFor='Ingredients'>Ingredients</label>
-            <input
-              type='text'
-              name='ingredients'
-              id='ingredients'
-              onChange={handleFieldChange}
-              required
-            />
-          </div>
-          <div className='form-group'>
-            <label htmlFor='calories'>Calories</label>
-            <input
-              type='number'
-              name='calories'
-              id='calories'
-              onChange={handleFieldChange}
-              required
-            />
-          </div>
-          <div className='form-group'>
-            <label htmlFor='halal'>Halal</label>
-            <select
-              name='halal'
-              id='halal'
-              onChange={handleFieldChange}
-              required
-            >
-              <option value='none' selected disabled hidden>
-                Select an Option
-              </option>
-              <option value='true'>Halal</option>
-              <option value='false'>Non-Halal</option>
-            </select>
-          </div>
-          <div className='form-group'>
-            <label htmlFor='img'>Image</label>
-            <input
-              type='file'
-              id='img'
-              name='img'
-              accept='image/*'
-              onChange={handleFieldChange}
-            />
-          </div>
-          <div>
-            <input type='submit' value='Submit' />
-          </div>
-        </form>
-      </section>
-    </>
-  );
+  if (user !== undefined) {
+    return (
+      <>
+        <section className='create-section'>
+          <h3>Create</h3>
+          <form onSubmit={handleSubmit}>
+            <div className='form-group'>
+              <label htmlFor='category'>Category</label>
+              <select
+                name='category'
+                id='category'
+                onChange={handleFieldChange}
+                required
+              >
+                <option value='none' selected disabled hidden>
+                  Select an Option
+                </option>
+                {content}
+              </select>
+            </div>
+            <div className='form-group'>
+              <label htmlFor='name'>Name</label>
+              <input
+                type='text'
+                name='name'
+                id='name'
+                onChange={handleFieldChange}
+                required
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='price'>Price</label>
+              <input
+                type='number'
+                name='price'
+                id='price'
+                onChange={handleFieldChange}
+                required
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='description'>Description</label>
+              <input
+                type='text'
+                name='description'
+                id='description'
+                onChange={handleFieldChange}
+                required
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='wait-time'>Wait Time (Minutes)</label>
+              <input
+                type='number'
+                name='wait-time'
+                id='wait-time'
+                onChange={handleFieldChange}
+                required
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='Ingredients'>Ingredients</label>
+              <input
+                type='text'
+                name='ingredients'
+                id='ingredients'
+                onChange={handleFieldChange}
+                required
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='calories'>Calories</label>
+              <input
+                type='number'
+                name='calories'
+                id='calories'
+                onChange={handleFieldChange}
+                required
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='halal'>Halal</label>
+              <select
+                name='halal'
+                id='halal'
+                onChange={handleFieldChange}
+                required
+              >
+                <option value='none' selected disabled hidden>
+                  Select an Option
+                </option>
+                <option value='true'>Halal</option>
+                <option value='false'>Non-Halal</option>
+              </select>
+            </div>
+            <div className='form-group'>
+              <label htmlFor='img'>Image</label>
+              <input
+                type='file'
+                id='img'
+                name='img'
+                accept='image/*'
+                onChange={handleFieldChange}
+              />
+            </div>
+            <div>
+              <input type='submit' value='Submit' />
+            </div>
+          </form>
+        </section>
+      </>
+    );
+  } else {
+    return <Redirect to='/' />;
+  }
 };
 
 export default connect((state) => {
