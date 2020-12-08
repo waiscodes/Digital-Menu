@@ -7,10 +7,6 @@ namespace Capstone.Models
     [Table("MenuItem")]
     public class MenuItem
     {
-        public MenuItem()
-        {
-        }
-
         [Key]
         [Column(TypeName = "int(10)")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
