@@ -31,7 +31,7 @@ namespace Capstone.Controllers
             }
             catch (Exception e)
             {
-                return e.Message;
+                return NotFound(e.Message);
             }
         }
 
