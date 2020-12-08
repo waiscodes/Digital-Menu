@@ -81,7 +81,7 @@ const Edit = (props) => {
             name='name'
             id='name'
             onChange={handleFieldChange}
-            placeholder={menuItem.name}
+            placeholder={menuItem.name.replace(/\\/g, "")}
           />
         </div>
         <div className='form-group'>
@@ -101,7 +101,7 @@ const Edit = (props) => {
             name='description'
             id='description'
             onChange={handleFieldChange}
-            placeholder={menuItem.description}
+            placeholder={menuItem.description.replace(/\\/g, "")}
           />
         </div>
         <div className='form-group'>
@@ -121,7 +121,7 @@ const Edit = (props) => {
             name='ingredients'
             id='ingredients'
             onChange={handleFieldChange}
-            placeholder={menuItem.ingredients}
+            placeholder={menuItem.ingredients.replace(/\\/g, "")}
           />
         </div>
         <div className='form-group'>
