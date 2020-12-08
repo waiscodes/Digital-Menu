@@ -11,6 +11,10 @@ namespace Capstone.Controllers
 {
     public class RestaurantController : Controller
     {
+        /*
+        Restaurant Controller with all the methods that interact with the Restaurant table. (Restaurant = user)
+            Methods are seperated and ordered by CRUD functionalities (Create, read, update, delete)
+         */
 
         // CREATE
         public string Register(string resName, string resUsername, string email, string password, string resLocation)
@@ -48,6 +52,10 @@ namespace Capstone.Controllers
                 context.Restaurants.Add(newRestaurant);
                 context.SaveChanges();
             }
+
+            /*
+             * 4 Categories are created for user by default. 
+             */
             new CategoryController().CreateCategory("Starters", resUsername);
             new CategoryController().CreateCategory("Main Course", resUsername);
             new CategoryController().CreateCategory("Dessert", resUsername);
@@ -86,6 +94,9 @@ namespace Capstone.Controllers
             return username;
         }
 
+        /*
+         This is a utility method. It is not directly called by the API but it is used by many of the methods that are.
+         */
         public static Restaurant GetResByUsername(string username)
         {
             username = username.Trim().ToLower();
