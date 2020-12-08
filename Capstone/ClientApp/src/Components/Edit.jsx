@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
+import "../css/Edit.css";
 
 const Edit = (props) => {
   const { id } = useParams();
