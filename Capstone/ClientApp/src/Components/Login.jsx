@@ -52,6 +52,7 @@ const Login = (props) => {
         <section className='login-section'>
           <h3>Login</h3>
           <form onSubmit={handleSubmit}>
+            <pre>{response}</pre>
             <div className='form-group'>
               <label htmlFor='email' className='.screen-reader-text'>
                 Email
