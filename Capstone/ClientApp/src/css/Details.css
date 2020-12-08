@@ -1,6 +1,6 @@
-.details {
-  /* border: solid; */
-}
+/* .details {
+  border: solid;
+} */
 
 .details img {
   width: 100%;
@@ -11,9 +11,9 @@
   justify-content: space-between;
 }
 
-.buttons > * {
-  /* border: solid; */
-}
+/* .buttons > * {
+  border: solid;
+} */
 
 .buttons {
   display: flex;
