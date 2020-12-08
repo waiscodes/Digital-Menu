@@ -9,6 +9,11 @@ namespace Capstone.Models
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<MenuItem> MenuItems { get; set; }
 
+        /*
+        Instructions on Migration:
+         This is a Mac and MAMP connection string.
+            Make sure to update it to your OS before trying to migrate.
+         */
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
