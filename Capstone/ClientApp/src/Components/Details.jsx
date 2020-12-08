@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "../css/Details.css";
 
 const Details = (props) => {
   const { id } = useParams();
