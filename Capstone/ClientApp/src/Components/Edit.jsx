@@ -221,10 +221,11 @@ const Edit = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div>
+        <section className='edit-section'>
+          <h3>Edit</h3>
           {content}
           <input type='submit' value='Submit' />
-        </div>
+        </section>
       </form>
     </>
   );
