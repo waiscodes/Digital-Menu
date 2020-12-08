@@ -17,7 +17,6 @@ import Login from "./Components/Login";
 import Edit from "./Components/Edit";
 
 //Redux Actions & Reducers
-import aActiveUser from "./Actions/aActiveUser";
 import rActiveUser from "./Reducers/rActiveUser";
 
 const myStore = createStore(
