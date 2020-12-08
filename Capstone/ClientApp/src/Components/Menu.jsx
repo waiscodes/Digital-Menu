@@ -15,13 +15,13 @@ const Menu = () => {
       <>
         {categories.map((cat) => {
           return (
-            <>
-              <section className='category'>
+            <div key={cat.id}>
+              <section className='category' key={cat.id}>
                 <h2>{cat.name}</h2>
                 {menuItems.map((item) => {
                   if (item.categoryID === cat.id) {
                     return (
-                      <>
+                      <div key={item.id}>
                         <Link to={"/Details/" + item.id}>
                           <div className='menu-card' id={item.id}>
                             <img src={path + item.imageName} />
@@ -32,12 +32,12 @@ const Menu = () => {
                             <p>{item.ingredients.replace(/\\/g, "")}</p>
                           </div>
                         </Link>
-                      </>
+                      </div>
                     );
                   }
                 })}
               </section>
-            </>
+            </div>
           );
         })}
       </>
