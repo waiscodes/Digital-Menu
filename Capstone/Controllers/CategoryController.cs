@@ -28,7 +28,7 @@ namespace Capstone.Controllers
         // READ
         public List<Category> ListCategories(string username)
         {
-            if (string.IsNullOrWhiteSpace(username)) throw new Exception("Username cannot be null");
+            if (string.IsNullOrWhiteSpace(username)) throw new Exception("Username cannot be empty");
 
             username = username.Trim().ToLower();
             List<Category> result;
