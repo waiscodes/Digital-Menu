@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
 
@@ -219,16 +219,20 @@ const Edit = (props) => {
   }, [loading]);
   let content = loading ? <p>Loading...</p> : renderEdit(catResponse, menuItem);
 
-  return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <div>
-          {content}
-          <input type='submit' value='Submit' />
-        </div>
-      </form>
-    </>
-  );
+  if (user !== undefined) {
+    return (
+      <>
+        <form onSubmit={handleSubmit}>
+          <div>
+            {content}
+            <input type='submit' value='Submit' />
+          </div>
+        </form>
+      </>
+    );
+  } else {
+    return <Redirect to='/' />;
+  }
 };
 
 export default connect((state) => {
