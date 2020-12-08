@@ -1,5 +1,5 @@
 .category {
-  border: solid blue;
+  border: solid;
 }
 
 .category h2 {
@@ -7,11 +7,12 @@
 }
 
 .menu-card {
-  border: red solid;
+  outline: solid 1px;
 }
 
 .category a {
   text-decoration: none;
+  color: black;
 }
 
 .menu-card img {
@@ -19,12 +20,7 @@
 }
 
 .menu-card .title-price {
-  border: solid coral;
   display: flex;
   justify-content: space-between;
   overflow: hidden;
-}
-
-.menu-card .title-price > * {
-  border: solid;
 }
