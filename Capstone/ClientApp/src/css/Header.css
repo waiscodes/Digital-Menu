@@ -1,11 +1,9 @@
 Header {
-  border: solid;
   display: flex;
   flex-direction: column;
 }
 
 Header > h1 {
-  border: solid;
   text-align: center;
 }
 

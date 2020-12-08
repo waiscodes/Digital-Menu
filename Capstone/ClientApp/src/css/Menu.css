@@ -1,5 +1,5 @@
 .category {
-  border: solid;
+  /* border: solid; */
 }
 
 .category h2 {
@@ -7,7 +7,7 @@
 }
 
 .menu-card {
-  outline: solid 1px;
+  /* outline: solid 1px; */
 }
 
 .category a {

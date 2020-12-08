@@ -1,5 +1,5 @@
 .details {
-  border: solid;
+  /* border: solid; */
 }
 
 .details img {
@@ -12,7 +12,7 @@
 }
 
 .buttons > * {
-  border: solid;
+  /* border: solid; */
 }
 
 .buttons {
