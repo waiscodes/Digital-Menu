@@ -9,6 +9,12 @@ namespace Capstone.Controllers
 {
     public class CategoryController : Controller
     {
+        /*
+        Category Controller with all the methods that interact with the Restaurant table. (Restaurant = user)
+            Methods are seperated and ordered by CRUD functionalities (Create, read, update, delete)
+            This was created with the future in mind where users will be able to create update and delete their own categories.
+         */
+
         // CREATE
         public void CreateCategory(string catName, string username)
         {
