@@ -23,6 +23,7 @@ const Menu = () => {
             <div key={cat.id}>
               <section className='category' key={cat.id}>
                 <h2>{cat.name}</h2>
+                <hr />
                 {menuItems.map((item) => {
                   if (item.categoryID === cat.id) {
                     return (
