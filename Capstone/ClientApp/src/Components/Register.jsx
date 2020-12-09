@@ -85,6 +85,7 @@ const Register = (props) => {
                 name='resName'
                 id='resName'
                 maxLength='75'
+                placeholder='Restaurant Name'
                 required
                 onChange={handleFieldChange}
               />
@@ -96,6 +97,7 @@ const Register = (props) => {
                 name='resUsername'
                 id='resUsername'
                 maxLength='30'
+                placeholder='Restaurant Username'
                 required
                 onChange={handleFieldChange}
               />
@@ -107,6 +109,7 @@ const Register = (props) => {
                 name='resLocation'
                 id='resLocation'
                 maxLength='75'
+                placeholder='Restaurant Location'
                 required
                 onChange={handleFieldChange}
               />
@@ -118,6 +121,7 @@ const Register = (props) => {
                 name='email'
                 id='email'
                 maxLength='64'
+                placeholder='Email'
                 required
                 onChange={handleFieldChange}
               />
@@ -129,6 +133,7 @@ const Register = (props) => {
                 name='password'
                 id='password'
                 maxLength='50'
+                placeholder='Password'
                 required
                 onChange={handleFieldChange}
               />
