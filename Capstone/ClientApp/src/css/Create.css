@@ -9,7 +9,6 @@
 .create-section > h3,
 .create-section > form,
 .create-section > p {
-  margin-bottom: 3%;
   width: fit-content;
 }
 
