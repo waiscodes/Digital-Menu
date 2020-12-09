@@ -13,7 +13,16 @@
   width: fit-content;
 }
 
+.login-section > h3 {
+  font-weight: 500;
+  font-size: 30px;
+}
+
 .login-section > form {
+  text-align: center;
+}
+
+.login-section ::placeholder {
   text-align: center;
 }
 
