@@ -72,7 +72,7 @@ const Login = (props) => {
             </div>
             <div className='form-group'>
               <label htmlFor='password' className='.screen-reader-text'>
-                password
+                Password
               </label>
               <input
                 type='password'
@@ -86,10 +86,10 @@ const Login = (props) => {
             </div>
             <div>
               <input type='submit' value='Submit' />
-              <p>
-                Don't have an account? <Link to='/register'>Register</Link>
-              </p>
             </div>
+            <p>
+              Don't have an account? <Link to='/register'>Register</Link>
+            </p>
           </form>
         </section>
       </>
@@ -118,7 +118,7 @@ const Login = (props) => {
               />
             </div>
             <div className='form-group'>
-              <label htmlFor='password'>password</label>
+              <label htmlFor='password'>Password</label>
               <input
                 type='password'
                 name='password'
@@ -129,10 +129,10 @@ const Login = (props) => {
             </div>
             <div>
               <input type='submit' value='Submit' />
-              <p>
-                Don't have an account? <Link to='/register'>Register</Link>
-              </p>
             </div>
+            <p>
+              Don't have an account? <Link to='/register'>Register</Link>
+            </p>
           </form>
         </section>
       </>
