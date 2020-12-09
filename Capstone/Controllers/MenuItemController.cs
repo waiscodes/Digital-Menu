@@ -67,6 +67,8 @@ namespace Capstone.Controllers
             ingredients = ingredients.Trim();
             if (UserStr.IsLengthOverLimit(1000, ingredients)) throw new Exception("Ingredients cannot exceed 100 characters");
 
+            if (file == null) throw new Exception("Must upload an image");
+
             RestaurantController.GetResByUsername(resUsername);
 
             CreateMenuItem(name, description, parsedPrice, parsedWaitTime, ingredients, parsedCalories, parsedHalal, parsedCatID, resUsername, file);
