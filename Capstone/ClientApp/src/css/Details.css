@@ -18,6 +18,10 @@
   margin-top: 5px;
 }
 
+.data-group p:nth-child(2) {
+  margin-left: 10px;
+}
+
 /* .buttons > * {
   border: solid;
 } */

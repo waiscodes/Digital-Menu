@@ -25,23 +25,22 @@ const Details = (props) => {
           </div>
           <div className='data-group'>
             <p>
-              <strong>Description</strong>
+              <strong>Description: </strong>
             </p>
             <p>{menuItem.description.replace(/\\/g, "")}</p>
+          </div>
+          <div className='data-group'>
+            <p>
+              <strong>Ingredients: </strong>
+            </p>
+            <p>{menuItem.ingredients.replace(/\\/g, "")}</p>
           </div>
           <p>
             <strong>Wait Time: </strong>
             {menuItem.waitTimeMins} Minutes
           </p>
-          <div className='data-group'>
-            <p>
-              <strong>Ingredients</strong>
-            </p>
-            <p>{menuItem.ingredients.replace(/\\/g, "")}</p>
-          </div>
           <p>
-            {" "}
-            <strong> Calories: </strong>
+            <strong>Calories: </strong>
             {menuItem.calories}
           </p>
           <p>
