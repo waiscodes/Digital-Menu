@@ -151,6 +151,7 @@ const Create = (props) => {
                 type='text'
                 name='name'
                 id='name'
+                maxLength='100'
                 onChange={handleFieldChange}
                 required
               />
@@ -161,6 +162,7 @@ const Create = (props) => {
                 type='number'
                 name='price'
                 id='price'
+                maxLength='10'
                 onChange={handleFieldChange}
                 required
               />
@@ -171,6 +173,7 @@ const Create = (props) => {
                 type='text'
                 name='description'
                 id='description'
+                maxLength='1000'
                 onChange={handleFieldChange}
                 required
               />
@@ -181,6 +184,7 @@ const Create = (props) => {
                 type='number'
                 name='wait-time'
                 id='wait-time'
+                maxLength='10'
                 onChange={handleFieldChange}
                 required
               />
@@ -191,6 +195,7 @@ const Create = (props) => {
                 type='text'
                 name='ingredients'
                 id='ingredients'
+                maxLength='1000'
                 onChange={handleFieldChange}
                 required
               />
@@ -201,6 +206,7 @@ const Create = (props) => {
                 type='number'
                 name='calories'
                 id='calories'
+                maxLength='10'
                 onChange={handleFieldChange}
                 required
               />

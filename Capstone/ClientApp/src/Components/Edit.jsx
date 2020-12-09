@@ -80,6 +80,7 @@ const Edit = (props) => {
             type='text'
             name='name'
             id='name'
+            maxLength='100'
             onChange={handleFieldChange}
             placeholder={menuItem.name.replace(/\\/g, "")}
           />
@@ -90,6 +91,7 @@ const Edit = (props) => {
             type='number'
             name='price'
             id='price'
+            maxLength='10'
             onChange={handleFieldChange}
             placeholder={menuItem.price}
           />
@@ -100,6 +102,7 @@ const Edit = (props) => {
             type='text'
             name='description'
             id='description'
+            maxLength='1000'
             onChange={handleFieldChange}
             placeholder={menuItem.description.replace(/\\/g, "")}
           />
@@ -110,6 +113,7 @@ const Edit = (props) => {
             type='number'
             name='wait-time'
             id='wait-time'
+            maxLength='10'
             onChange={handleFieldChange}
             placeholder={menuItem.waitTimeMins}
           />
@@ -120,6 +124,7 @@ const Edit = (props) => {
             type='text'
             name='ingredients'
             id='ingredients'
+            maxLength='1000'
             onChange={handleFieldChange}
             placeholder={menuItem.ingredients.replace(/\\/g, "")}
           />
@@ -130,6 +135,7 @@ const Edit = (props) => {
             type='number'
             name='calories'
             id='calories'
+            maxLength='10'
             onChange={handleFieldChange}
             placeholder={menuItem.calories}
           />
