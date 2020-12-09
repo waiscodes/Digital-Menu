@@ -183,7 +183,7 @@ namespace Capstone.Models
                         Description = "Fresh from Fighy Joe's... Well, as fresh as Fishy Joe's gets. Cajuan Popcorn Shrimp",
                         Price = 10.99,
                         WaitTimeMins = 8,
-                        Ingredients = "Cajuan Popcorn Shrimp",
+                        Ingredients = "Regular onion but in a french accent",
                         Calories = 600,
                         Halal = true,
                         ImageName = "French-Onion-Soup.jpg"
