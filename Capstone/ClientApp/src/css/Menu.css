@@ -9,7 +9,7 @@
 }
 
 .menu-card {
-  border: solid 0.5px;
+  border: solid 0.5px rgba(100, 100, 100, 0.411);
   margin: 5px;
   padding: 5px;
   border-radius: 5px;
