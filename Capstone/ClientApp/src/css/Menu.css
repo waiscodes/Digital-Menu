@@ -1,6 +1,7 @@
 .menu-cards {
   display: flex;
   flex-wrap: wrap;
+  justify-content: start;
 }
 
 .category h2 {
@@ -15,7 +16,8 @@
   padding: 5px;
   border-radius: 5px;
   font-weight: 200;
-  max-width: 500px;
+  max-width: 400px;
+  min-width: 280px;
 }
 
 .category a {
