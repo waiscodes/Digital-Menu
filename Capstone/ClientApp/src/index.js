@@ -24,6 +24,7 @@ const myStore = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
+// /: is a use param. It is a dynamic path that can also be retrieved by the component to show specific type of data
 ReactDOM.render(
   <React.StrictMode>
     <>
