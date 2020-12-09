@@ -19,34 +19,36 @@ const Details = (props) => {
         <section className='details'>
           <h2 className='screen-reader-text'>Details</h2>
           <img src={path + menuItem.imageName} alt='' />
-          <div className='price-title'>
-            <h2>{menuItem.name.replace(/\\/g, "")}</h2>
-            <h2>${menuItem.price}</h2>
-          </div>
-          <div className='data-group'>
+          <div className='details-info'>
+            <div className='price-title'>
+              <h2>{menuItem.name.replace(/\\/g, "")}</h2>
+              <h2>${menuItem.price}</h2>
+            </div>
+            <div className='data-group'>
+              <p>
+                <strong>Description: </strong>
+              </p>
+              <p>{menuItem.description.replace(/\\/g, "")}</p>
+            </div>
+            <div className='data-group'>
+              <p>
+                <strong>Ingredients: </strong>
+              </p>
+              <p>{menuItem.ingredients.replace(/\\/g, "")}</p>
+            </div>
             <p>
-              <strong>Description: </strong>
+              <strong>Wait Time: </strong>
+              {menuItem.waitTimeMins} Minutes
             </p>
-            <p>{menuItem.description.replace(/\\/g, "")}</p>
-          </div>
-          <div className='data-group'>
             <p>
-              <strong>Ingredients: </strong>
+              <strong>Calories: </strong>
+              {menuItem.calories}
             </p>
-            <p>{menuItem.ingredients.replace(/\\/g, "")}</p>
+            <p>
+              <strong>Restrictions: </strong>
+              {menuItem.halal ? "Halal" : "Haram"}
+            </p>
           </div>
-          <p>
-            <strong>Wait Time: </strong>
-            {menuItem.waitTimeMins} Minutes
-          </p>
-          <p>
-            <strong>Calories: </strong>
-            {menuItem.calories}
-          </p>
-          <p>
-            <strong>Restrictions: </strong>
-            {menuItem.halal ? "Halal" : "Haram"}
-          </p>
         </section>
       </>
     );
