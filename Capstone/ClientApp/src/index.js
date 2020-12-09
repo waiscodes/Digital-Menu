@@ -25,6 +25,7 @@ const myStore = createStore(
 );
 
 // /: is a use param. It is a dynamic path that can also be retrieved by the component to show specific type of data
+// Citation: [1] useParams
 ReactDOM.render(
   <React.StrictMode>
     <>
@@ -46,3 +47,7 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+/* Citations
+ * 1 - useParam: https://reacttraining.com/blog/react-router-v5-1/
+ */
