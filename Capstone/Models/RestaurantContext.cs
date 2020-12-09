@@ -88,7 +88,7 @@ namespace Capstone.Models
                     {
                         ID = -1,
                         RestaurantID = -1,
-                        Name = "Starters"
+                        Name = "Drinks"
                     }
                 );
 
@@ -97,7 +97,7 @@ namespace Capstone.Models
                     {
                         ID = -2,
                         RestaurantID = -1,
-                        Name = "Main Course"
+                        Name = "Dessert"
                     }
                 );
 
@@ -106,7 +106,7 @@ namespace Capstone.Models
                     {
                         ID = -3,
                         RestaurantID = -1,
-                        Name = "Dessert"
+                        Name = "Main Course"
                     }
                 );
 
@@ -115,9 +115,10 @@ namespace Capstone.Models
                     {
                         ID = -4,
                         RestaurantID = -1,
-                        Name = "Drinks"
+                        Name = "Starters"
                     }
                 );
+
             });
 
             string MenuCatFK = "FK_" + nameof(MenuItem) +
