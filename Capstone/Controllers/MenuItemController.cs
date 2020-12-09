@@ -29,14 +29,19 @@ namespace Capstone.Controllers
             double parsedPrice;
             if (!double.TryParse(price, out parsedPrice)) throw new Exception("Price must be a number");
             if (!UserInt.IsPositiveNumber(parsedPrice)) throw new Exception("Price can't be under $0");
+            if (UserStr.IsLengthOverLimit(10, price)) throw new Exception("Price connot be above 999999999");
+
 
             int parsedWaitTime;
             if (!int.TryParse(waitTimeMins, out parsedWaitTime)) throw new Exception("Price must be a number");
             if (!UserInt.IsPositiveNumber(parsedWaitTime)) throw new Exception("Wait time can't be under 0 minutes");
+            if (UserStr.IsLengthOverLimit(10, waitTimeMins)) throw new Exception("Wait Time connot be above 999999999 Minutes");
+
 
             int parsedCalories;
             if (!int.TryParse(calories, out parsedCalories)) throw new Exception("Calories must be a number");
             if (!UserInt.IsPositiveNumber(parsedCalories)) throw new Exception("Calories can't be under 0 Calories. You wish");
+            if (UserStr.IsLengthOverLimit(10, calories)) throw new Exception("Calories connot be above 999999999 Calories");
 
             int parsedCatID;
             if (!int.TryParse(catID, out parsedCatID)) throw new Exception("Category ID must be a Number");
@@ -130,6 +135,7 @@ namespace Capstone.Controllers
                 double parsedPrice;
                 if (!double.TryParse(price, out parsedPrice)) throw new Exception("Price must be a number");
                 if (!UserInt.IsPositiveNumber(parsedPrice)) throw new Exception("Price can't be under $0");
+                if (UserStr.IsLengthOverLimit(10, price)) throw new Exception("Price connot be above 999999999");
             }
 
             int parsedWaitTime;
@@ -137,6 +143,7 @@ namespace Capstone.Controllers
             {
                 if (!int.TryParse(waitTimeMins, out parsedWaitTime)) throw new Exception("Price must be a number");
                 if (!UserInt.IsPositiveNumber(parsedWaitTime)) throw new Exception("Wait time can't be under 0 minutes");
+                if (UserStr.IsLengthOverLimit(10, waitTimeMins)) throw new Exception("Wait Time connot be above 999999999 Minutes");
             }
 
             if (!string.IsNullOrWhiteSpace(calories))
@@ -144,6 +151,7 @@ namespace Capstone.Controllers
                 int parsedCalories;
                 if (!int.TryParse(calories, out parsedCalories)) throw new Exception("Calories must be a number");
                 if (!UserInt.IsPositiveNumber(parsedCalories)) throw new Exception("Calories can't be under 0 Calories. You wish");
+                if (UserStr.IsLengthOverLimit(10, calories)) throw new Exception("Calories connot be above 999999999 Calories");
             }
 
             if (!string.IsNullOrWhiteSpace(catID))
