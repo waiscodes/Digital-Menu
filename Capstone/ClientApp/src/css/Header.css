@@ -3,7 +3,7 @@ Header {
   flex-direction: column;
   background-color: #343d46;
   font-weight: 200;
-  min-width: 100%;
+  min-width: 280px;
 }
 
 Header > h1 {
