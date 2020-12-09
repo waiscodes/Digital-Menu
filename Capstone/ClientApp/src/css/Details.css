@@ -22,11 +22,22 @@
   margin-left: 10px;
 }
 
-/* .buttons > * {
-  border: solid;
-} */
-
 .buttons {
   display: flex;
   justify-content: space-evenly;
+}
+
+.buttons button {
+  padding: 3px;
+  border-radius: 3px;
+  width: 100px;
+}
+
+#deleteBtn {
+  background-color: #d9534f;
+  color: white;
+}
+
+#editBtn {
+  background-color: #f0ad4e;
 }

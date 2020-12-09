@@ -95,10 +95,12 @@ const Details = (props) => {
       <>
         <div className='buttons'>
           <Link to={"/m/" + props.activeUser.username}>
-            <button onClick={deleteHandler}>Delete</button>
+            <button onClick={deleteHandler} id='deleteBtn'>
+              Delete
+            </button>
           </Link>
           <Link to={"/edit/" + id}>
-            <button>Edit</button>
+            <button id='editBtn'>Edit</button>
           </Link>
         </div>
       </>
