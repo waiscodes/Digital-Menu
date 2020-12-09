@@ -93,7 +93,7 @@ const Create = (props) => {
     setLoading(true);
 
     // This captures image to pass it to through the axios.
-    // Citation: [1] Formdata
+    // Citation: [1] FormData
     const formData = new FormData();
     formData.append("file", img);
 
