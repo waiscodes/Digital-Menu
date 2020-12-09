@@ -233,7 +233,7 @@ const Edit = (props) => {
     return (
       <>
         <section className='edit-section'>
-          <h1>Edit</h1>
+          <h3>Edit</h3>
           <form onSubmit={handleSubmit}>
             {response}
             {content}

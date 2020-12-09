@@ -7,8 +7,15 @@
 }
 
 .edit-section > h3,
-.edit-section > form {
+.edit-section > form,
+.edit-section > p {
+  margin-bottom: 3%;
   width: fit-content;
+}
+
+.edit-section > h3 {
+  font-weight: 500;
+  font-size: 30px;
 }
 
 .edit-section > form {
@@ -19,4 +26,9 @@
   display: flex;
   flex-direction: column;
   margin: 5px;
+  margin-bottom: 5%;
+}
+
+.edit-section input[type="submit"] {
+  width: 100%;
 }
