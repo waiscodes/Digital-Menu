@@ -9,7 +9,8 @@ const Header = (props) => {
   const logoutHandler = () => {
     props.dispatch(aActiveUser(undefined));
   };
-
+  // Different headers based on whether the user is logged in.
+  // Nav bar to home and log in isn't showed to customer. They just need to see the menu and that's it.
   const renderAdminNav = (username) => {
     return (
       <>
