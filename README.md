@@ -50,3 +50,33 @@ A web app menu that includes pictures of menu items as well as details of the me
 - Escape: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.escape?view=net-5.0
 - FormData: https://bezkoder.com/react-file-upload-axios/
 - Useparams: https://reacttraining.com/blog/react-router-v5-1/
+
+## Testing Instructions
+Login 
+- Length limitation on input
+- Invalid username returns: “There is no account under this email”
+- Invalid password returns: “Password is incorrect”
+
+Register
+- Length limitations on input
+    - If postman were used to put extra length: “{input} cannot exceed {max length in database} Characters"
+- If username is already taken: “Restaurant username is taken”
+- If email already taken: “An account by that email already exists”
+- If fields are empty: “{field name} cannot be empty”
+- If there’s a special character in username: “username cannot contain special characters”
+- If there’s a space in username: “username cannot contain a space”
+
+Create
+- Length limitation on inputs
+- If length is surpassed: “{input} cannot exceed {max length}
+- Required html validator 
+- If field is left empty: “{field name} cannot be empty”
+
+Edit
+- Length limitation on inputs
+- If length is surpassed: “{input} cannot exceed {max length}
+- If field is left empty: “{field name} cannot be empty” 
+
+Delete
+- Delete button deletes item if it exists
+- On postman, Menu Item doesn’t not exist
