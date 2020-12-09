@@ -5,6 +5,9 @@ import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import "../css/Login.css";
 
+// Email and password are captured sent to the backend, and if they are correct, username is sent back.
+// Username is set to dispatch to change the global state username to the username.
+
 const Login = (props) => {
   const [response, setResponse] = useState([]);
   const [email, setEmail] = useState();
@@ -45,7 +48,7 @@ const Login = (props) => {
         setResponse(err.response.data);
       });
   };
-
+  // This checks if the user is already logged in by checking the global state. If the user is logged in, they are redirected to home page.
   if (props.activeUser == undefined) {
     return (
       <>
