@@ -224,7 +224,6 @@ namespace Capstone.Controllers
                 context.SaveChanges();
             }
         }
-
         // DELETE
         public void DeleteMenuItem(string id, IWebHostEnvironment hostEnvironment)
         {
