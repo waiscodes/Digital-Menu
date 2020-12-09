@@ -23,13 +23,31 @@ const Details = (props) => {
             <h2>{menuItem.name.replace(/\\/g, "")}</h2>
             <h2>${menuItem.price}</h2>
           </div>
-          <p>Description</p>
-          <p>{menuItem.description.replace(/\\/g, "")}</p>
-          <p>Wait Time: {menuItem.waitTimeMins} Minutes</p>
-          <p>Ingredients</p>
-          <p>{menuItem.ingredients.replace(/\\/g, "")}</p>
-          <p>Calories: {menuItem.calories}</p>
-          <p>Restrictions: {menuItem.halal ? "Halal" : "Haram"}</p>
+          <div className='data-group'>
+            <p>
+              <strong>Description</strong>
+            </p>
+            <p>{menuItem.description.replace(/\\/g, "")}</p>
+          </div>
+          <p>
+            <strong>Wait Time: </strong>
+            {menuItem.waitTimeMins} Minutes
+          </p>
+          <div className='data-group'>
+            <p>
+              <strong>Ingredients</strong>
+            </p>
+            <p>{menuItem.ingredients.replace(/\\/g, "")}</p>
+          </div>
+          <p>
+            {" "}
+            <strong> Calories: </strong>
+            {menuItem.calories}
+          </p>
+          <p>
+            <strong>Restrictions: </strong>
+            {menuItem.halal ? "Halal" : "Haram"}
+          </p>
         </section>
       </>
     );

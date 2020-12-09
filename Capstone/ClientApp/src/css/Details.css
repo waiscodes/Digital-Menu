@@ -1,14 +1,21 @@
-/* .details {
-  border: solid;
-} */
+.details {
+  margin: 5px;
+  border-radius: 5px;
+}
 
 .details img {
   width: 100%;
+  border-radius: 4px;
 }
 
 .details .price-title {
   display: flex;
   justify-content: space-between;
+}
+
+.details > p,
+.data-group {
+  margin-top: 5px;
 }
 
 /* .buttons > * {
