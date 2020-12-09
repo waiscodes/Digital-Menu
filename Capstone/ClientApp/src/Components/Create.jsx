@@ -93,6 +93,7 @@ const Create = (props) => {
     setLoading(true);
 
     // This captures image to pass it to through the axios.
+    // Citation: [1] Formdata
     const formData = new FormData();
     formData.append("file", img);
 
@@ -247,3 +248,7 @@ export default connect((state) => {
     activeUser: state,
   };
 })(Create);
+
+/* Citations
+ * 1- Form data: https://bezkoder.com/react-file-upload-axios/
+ */
