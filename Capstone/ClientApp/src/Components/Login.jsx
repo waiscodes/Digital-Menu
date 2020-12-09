@@ -65,6 +65,7 @@ const Login = (props) => {
                 name='email'
                 id='email'
                 placeholder='Email'
+                maxLength='64'
                 onChange={handleFieldChange}
               />
             </div>
@@ -77,6 +78,7 @@ const Login = (props) => {
                 name='password'
                 id='password'
                 placeholder='Password'
+                maxLength='50'
                 onChange={handleFieldChange}
               />
             </div>
