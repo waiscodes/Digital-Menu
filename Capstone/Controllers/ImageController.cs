@@ -14,6 +14,7 @@ namespace Capstone.Controllers
         /*
          Images controller with all the image methods. Just create and delete imagename is in the database and create/delete act as edit. 
          */
+        // Citation: [1] IWebHostEnvironment
         private readonly IWebHostEnvironment _webHostEnvironment;
 
         public ImageController(IWebHostEnvironment hostEnvironment)
@@ -28,6 +29,7 @@ namespace Capstone.Controllers
 
             name = name.Replace(" ", "-");
 
+            // Citation: [2] Image upload
             var fileExtension = Path.GetExtension(file.FileName);
             var newFileName = string.Concat(name, fileExtension);
 
@@ -50,5 +52,10 @@ namespace Capstone.Controllers
                 System.IO.File.Delete(path);
             }
         }
+
+        /* Citations
+         * 1 - IWebHost https://github.com/CodAffection/React-Asp.Net-Core-API---Image-Upload-Retrieve-Update-and-Delete-/blob/master/EmployeeRegisterAPI/EmployeeRegisterAPI/Controllers/EmployeeController.cs
+         * 2- Image Upload https://github.com/CodAffection/React-Asp.Net-Core-API---Image-Upload-Retrieve-Update-and-Delete-/blob/master/EmployeeRegisterAPI/EmployeeRegisterAPI/Controllers/EmployeeController.cs And lots of help from instructor Tammy V
+         */
     }
 }
