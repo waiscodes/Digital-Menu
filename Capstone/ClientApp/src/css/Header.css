@@ -41,5 +41,6 @@ nav ul li a {
   }
   nav {
     flex-grow: 1;
+    padding-top: 15px;
   }
 }
