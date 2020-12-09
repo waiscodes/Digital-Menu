@@ -42,3 +42,11 @@ A web app menu that includes pictures of menu items as well as details of the me
   - Ability to sort by rating
 - Scheduled specials from the restaurant depending on the day
 - Profile of the Restaurant
+
+## Citation Summary
+
+- Email Regex: https://emailregex.com/
+- Image Upload and Delete using Iwebhost file stream: https://github.com/CodAffection/React-Asp.Net-Core-API---Image-Upload-Retrieve-Update-and-Delete-/blob/master/EmployeeRegisterAPI/EmployeeRegisterAPI/Controllers/EmployeeController.cs
+- Escape: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.escape?view=net-5.0
+- FormData: https://bezkoder.com/react-file-upload-axios/
+- Useparams: https://reacttraining.com/blog/react-router-v5-1/
