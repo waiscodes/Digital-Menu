@@ -61,7 +61,7 @@ namespace Capstone.Models
                         ID = -1,
                         ResName = "Milliways",
                         ResUsername = "Milliways",
-                        Email = "MostlyHarmless@gmail.com",
+                        Email = "dontpanic@gmail.com",
                         Password = "TrilogyOf5",
                         ResLocation = "At the End of the Universe"
                     }
@@ -107,6 +107,15 @@ namespace Capstone.Models
                         ID = -3,
                         RestaurantID = -1,
                         Name = "Dessert"
+                    }
+                );
+
+                entity.HasData(
+                    new Category()
+                    {
+                        ID = -4,
+                        RestaurantID = -1,
+                        Name = "Drinks"
                     }
                 );
             });
@@ -242,6 +251,23 @@ namespace Capstone.Models
                         Price = 15.88,
                         WaitTimeMins = 10,
                         Ingredients = "Kingon Cherries",
+                        Calories = 1200,
+                        Halal = false,
+                        ImageName = "Klingon-Blood-Pies.png"
+                    }
+                );
+
+                entity.HasData(
+                    new MenuItem()
+                    {
+                        ID = -7,
+                        RestaurantID = -1,
+                        CategoryID = -4,
+                        Name = "Pan Galactic Gargle Blaster",
+                        Description = "It's like having your brains smashed out by a slice of lemon wrapped round a large gold brick",
+                        Price = 22.88,
+                        WaitTimeMins = 10,
+                        Ingredients = "Ol' Janx Spirit, Qualactin Hypermint extract, Zamphuor, Olive",
                         Calories = 1200,
                         Halal = false,
                         ImageName = "Klingon-Blood-Pies.png"
