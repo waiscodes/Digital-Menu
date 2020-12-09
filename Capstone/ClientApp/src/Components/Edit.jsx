@@ -163,6 +163,7 @@ const Edit = (props) => {
     setLoading(true);
 
     // This captures the image data before posting it to axios
+    // Citation: [1] Formdata
     const formData = new FormData();
     formData.append("file", img);
 
@@ -245,3 +246,7 @@ export default connect((state) => {
     activeUser: state,
   };
 })(Edit);
+
+/* Citations
+ * 1- Form data: https://bezkoder.com/react-file-upload-axios/
+ */
