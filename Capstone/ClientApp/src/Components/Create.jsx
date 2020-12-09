@@ -233,6 +233,7 @@ const Create = (props) => {
                 id='img'
                 name='img'
                 accept='image/*'
+                required
                 onChange={handleFieldChange}
               />
             </div>

@@ -85,6 +85,7 @@ const Register = (props) => {
                 name='resName'
                 id='resName'
                 maxLength='75'
+                required
                 onChange={handleFieldChange}
               />
             </div>
@@ -95,6 +96,7 @@ const Register = (props) => {
                 name='resUsername'
                 id='resUsername'
                 maxLength='30'
+                required
                 onChange={handleFieldChange}
               />
             </div>
@@ -105,6 +107,7 @@ const Register = (props) => {
                 name='resLocation'
                 id='resLocation'
                 maxLength='75'
+                required
                 onChange={handleFieldChange}
               />
             </div>
@@ -115,6 +118,7 @@ const Register = (props) => {
                 name='email'
                 id='email'
                 maxLength='64'
+                required
                 onChange={handleFieldChange}
               />
             </div>
@@ -125,6 +129,7 @@ const Register = (props) => {
                 name='password'
                 id='password'
                 maxLength='50'
+                required
                 onChange={handleFieldChange}
               />
             </div>
