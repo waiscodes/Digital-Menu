@@ -80,3 +80,14 @@ Edit
 Delete
 - Delete button deletes item if it exists
 - On postman, Menu Item doesn’t not exist
+
+## Instructions to Install
+
+1. Clone or Download the repository
+2. Restore the project and add files (.net and react). In the command line type
+    1. dotnet restore
+    2. npm i  
+3. Make sure to change the connection string before migrating. Change the RestaurantContext file inside the models folder to your own username, password, and root. (I am using a Mac with MAMP)
+4. Build project and run
+
+
