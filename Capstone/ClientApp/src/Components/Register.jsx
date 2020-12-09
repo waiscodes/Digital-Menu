@@ -123,7 +123,7 @@ const Register = (props) => {
               />
             </div>
             <div className='form-group'>
-              <label htmlFor='password'>password</label>
+              <label htmlFor='password'>Password</label>
               <input
                 type='password'
                 name='password'
@@ -135,10 +135,10 @@ const Register = (props) => {
             </div>
             <div>
               <input type='submit' value='Submit' />
-              <p>
-                Already have an account? <Link to='/'>Login</Link>
-              </p>
             </div>
+            <p>
+              Already have an account? <Link to='/'>Login</Link>
+            </p>
           </form>
         </section>
       </>
