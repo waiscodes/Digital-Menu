@@ -152,6 +152,7 @@ const Create = (props) => {
                 name='name'
                 id='name'
                 maxLength='100'
+                placeholder='Name'
                 onChange={handleFieldChange}
                 required
               />
@@ -163,6 +164,7 @@ const Create = (props) => {
                 name='price'
                 id='price'
                 maxLength='10'
+                placeholder='Price'
                 onChange={handleFieldChange}
                 required
               />
@@ -174,6 +176,7 @@ const Create = (props) => {
                 name='description'
                 id='description'
                 maxLength='1000'
+                placeholder='Description'
                 onChange={handleFieldChange}
                 required
               />
@@ -185,6 +188,7 @@ const Create = (props) => {
                 name='wait-time'
                 id='wait-time'
                 maxLength='10'
+                placeholder='Wait Time in Minutes'
                 onChange={handleFieldChange}
                 required
               />
@@ -196,6 +200,7 @@ const Create = (props) => {
                 name='ingredients'
                 id='ingredients'
                 maxLength='1000'
+                placeholder='Ingredients'
                 onChange={handleFieldChange}
                 required
               />
@@ -207,15 +212,17 @@ const Create = (props) => {
                 name='calories'
                 id='calories'
                 maxLength='10'
+                placeholder='Calories'
                 onChange={handleFieldChange}
                 required
               />
             </div>
             <div className='form-group'>
-              <label htmlFor='halal'>Halal</label>
+              <label htmlFor='halal'>Restrictions</label>
               <select
                 name='halal'
                 id='halal'
+                placeholder='Restrictions'
                 onChange={handleFieldChange}
                 required
               >

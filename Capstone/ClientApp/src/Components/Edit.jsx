@@ -141,7 +141,7 @@ const Edit = (props) => {
           />
         </div>
         <div className='form-group'>
-          <label htmlFor='halal'>Halal</label>
+          <label htmlFor='halal'>Restrictions</label>
           <select name='halal' id='halal' onChange={handleFieldChange}>
             <option value='none' selected disabled hidden>
               Select an Option
