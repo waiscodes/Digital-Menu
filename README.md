@@ -90,4 +90,26 @@ Delete
 3. Make sure to change the connection string before migrating. Change the RestaurantContext file inside the models folder to your own username, password, and root. (I am using a Mac with MAMP)
 4. Build project and run
 
+## Instructions to Use the Application 
+
+After Building and running the project, you’ll land on the Login in page. To use the app in admin view.. 
+1. To Log in with a pre-populated account type in
+    1. Username: Milliways
+    2. Password: TrilogyOf5
+2. If you want to create your own account,
+    1. Click register and fill in the information
+3. After registering/logging in, you’ll find yourself on the menu list page for admin view. Scroll
+4. Click on a menu item to see more details
+    1. If you’re in admin view, you’ll see buttons to delete or edit the menu item
+5. Edit Menu item takes you to a form with fields pre-populated with the current data
+    1. To update, pick a field and update it. Leave ones you don’t want to update empty
+6. At the top of the page you’ll see a navbar with create button
+    1. That takes you to a create menu item page
+    2. Fill in the fields to create a new menu item
+7. To log out, click the logout button on the nabber
+
+To use the app in customer (not logged in) view
+1. Type /m/{ username of the restaurant } eg. /m/Milliways 
+2. You’ll be taken to the menu page where you can scroll through
+3. You can click on the menu item to get more details (edit and delete button don’t show up)
 
