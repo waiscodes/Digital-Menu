@@ -168,7 +168,7 @@ namespace Capstone.Models
                         Ingredients = "Cheese from out of this world",
                         Calories = 450,
                         Halal = true,
-                        ImageName = "Moon-Cheese-Dip.png"
+                        ImageName = "Moon-Cheese-Dip.jpg"
                     }
                 );
 
@@ -185,7 +185,7 @@ namespace Capstone.Models
                         Ingredients = "Cajuan Popcorn Shrimp",
                         Calories = 600,
                         Halal = true,
-                        ImageName = "Popplers.png"
+                        ImageName = "Popplers.jpg"
                     }
                 );
 
@@ -202,7 +202,7 @@ namespace Capstone.Models
                         Ingredients = "Beef Sliders with Caramalized Onions",
                         Calories = 1200,
                         Halal = true,
-                        ImageName = "Bantha-Burgers.png"
+                        ImageName = "Bantha-Burgers.jpg"
                     }
                 );
 
@@ -219,7 +219,7 @@ namespace Capstone.Models
                         Ingredients = "Cheese Pizza",
                         Calories = 450,
                         Halal = true,
-                        ImageName = "Pizza-the-Hutt.png"
+                        ImageName = "Pizza-the-Hutt.jpg"
                     }
                 );
 
@@ -236,7 +236,7 @@ namespace Capstone.Models
                         Ingredients = "Ameglian Major Cow Shoulder",
                         Calories = 1200,
                         Halal = false,
-                        ImageName = "Ameglian-Steak.png"
+                        ImageName = "Ameglian-Steak.jpg"
                     }
                 );
 
@@ -253,7 +253,7 @@ namespace Capstone.Models
                         Ingredients = "Kingon Cherries",
                         Calories = 1200,
                         Halal = false,
-                        ImageName = "Klingon-Blood-Pies.png"
+                        ImageName = "Klingon-Blood-Pies.jpg"
                     }
                 );
 
@@ -270,7 +270,7 @@ namespace Capstone.Models
                         Ingredients = "Ol' Janx Spirit, Qualactin Hypermint extract, Zamphuor, Olive",
                         Calories = 1200,
                         Halal = false,
-                        ImageName = "Klingon-Blood-Pies.png"
+                        ImageName = "Pan-Galactic-Gargle-Blaster.jpg"
                     }
                 );
             });
