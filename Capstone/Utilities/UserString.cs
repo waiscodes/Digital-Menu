@@ -17,6 +17,7 @@ namespace Capstone.Utilities
 
         public static bool IsValidEmail(string email)
         {
+            // Citation: [1] Email Regex
             Regex regex = new Regex(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
             return regex.IsMatch(email);
         }
@@ -26,5 +27,9 @@ namespace Capstone.Utilities
             if (str.Contains("!") || str.Contains("@") || str.Contains("#") || str.Contains("$") || str.Contains("%") || str.Contains("^") || str.Contains("&") || str.Contains("*") || str.Contains("(") || str.Contains(")") || str.Contains(".") || str.Contains(",") || str.Contains(">") || str.Contains("<") || str.Contains("{") || str.Contains("}") || str.Contains("[") || str.Contains("]") || str.Contains("?") || str.Contains("~") || str.Contains("`") || str.Contains(";")) return true;
             else return false; 
         }
+
+        /* Citations
+         * 1 - Email Regex: https://emailregex.com/
+         */
     }
 }
