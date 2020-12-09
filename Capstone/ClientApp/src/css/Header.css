@@ -38,6 +38,8 @@ nav ul li a {
 
   header > h1 {
     width: 50%;
+    text-align: left;
+    padding-left: 5%;
   }
   nav {
     flex-grow: 1;
