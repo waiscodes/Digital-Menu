@@ -23,7 +23,7 @@ namespace Capstone.Models
                     "port=8889;" +
                     "user=root;" +
                     "password=root;" +
-                    "database=DigitalMenu;";
+                    "database=DontPanic;";
 
                 string version = "5.7.26";
 
