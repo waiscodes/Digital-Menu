@@ -43,7 +43,14 @@ main {
 }
 
 input {
-  padding: 2px;
+  padding: 3px;
+  border: solid 1px #343d46;
+  border-radius: 3px;
+}
+
+input[type="submit"] {
+  background-color: #0275d8;
+  color: #fff;
 }
 
 footer {
