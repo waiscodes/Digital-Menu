@@ -18,6 +18,7 @@ const Create = (props) => {
   const [img, setImg] = useState();
   const [loading, setLoading] = useState(true);
 
+  // This avoids errors from trying to check for username if the object doesn't even exist.
   const user = props.activeUser ? props.activeUser.username : undefined;
 
   const handleFieldChange = (e) => {
@@ -52,6 +53,7 @@ const Create = (props) => {
     }
   };
 
+  // the database was created with the future in mind where users will be able to add their own category. For now, it's just the main 4
   const renderDropdown = (catResponse) => {
     return (
       <>
@@ -83,12 +85,14 @@ const Create = (props) => {
     populateCatDropdown();
   }, [loading]);
 
+  // receives back from axios before rendering it to avoid null exceptions
   let content = loading ? "Loading..." : renderDropdown(catResponse);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
+    // This captures image to pass it to through the axios.
     const formData = new FormData();
     formData.append("file", img);
 
@@ -118,7 +122,7 @@ const Create = (props) => {
         setResponse(err.response.data);
       });
   };
-
+  /* Checks to make sure active user is set in the state before showing it. Else it redirects to login page */
   if (user !== undefined) {
     return (
       <>
@@ -233,6 +237,7 @@ const Create = (props) => {
       </>
     );
   } else {
+    // No one not logged in is allowed to see create. They get redirected back to home right away
     return <Redirect to='/' />;
   }
 };
