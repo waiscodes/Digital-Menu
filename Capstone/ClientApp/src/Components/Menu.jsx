@@ -24,24 +24,26 @@ const Menu = () => {
               <section className='category' key={cat.id}>
                 <h2>{cat.name}</h2>
                 <hr />
-                {menuItems.map((item) => {
-                  if (item.categoryID === cat.id) {
-                    return (
-                      <div key={item.id}>
-                        <Link to={"/Details/" + item.id}>
-                          <div className='menu-card' id={item.id}>
-                            <img src={path + item.imageName} />
-                            <div className='title-price'>
-                              <h3>{item.name.replace(/\\/g, "")}</h3>
-                              <h3>${item.price}</h3>
+                <div className='menu-cards'>
+                  {menuItems.map((item) => {
+                    if (item.categoryID === cat.id) {
+                      return (
+                        <div key={item.id}>
+                          <Link to={"/Details/" + item.id}>
+                            <div className='menu-card' id={item.id}>
+                              <img src={path + item.imageName} />
+                              <div className='title-price'>
+                                <h3>{item.name.replace(/\\/g, "")}</h3>
+                                <h3>${item.price}</h3>
+                              </div>
+                              <p>{item.ingredients.replace(/\\/g, "")}</p>
                             </div>
-                            <p>{item.ingredients.replace(/\\/g, "")}</p>
-                          </div>
-                        </Link>
-                      </div>
-                    );
-                  }
-                })}
+                          </Link>
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
               </section>
             </div>
           );
