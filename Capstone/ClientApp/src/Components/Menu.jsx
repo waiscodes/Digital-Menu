@@ -3,13 +3,18 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import "../css/Menu.css";
 
+// Renders all menu items categorized by into categories based on the useParams username
+
 const Menu = () => {
+  // Refer to index.js for description on useParams
   const { username } = useParams();
   const [menuItems, setMenuItems] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [path, setPath] = useState();
 
+  // replace method removes the escape characters added in the backend before it was transferred to the database.
+  // path + imageName add up to link the image in the projects folder
   const renderMenuItems = (path, categories, menuItems) => {
     return (
       <>
@@ -44,6 +49,7 @@ const Menu = () => {
     );
   };
 
+  // This gets the image path to add the image name onto (Reefer to ValuesController inside controllers folder)
   const populateMenuItems = async () => {
     await axios({
       method: "get",
