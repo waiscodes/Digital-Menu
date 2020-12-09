@@ -161,14 +161,14 @@ namespace Capstone.Models
                         ID = -1,
                         RestaurantID = -1,
                         CategoryID = -1,
-                        Name = "Moon Cheese Dip",
+                        Name = "Spring Rolls",
                         Description = "You don't have to go all the way to the moon for good cheese. Check out our out of this world dip.",
                         Price = 7.87,
                         WaitTimeMins = 4,
                         Ingredients = "Cheese from out of this world",
                         Calories = 450,
                         Halal = true,
-                        ImageName = "Moon-Cheese-Dip.jpg"
+                        ImageName = "Spring-Rolls.jpg"
                     }
                 );
 
@@ -178,14 +178,14 @@ namespace Capstone.Models
                         ID = -2,
                         RestaurantID = -1,
                         CategoryID = -1,
-                        Name = "Popplers",
+                        Name = "French Onion Soup",
                         Description = "Fresh from Fighy Joe's... Well, as fresh as Fishy Joe's gets. Cajuan Popcorn Shrimp",
                         Price = 10.99,
                         WaitTimeMins = 8,
                         Ingredients = "Cajuan Popcorn Shrimp",
                         Calories = 600,
                         Halal = true,
-                        ImageName = "Popplers.jpg"
+                        ImageName = "French-Onion-Soup.jpg"
                     }
                 );
 
@@ -195,14 +195,14 @@ namespace Capstone.Models
                         ID = -3,
                         RestaurantID = -1,
                         CategoryID = -2,
-                        Name = "Bantha Burgers",
-                        Description = "Favoured finger food of Tatooine. Beef Sliders with Caramalized Onions",
+                        Name = "Scrum Delicious Burgers",
+                        Description = "FBeef Sliders with Caramalized Onions",
                         Price = 13.85,
                         WaitTimeMins = 15,
                         Ingredients = "Beef Sliders with Caramalized Onions",
                         Calories = 1200,
                         Halal = true,
-                        ImageName = "Bantha-Burgers.jpg"
+                        ImageName = "Scrum-Delicious-Burgers.jpg"
                     }
                 );
 
@@ -212,14 +212,14 @@ namespace Capstone.Models
                         ID = -4,
                         RestaurantID = -1,
                         CategoryID = -2,
-                        Name = "Pizza the Hutt",
-                        Description = "Mini pizzas as cheese covered as its Spaceballs namesake",
+                        Name = "Pineapple Pizza",
+                        Description = "Pizza with pineapples because pineapples belong on a pizza",
                         Price = 9.85,
                         WaitTimeMins = 15,
-                        Ingredients = "Cheese Pizza",
+                        Ingredients = "Pizza with Pineapple",
                         Calories = 450,
                         Halal = true,
-                        ImageName = "Pizza-the-Hutt.jpg"
+                        ImageName = "Pineapple-Pizza.jpg"
                     }
                 );
 
