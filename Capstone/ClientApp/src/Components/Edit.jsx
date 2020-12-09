@@ -20,6 +20,7 @@ const Edit = (props) => {
   const [menuItem, setMenuItem] = useState();
   const [loading, setLoading] = useState(true);
 
+  // This avoids errors from trying to check for username if the object doesn't even exist.
   const user = props.activeUser ? props.activeUser.username : undefined;
 
   const handleFieldChange = (e) => {
@@ -53,7 +54,8 @@ const Edit = (props) => {
         break;
     }
   };
-
+  // replace method removes the escape characters added in the backend before it was transferred to the database.
+  // Placeholder text access as old values.
   const renderEdit = (catResponse, menuItem) => {
     return (
       <>
@@ -160,6 +162,7 @@ const Edit = (props) => {
     e.preventDefault();
     setLoading(true);
 
+    // This captures the image data before posting it to axios
     const formData = new FormData();
     formData.append("file", img);
 
