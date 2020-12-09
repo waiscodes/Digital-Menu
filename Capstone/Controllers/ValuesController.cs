@@ -26,6 +26,8 @@ namespace Capstone.Controllers
         /*
          IWebHostEnviroment gets the path from root to that current folder without having to hard code it in.
          */
+
+        // Citation: [1] IWebHostEnvironment
         private readonly IWebHostEnvironment _webHostEnvironment;
 
         public ValuesController(IWebHostEnvironment hostEnvironment)
@@ -157,5 +159,9 @@ namespace Capstone.Controllers
                 return NotFound(e.Message);
             }
         }
+
+        /* Citations
+         * 1 - IWebHost https://github.com/CodAffection/React-Asp.Net-Core-API---Image-Upload-Retrieve-Update-and-Delete-/blob/master/EmployeeRegisterAPI/EmployeeRegisterAPI/Controllers/EmployeeController.cs
+         */
     }
 }
