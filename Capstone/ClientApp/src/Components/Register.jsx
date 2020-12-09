@@ -5,6 +5,8 @@ import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import "../css/Register.css";
 
+// Once user info is captured, it is sent to axios and if if doesn't throw an exception, it returns a username which is set to the global state.
+
 const Register = (props) => {
   const [response, setResponse] = useState([]);
   const [resName, setResName] = useState();
@@ -12,8 +14,9 @@ const Register = (props) => {
   const [resLocation, setResLocation] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [waiting, setWaiting] = useState("");
+  const [waiting, setWaiting] = useState();
 
+  // if the global state username is not null, username is set to the user variable
   const user = props.activeUser
     ? props.activeUser.username
       ? props.activeUser.username
@@ -67,6 +70,7 @@ const Register = (props) => {
       });
   };
 
+  // if the user is set (refer to comments above) it redirects user to homepage
   if (user == undefined) {
     return (
       <>
