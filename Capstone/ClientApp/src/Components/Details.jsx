@@ -6,11 +6,13 @@ import axios from "axios";
 import "../css/Details.css";
 
 const Details = (props) => {
+  // Refer to Index about params.
   const { id } = useParams();
   const [menuItem, setMenuItem] = useState();
   const [path, setPath] = useState();
   const [loading, setLoading] = useState(true);
 
+  // replace method removes the escape characters added in the backend before it was transferred to the database.
   const renderDetails = (path, menuItem) => {
     return (
       <>
@@ -69,6 +71,8 @@ const Details = (props) => {
 
   let content = loading ? <p>Loading...</p> : renderDetails(path, menuItem);
   let buttons;
+
+  // If the user is logged in, the delete and edit buttons show up for them.
   if (props.activeUser !== undefined) {
     buttons = (
       <>
