@@ -43,6 +43,7 @@ namespace Capstone.Controllers
 
                 Restaurant newRestaurant = new Restaurant()
                 {
+                    // Citation: [1] Microsoft Docs for Regex escape
                     ResName = Regex.Escape(resName),
                     ResUsername = resUsername,
                     Email = email,
@@ -114,5 +115,9 @@ namespace Capstone.Controllers
             }
             return restaurant;
         }
+
+        /* Citations
+         * 1 - https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.escape?view=net-5.0
+         */
     }
 }
