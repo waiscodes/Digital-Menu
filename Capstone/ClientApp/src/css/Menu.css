@@ -2,6 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
+  max-width: 1250px;
+  margin: auto;
 }
 
 .category h2 {
