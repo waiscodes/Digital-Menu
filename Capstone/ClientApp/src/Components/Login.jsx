@@ -6,7 +6,7 @@ import { Redirect, Link } from "react-router-dom";
 import "../css/Login.css";
 
 // Email and password are captured sent to the backend, and if they are correct, username is sent back.
-// Username is set to dispatch to change the global state username to the username.
+// Username is set to dispatch to change the global state username to the username. NERD
 
 const Login = (props) => {
   const [response, setResponse] = useState([]);
